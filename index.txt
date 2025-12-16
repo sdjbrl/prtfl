@@ -1,0 +1,221 @@
+vCard - Personal Portfolio
+
+# sidebar
+
+alt = Richard hanrick
+Richard hanrick
+Web developer
+
+Show Contacts
+
+Email
+richard@example.com
+
+Phone
++1 (213) 352-2795
+
+Birthday
+June 23, 1982
+
+Location
+Sacramento, California, USA
+
+# navbar
+
+About
+Resume
+Portfolio
+Veille
+Contact
+
+# about
+
+About me
+
+I'm Creative Director and UI/UX Designer from Sydney, Australia, working in développement web and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.
+
+My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created projet personnel for many famous brand companies.
+
+
+## service
+
+What i'm doing
+
+alt = design icon
+Projet personnel
+The most modern and high-quality design made at a professional level.
+
+alt = Icône développement web
+développement web
+High-quality development of sites at the professional level.
+
+alt = mobile app icon
+Mobile apps
+Professional development of applications for iOS and Android.
+
+alt = camera icon
+Photography
+I make high-quality photos of any category at a professional level.
+
+
+## testimonials
+
+Testimonials
+
+alt = Daniel lewis
+Daniel lewis
+Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+
+alt = Jessica miller
+Jessica miller
+Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+
+alt = Emily evans
+Emily evans
+Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+
+alt = Henry william
+Henry william
+Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+
+
+## clients
+
+Clients
+
+alt = client logo
+
+
+
+# resume
+
+Resume
+
+Education
+
+University school of the arts
+2007 — 2008
+Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.
+
+New york academy of art
+2006 — 2007
+Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est omnis..
+
+High school of art and design
+2002 — 2004
+Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur magni dolores eos.
+
+Experience
+
+Creative director
+2015 — Present
+Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas molestias exceptur.
+
+Art director
+2013 — 2015
+Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.
+
+Web designer
+2010 — 2013
+Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.
+
+My skills
+
+Projet personnel
+80%
+Graphic design
+70%
+Branding
+90%
+WordPress
+50%
+
+
+
+# portfolio
+
+Portfolio
+
+tout
+Projet personnel
+Applications
+Développement web
+
+Select category
+tout
+Projet personnel
+Applications
+Développement web
+
+alt = finance
+Finance
+Développement web
+
+alt = orizon
+Orizon
+Développement web
+
+alt = fundo
+Fundo
+Projet personnel
+
+alt = brawlhalla
+Brawlhalla
+Applications
+
+alt = dsm.
+DSM.
+Projet personnel
+
+alt = metaspark
+MetaSpark
+Projet personnel
+
+alt = summary
+Summary
+Développement web
+
+alt = task manager
+Task Manager
+Applications
+
+alt = arrival
+Arrival
+Développement web
+
+
+
+# veille
+
+Docker — Conteneurisation & orchestration
+
+1) Origine et contexte : pourquoi Docker a “pris” — image immuable, partage via registries, workflow CI/CD simplifié.
+
+2) Frise chronologique (jalons) :
+  - 2013 — Naissance de Docker.
+  - 2014 — Docker Hub & images officielles.
+  - 2015 — Docker Compose (multi-conteneurs local).
+  - 2017 — Kubernetes s'impose pour l'orchestration.
+  - 2019 — Écosystème mature, focus sécurité.
+  - 2024 — Industrialisation, policies et supply chain.
+  - 2025 — Optimisation des runtimes et intégration CI/CD/observabilité.
+
+3) Docker aujourd'hui — points clés : Docker Engine, Images & Registries, containerd/OCI, Docker Desktop, aspects réseau/stockage/sécurité/orchestration.
+
+4) Liens & mots-clés pour la veille : Docker Docs, Kubernetes, Trivy. Mots-clés : Docker, containerization, OCI, Dockerfile, Compose, Kubernetes, images, registries, security scanning.
+
+5) Mini plan de TP : écrire Dockerfile, exécuter conteneur, docker-compose multi-services, scanner image, pousser vers registry et déployer sur cluster.
+
+
+
+# contact
+
+Contact
+
+Formulaire de contact
+
+Nom
+Email
+Votre message
+
+Envoyer
