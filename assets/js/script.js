@@ -263,3 +263,207 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+
+
+// ============================================================
+// PROJECT DETAIL PAGE
+// ============================================================
+
+function openProjectDetailPage(li) {
+  const img = li.querySelector('.project-img img');
+  const pdImg = document.querySelector('[data-pd-img]');
+  const pdLink = document.querySelector('[data-pd-link]');
+
+  pdImg.src = img ? img.src : '';
+  pdImg.alt = img ? img.alt : '';
+  document.querySelector('[data-pd-title]').textContent = li.querySelector('.project-title').textContent;
+  document.querySelector('[data-pd-category]').textContent = li.querySelector('.project-category').textContent;
+  document.querySelector('[data-pd-dates]').textContent = li.dataset.projectDates || '';
+  document.querySelector('[data-pd-context]').textContent = li.dataset.projectContext || '';
+  document.querySelector('[data-pd-methods]').textContent = li.dataset.projectMethods || '';
+
+  const link = li.dataset.projectLink;
+  if (link) {
+    pdLink.href = link;
+    pdLink.querySelector('span').textContent = li.dataset.projectLinkLabel || 'Voir le projet';
+    pdLink.classList.remove('hidden');
+  } else {
+    pdLink.classList.add('hidden');
+  }
+
+  for (let i = 0; i < pages.length; i++) {
+    pages[i].classList.toggle('active', pages[i].dataset.page === 'project-detail');
+  }
+  for (let i = 0; i < navigationLinks.length; i++) {
+    navigationLinks[i].classList.toggle('active', normalizeText(navigationLinks[i].innerText) === 'portfolio');
+  }
+  window.scrollTo(0, 0);
+}
+
+// Attach click to static project items
+document.querySelectorAll('[data-project-item]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    openProjectDetailPage(a.closest('[data-filter-item]'));
+  });
+});
+
+// Back to portfolio button
+const backPortfolioBtn = document.querySelector('[data-back-portfolio]');
+if (backPortfolioBtn) {
+  backPortfolioBtn.addEventListener('click', function() {
+    for (let i = 0; i < pages.length; i++) {
+      pages[i].classList.toggle('active', pages[i].dataset.page === 'portfolio');
+    }
+    window.scrollTo(0, 0);
+  });
+}
+
+
+
+// ============================================================
+// ADD / DELETE PROJECT (localStorage)
+// ============================================================
+
+const PROJECTS_KEY = 'portfolio_projects_v1';
+
+function getStoredProjects() {
+  try { return JSON.parse(localStorage.getItem(PROJECTS_KEY)) || []; }
+  catch (e) { return []; }
+}
+
+function saveStoredProjects(list) {
+  localStorage.setItem(PROJECTS_KEY, JSON.stringify(list));
+}
+
+function createProjectCard(p) {
+  const li = document.createElement('li');
+  li.className = 'project-item active';
+  li.setAttribute('data-filter-item', '');
+  li.dataset.category = p.category.toLowerCase();
+  li.dataset.projectDates = p.dates;
+  li.dataset.projectContext = p.context;
+  li.dataset.projectLink = p.link || '';
+  li.dataset.projectLinkLabel = p.linkLabel || '';
+  li.dataset.projectMethods = p.methods;
+  li.dataset.projectStoredId = p.id;
+
+  const imgSrc = p.image || './assets/images/project-1.jpg';
+  li.innerHTML =
+    '<a href="#" data-project-item>' +
+      '<figure class="project-img">' +
+        '<div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>' +
+        '<img src="' + imgSrc + '" alt="' + p.title + '" loading="lazy">' +
+      '</figure>' +
+      '<h3 class="project-title">' + p.title + '</h3>' +
+      '<p class="project-category">' + p.category + '</p>' +
+    '</a>' +
+    '<button class="project-delete-btn" title="Supprimer ce projet">' +
+      '<ion-icon name="trash-outline"></ion-icon>' +
+    '</button>';
+
+  li.querySelector('[data-project-item]').addEventListener('click', function(e) {
+    e.preventDefault();
+    openProjectDetailPage(li);
+  });
+
+  li.querySelector('.project-delete-btn').addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (!confirm('Supprimer ce projet ?')) return;
+    const list = getStoredProjects().filter(function(x) { return x.id !== p.id; });
+    saveStoredProjects(list);
+    li.remove();
+  });
+
+  return li;
+}
+
+function renderStoredProjects() {
+  const projectList = document.getElementById('project-list');
+  if (!projectList) return;
+  getStoredProjects().forEach(function(p) {
+    projectList.appendChild(createProjectCard(p));
+  });
+}
+
+renderStoredProjects();
+
+// Add project form
+const addProjectOverlay = document.querySelector('[data-add-project-overlay]');
+const addProjectForm = document.getElementById('add-project-form');
+const addProjectBtn = document.querySelector('[data-add-project-btn]');
+const addProjectCloseBtn = document.querySelector('[data-add-project-close]');
+const addProjectCancelBtn = document.querySelector('[data-add-project-cancel]');
+const imageInput = document.getElementById('project-image-input');
+const imgPreview = document.getElementById('img-preview');
+
+function openAddForm() {
+  addProjectOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAddForm() {
+  addProjectOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+  addProjectForm.reset();
+  if (imgPreview) { imgPreview.src = ''; imgPreview.style.display = 'none'; }
+}
+
+if (addProjectBtn) addProjectBtn.addEventListener('click', openAddForm);
+if (addProjectCloseBtn) addProjectCloseBtn.addEventListener('click', closeAddForm);
+if (addProjectCancelBtn) addProjectCancelBtn.addEventListener('click', closeAddForm);
+if (addProjectOverlay) {
+  addProjectOverlay.addEventListener('click', function(e) {
+    if (e.target === addProjectOverlay) closeAddForm();
+  });
+}
+
+if (imageInput && imgPreview) {
+  imageInput.addEventListener('change', function() {
+    const file = this.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      imgPreview.src = e.target.result;
+      imgPreview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+if (addProjectForm) {
+  addProjectForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(addProjectForm);
+    const file = imageInput && imageInput.files[0];
+
+    function finalize(imageSrc) {
+      const project = {
+        id: Date.now().toString(),
+        title: data.get('title').trim(),
+        category: data.get('category'),
+        image: imageSrc,
+        dates: data.get('dates').trim(),
+        context: data.get('context').trim(),
+        link: (data.get('link') || '').trim(),
+        linkLabel: (data.get('linkLabel') || '').trim(),
+        methods: data.get('methods').trim()
+      };
+      const list = getStoredProjects();
+      list.push(project);
+      saveStoredProjects(list);
+      const projectList = document.getElementById('project-list');
+      if (projectList) projectList.appendChild(createProjectCard(project));
+      closeAddForm();
+    }
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(ev) { finalize(ev.target.result); };
+      reader.readAsDataURL(file);
+    } else {
+      finalize('');
+    }
+  });
+}
