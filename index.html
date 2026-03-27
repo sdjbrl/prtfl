@@ -599,10 +599,15 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
 
           </div>
 
-          <ul class="project-list">
+          <ul class="project-list" id="project-list">
 
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="https://github.com/sdjbrl/classcord_djibril">
+            <li class="project-item  active" data-filter-item data-category="applications"
+                data-project-dates="2024 — 2025"
+                data-project-context="[Contexte professionnel à remplir]"
+                data-project-link="https://github.com/sdjbrl/classcord_djibril"
+                data-project-link-label="Voir sur GitHub"
+                data-project-methods="Agile">
+              <a href="#" data-project-item>
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
@@ -619,8 +624,13 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="Développement web">
-              <a href="https://pro.kineadom.fr/">
+            <li class="project-item  active" data-filter-item data-category="Développement web"
+                data-project-dates="Oct 2024 — Juil 2025"
+                data-project-context="[Contexte professionnel à remplir]"
+                data-project-link="https://pro.kineadom.fr/"
+                data-project-link-label="Voir le site"
+                data-project-methods="Agile">
+              <a href="#" data-project-item>
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
@@ -637,8 +647,13 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="Développement web">
-              <a href="https://kineadom.fr/">
+            <li class="project-item  active" data-filter-item data-category="Développement web"
+                data-project-dates="Oct 2024 — Juil 2025"
+                data-project-context="[Contexte professionnel à remplir]"
+                data-project-link="https://kineadom.fr/"
+                data-project-link-label="Voir le site"
+                data-project-methods="Agile">
+              <a href="#" data-project-item>
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
@@ -655,8 +670,13 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="http://wiki.iris.a3n.fr:8080/">
+            <li class="project-item  active" data-filter-item data-category="applications"
+                data-project-dates="2024 — 2025"
+                data-project-context="[Contexte professionnel à remplir]"
+                data-project-link="http://wiki.iris.a3n.fr:8080/"
+                data-project-link-label="Accéder au wiki"
+                data-project-methods="Agile">
+              <a href="#" data-project-item>
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
@@ -673,8 +693,13 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="projet personnel">
-              <a href="#">
+            <li class="project-item  active" data-filter-item data-category="projet personnel"
+                data-project-dates="Avr 2025 — En cours"
+                data-project-context="[Contexte professionnel à remplir]"
+                data-project-link=""
+                data-project-link-label=""
+                data-project-methods="Projet personnel">
+              <a href="#" data-project-item>
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
@@ -692,8 +717,13 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
             </li>
 
 
-            <li class="project-item  active" data-filter-item data-category="projet personnel">
-              <a href="#">
+            <li class="project-item  active" data-filter-item data-category="projet personnel"
+                data-project-dates="[Dates à définir]"
+                data-project-context="[Contexte professionnel à remplir]"
+                data-project-link=""
+                data-project-link-label=""
+                data-project-methods="Projet personnel">
+              <a href="#" data-project-item>
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
@@ -714,6 +744,11 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
           </ul>
 
         </section>
+
+      <button class="add-project-btn" data-add-project-btn>
+        <ion-icon name="add-circle-outline"></ion-icon>
+        <span>Ajouter un projet</span>
+      </button>
 
       <div class="pdf-drawer" data-pdf-drawer>
 
@@ -741,6 +776,67 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
 
 
 
+
+
+      <!--
+        - #PROJECT DETAIL
+      -->
+
+      <article class="project-detail-page" data-page="project-detail">
+
+        <header>
+          <button class="pd-back-btn" data-back-portfolio>
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span>Retour au portfolio</span>
+          </button>
+          <h2 class="h2 article-title pd-title" data-pd-title></h2>
+          <span class="pd-category-badge" data-pd-category></span>
+        </header>
+
+        <figure class="pd-banner">
+          <img src="" alt="" data-pd-img>
+        </figure>
+
+        <section class="pd-meta-section">
+
+          <div class="pd-meta-item">
+            <div class="pd-meta-icon">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="pd-meta-body">
+              <p class="pd-meta-label">Dates de production</p>
+              <span class="pd-meta-value" data-pd-dates></span>
+            </div>
+          </div>
+
+          <div class="pd-meta-item">
+            <div class="pd-meta-icon">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+            <div class="pd-meta-body">
+              <p class="pd-meta-label">Contexte professionnel</p>
+              <p class="pd-meta-value" data-pd-context></p>
+            </div>
+          </div>
+
+          <div class="pd-meta-item">
+            <div class="pd-meta-icon">
+              <ion-icon name="git-branch-outline"></ion-icon>
+            </div>
+            <div class="pd-meta-body">
+              <p class="pd-meta-label">Méthodes utilisées</p>
+              <span class="pd-meta-value" data-pd-methods></span>
+            </div>
+          </div>
+
+        </section>
+
+        <a href="#" target="_blank" rel="noopener" class="pd-link hidden" data-pd-link>
+          <ion-icon name="open-outline"></ion-icon>
+          <span>Voir le projet</span>
+        </a>
+
+      </article>
 
 
       <!--
@@ -965,6 +1061,75 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
 
       </article>
 
+    </div>
+
+    <!-- ADD PROJECT FORM -->
+    <div class="add-project-overlay" data-add-project-overlay>
+      <div class="add-project-modal">
+
+        <div class="add-project-modal-header">
+          <h3 class="h3">Ajouter un projet</h3>
+          <button class="add-project-close-btn" data-add-project-close>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+
+        <form id="add-project-form" novalidate>
+
+          <div class="ap-form-row">
+            <label class="ap-label">Nom du projet <span class="ap-required">*</span></label>
+            <input class="ap-input" type="text" name="title" placeholder="ex: Mon Projet" required>
+          </div>
+
+          <div class="ap-form-row">
+            <label class="ap-label">Catégorie <span class="ap-required">*</span></label>
+            <select class="ap-input" name="category" required>
+              <option value="">Choisir...</option>
+              <option value="Projet personnel">Projet personnel</option>
+              <option value="Applications">Applications</option>
+              <option value="Développement web">Développement web</option>
+            </select>
+          </div>
+
+          <div class="ap-form-row">
+            <label class="ap-label">Image du projet</label>
+            <input class="ap-input ap-file-input" type="file" id="project-image-input" name="image" accept="image/*">
+            <img id="img-preview" src="" alt="Aperçu" style="display:none; width:100%; border-radius:8px; margin-top:8px; object-fit:cover; max-height:160px;">
+          </div>
+
+          <div class="ap-form-row">
+            <label class="ap-label">Dates de production <span class="ap-required">*</span></label>
+            <input class="ap-input" type="text" name="dates" placeholder="ex: Jan 2025 — Mars 2025" required>
+          </div>
+
+          <div class="ap-form-row">
+            <label class="ap-label">Contexte professionnel <span class="ap-required">*</span></label>
+            <textarea class="ap-input ap-textarea" name="context" rows="3" placeholder="Décris le contexte du projet..." required></textarea>
+          </div>
+
+          <div class="ap-form-row">
+            <label class="ap-label">Lien (GitHub ou site)</label>
+            <input class="ap-input" type="url" name="link" placeholder="https://...">
+          </div>
+
+          <div class="ap-form-row">
+            <label class="ap-label">Label du lien</label>
+            <input class="ap-input" type="text" name="linkLabel" placeholder="ex: Voir sur GitHub">
+          </div>
+
+          <div class="ap-form-row">
+            <label class="ap-label">Méthodes utilisées <span class="ap-required">*</span></label>
+            <input class="ap-input" type="text" name="methods" placeholder="ex: Agile, Scrum" required>
+          </div>
+
+          <div class="ap-form-actions">
+            <button type="button" class="ap-btn-cancel" data-add-project-cancel>Annuler</button>
+            <button type="submit" class="ap-btn-submit">Ajouter le projet</button>
+          </div>
+
+        </form>
+
+      </div>
     </div>
 
   </main>
