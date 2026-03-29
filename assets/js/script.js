@@ -247,6 +247,24 @@ function openProjectDetailPage(li) {
   document.querySelector('[data-pd-context]').textContent = li.dataset.projectContext || '';
   document.querySelector('[data-pd-methods]').textContent = li.dataset.projectMethods || '';
 
+  const skillsContainer = document.querySelector('[data-pd-skills]');
+  const skillsItem = document.querySelector('[data-pd-skills-item]');
+  if (skillsContainer) {
+    skillsContainer.innerHTML = '';
+    const skills = li.dataset.projectSkills || '';
+    if (skills) {
+      skills.split(',').forEach(function(s) {
+        const tag = document.createElement('span');
+        tag.className = 'skill-tag';
+        tag.textContent = s.trim();
+        skillsContainer.appendChild(tag);
+      });
+      if (skillsItem) skillsItem.style.display = '';
+    } else {
+      if (skillsItem) skillsItem.style.display = 'none';
+    }
+  }
+
   const link = li.dataset.projectLink;
   if (link) {
     pdLink.href = link;

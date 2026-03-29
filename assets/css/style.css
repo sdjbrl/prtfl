@@ -2278,8 +2278,58 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 /*-----------------------------------*\
-  #ADD PROJECT BUTTON
+  #SKILL TAGS (project detail)
 \*-----------------------------------*/
+
+.pd-skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: hsla(45, 100%, 72%, 0.08);
+  border: 1px solid hsla(45, 100%, 72%, 0.3);
+  border-radius: 6px;
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-8);
+  font-family: var(--ff-poppins);
+}
+
+
+
+/*-----------------------------------*\
+  #REF SKILLS LIST (CV section)
+\*-----------------------------------*/
+
+.ref-skills-list { display: flex; flex-direction: column; gap: 16px; }
+
+.ref-skill-item { padding: 14px 16px; }
+
+.ref-skill-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.ref-skill-icon {
+  font-size: 18px;
+  color: var(--orange-yellow-crayola);
+  flex-shrink: 0;
+}
+
+.ref-skill-item .h5 { color: var(--white-2); font-size: var(--fs-6); }
+
+.ref-skill-desc {
+  font-size: var(--fs-7);
+  color: var(--light-gray-70);
+  line-height: 1.6;
+  padding-left: 28px;
+}
 
 
 .ap-btn-cancel:hover,
