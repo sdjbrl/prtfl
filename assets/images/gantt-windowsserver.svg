@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 430" width="780" height="430" font-family="Poppins, Arial, sans-serif">
+
+  <rect width="780" height="430" fill="#1d1d2e" rx="14"/>
+
+  <text x="390" y="28" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="600">Windows Server — Diagramme de Gantt</text>
+  <text x="390" y="46" text-anchor="middle" fill="#888899" font-size="11">Automatisation Vagrant · 23 – 27 mars 2026</text>
+
+  <line x1="240" y1="58" x2="240" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="348" y1="58" x2="348" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="456" y1="58" x2="456" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="564" y1="58" x2="564" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="672" y1="58" x2="672" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="780" y1="58" x2="780" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+
+  <rect x="240" y="58" width="108" height="22" fill="#26263a"/>
+  <text x="294" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Lun 23/03</text>
+  <rect x="348" y="58" width="108" height="22" fill="#26263a"/>
+  <text x="402" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Mar 24/03</text>
+  <rect x="456" y="58" width="108" height="22" fill="#26263a"/>
+  <text x="510" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Mer 25/03</text>
+  <rect x="564" y="58" width="108" height="22" fill="#26263a"/>
+  <text x="618" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Jeu 26/03</text>
+  <rect x="672" y="58" width="108" height="22" fill="#26263a"/>
+  <text x="726" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Ven 27/03</text>
+
+  <rect x="0" y="80"  width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="114" width="780" height="34" fill="#1d1d2e"/>
+  <rect x="0" y="148" width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="182" width="780" height="34" fill="#1d1d2e"/>
+  <rect x="0" y="216" width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="250" width="780" height="34" fill="#1d1d2e"/>
+  <rect x="0" y="284" width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="318" width="780" height="34" fill="#1d1d2e"/>
+  <rect x="0" y="352" width="780" height="34" fill="#22223a"/>
+
+  <text x="234" y="102" text-anchor="end" fill="#d4d4d8" font-size="11">Analyse &amp; audit infra manuelle</text>
+  <text x="234" y="136" text-anchor="end" fill="#d4d4d8" font-size="11">Config environnement Vagrant &amp; boxes</text>
+  <text x="234" y="170" text-anchor="end" fill="#d4d4d8" font-size="11">Scripts SRV-DC1 (AD DS, DNS, DHCP, GPO)</text>
+  <text x="234" y="204" text-anchor="end" fill="#d4d4d8" font-size="11">Scripts SRV-FS1 (FSRM, WSUS, WDS)</text>
+  <text x="234" y="238" text-anchor="end" fill="#d4d4d8" font-size="11">Script CLIENT-WIN11 &amp; jonction domaine</text>
+  <text x="234" y="272" text-anchor="end" fill="#d4d4d8" font-size="11">Tests &amp; débogage (WinRM, SCSI, reboot)</text>
+  <text x="234" y="306" text-anchor="end" fill="#d4d4d8" font-size="11">Optimisations &amp; corrections scripts</text>
+  <text x="234" y="340" text-anchor="end" fill="#d4d4d8" font-size="11">Documentation (README, checklist)</text>
+  <text x="234" y="374" text-anchor="end" fill="#d4d4d8" font-size="11">Livraison finale</text>
+
+  <!-- Row 0: Analyse J1 morning -->
+  <rect x="242" y="86"  width="52"  height="22" fill="#f3a94a" rx="5"/>
+  <!-- Row 1: Config Vagrant J1 afternoon -->
+  <rect x="294" y="120" width="52"  height="22" fill="#f3a94a" rx="5"/>
+  <!-- Row 2: SRV-DC1 scripts J2 full -->
+  <rect x="350" y="154" width="104" height="22" fill="#f3a94a" rx="5"/>
+  <!-- Row 3: SRV-FS1 scripts J3 morning -->
+  <rect x="458" y="188" width="52"  height="22" fill="#f3a94a" rx="5"/>
+  <!-- Row 4: CLIENT-WIN11 J3 afternoon -->
+  <rect x="510" y="222" width="52"  height="22" fill="#f3a94a" rx="5"/>
+  <!-- Row 5: Tests & debug J4 full -->
+  <rect x="566" y="256" width="104" height="22" fill="#e05c5c" rx="5"/>
+  <!-- Row 6: Optimisations J4 pm + J5 am -->
+  <rect x="618" y="290" width="106" height="22" fill="#e05c5c" rx="5"/>
+  <!-- Row 7: Documentation J3→J5 -->
+  <rect x="458" y="324" width="316" height="22" fill="#3a3a5a" rx="5"/>
+  <text x="616" y="339" text-anchor="middle" fill="#888899" font-size="9">en continu</text>
+  <!-- Row 8: Livraison J5 afternoon -->
+  <rect x="726" y="358" width="52"  height="22" fill="#7c5cde" rx="5"/>
+
+  <rect x="240" y="412" width="11" height="11" fill="#f3a94a" rx="3"/>
+  <text x="255" y="422" fill="#888899" font-size="10">Infrastructure / Scripting</text>
+  <rect x="420" y="412" width="11" height="11" fill="#e05c5c" rx="3"/>
+  <text x="435" y="422" fill="#888899" font-size="10">Tests &amp; correctifs</text>
+  <rect x="540" y="412" width="11" height="11" fill="#3a3a5a" rx="3"/>
+  <rect x="540" y="412" width="11" height="11" fill="#3a3a5a" rx="3" stroke="#555566" stroke-width="1"/>
+  <text x="555" y="422" fill="#888899" font-size="10">Documentation</text>
+  <rect x="660" y="412" width="11" height="11" fill="#7c5cde" rx="3"/>
+  <text x="675" y="422" fill="#888899" font-size="10">Livraison</text>
+
+</svg>
