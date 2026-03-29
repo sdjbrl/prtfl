@@ -2334,3 +2334,42 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .ap-btn-cancel:hover,
 .ap-btn-submit:hover { opacity: 0.85; }
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Project card hover lift */
+.project-item > a {
+  display: block;
+  border-radius: 16px;
+  transition: transform var(--transition-1), box-shadow var(--transition-1);
+}
+.project-item > a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px hsla(0, 0%, 0%, 0.45);
+}
+
+/* Skill tag hover */
+.skill-tag {
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.skill-tag:hover {
+  background: hsla(45, 100%, 72%, 0.18);
+  border-color: hsla(45, 100%, 72%, 0.6);
+}
