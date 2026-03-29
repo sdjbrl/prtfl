@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 430" width="780" height="430" font-family="Poppins, Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="780" height="430" fill="#1d1d2e" rx="14"/>
+
+  <!-- Title -->
+  <text x="390" y="28" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="600">ClassCord Server — Diagramme de Gantt</text>
+  <text x="390" y="46" text-anchor="middle" fill="#888899" font-size="11">Semaine intensive SISR · 23 – 27 juin 2025</text>
+
+  <!-- Vertical grid -->
+  <line x1="240" y1="58" x2="240" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="348" y1="58" x2="348" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="456" y1="58" x2="456" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="564" y1="58" x2="564" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="672" y1="58" x2="672" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="780" y1="58" x2="780" y2="402" stroke="#2a2a3e" stroke-width="1"/>
+
+  <!-- Day headers -->
+  <rect x="240" y="58" width="108" height="22" fill="#26263a" rx="0"/>
+  <text x="294" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Lun 23/06</text>
+  <rect x="348" y="58" width="108" height="22" fill="#26263a" rx="0"/>
+  <text x="402" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Mar 24/06</text>
+  <rect x="456" y="58" width="108" height="22" fill="#26263a" rx="0"/>
+  <text x="510" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Mer 25/06</text>
+  <rect x="564" y="58" width="108" height="22" fill="#26263a" rx="0"/>
+  <text x="618" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Jeu 26/06</text>
+  <rect x="672" y="58" width="108" height="22" fill="#26263a" rx="0"/>
+  <text x="726" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Ven 27/06</text>
+
+  <!-- Alternating row backgrounds -->
+  <rect x="0" y="80"  width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="114" width="780" height="34" fill="#1d1d2e"/>
+  <rect x="0" y="148" width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="182" width="780" height="34" fill="#1d1d2e"/>
+  <rect x="0" y="216" width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="250" width="780" height="34" fill="#1d1d2e"/>
+  <rect x="0" y="284" width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="318" width="780" height="34" fill="#1d1d2e"/>
+  <rect x="0" y="352" width="780" height="34" fill="#22223a"/>
+
+  <!-- Task labels -->
+  <text x="234" y="102" text-anchor="end" fill="#d4d4d8" font-size="11">Prise en main &amp; environnement</text>
+  <text x="234" y="136" text-anchor="end" fill="#d4d4d8" font-size="11">Déploiement réseau (NAT)</text>
+  <text x="234" y="170" text-anchor="end" fill="#d4d4d8" font-size="11">Service systemd</text>
+  <text x="234" y="204" text-anchor="end" fill="#d4d4d8" font-size="11">Containerisation Docker</text>
+  <text x="234" y="238" text-anchor="end" fill="#d4d4d8" font-size="11">Journalisation &amp; logging</text>
+  <text x="234" y="272" text-anchor="end" fill="#d4d4d8" font-size="11">Sécurisation (fail2ban, UFW)</text>
+  <text x="234" y="306" text-anchor="end" fill="#d4d4d8" font-size="11">Sauvegardes (cron)</text>
+  <text x="234" y="340" text-anchor="end" fill="#d4d4d8" font-size="11">Améliorations fonctionnelles</text>
+  <text x="234" y="374" text-anchor="end" fill="#d4d4d8" font-size="11">Tests &amp; démonstration</text>
+
+  <!-- GANTT BARS -->
+  <!-- Row 0: Prise en main J1 full -->
+  <rect x="242" y="86" width="104" height="22" fill="#f3a94a" rx="5"/>
+  <!-- Row 1: Déploiement réseau J2 morning -->
+  <rect x="350" y="120" width="52"  height="22" fill="#f3a94a" rx="5"/>
+  <!-- Row 2: Service systemd J2 full -->
+  <rect x="350" y="154" width="104" height="22" fill="#f3a94a" rx="5"/>
+  <!-- Row 3: Docker J2pm + J3am -->
+  <rect x="402" y="188" width="106" height="22" fill="#f3a94a" rx="5"/>
+  <!-- Row 4: Journalisation J3 morning -->
+  <rect x="458" y="222" width="52"  height="22" fill="#f3a94a" rx="5"/>
+  <!-- Row 5: Sécurisation J3 full -->
+  <rect x="458" y="256" width="104" height="22" fill="#e05c5c" rx="5"/>
+  <!-- Row 6: Sauvegardes J3 pm -->
+  <rect x="510" y="290" width="52"  height="22" fill="#e05c5c" rx="5"/>
+  <!-- Row 7: Améliorations J4 full -->
+  <rect x="566" y="324" width="104" height="22" fill="#5c9ade" rx="5"/>
+  <!-- Row 8: Tests & démo J5 full -->
+  <rect x="674" y="358" width="104" height="22" fill="#7c5cde" rx="5"/>
+
+  <!-- Legend -->
+  <rect x="240" y="412" width="11" height="11" fill="#f3a94a" rx="3"/>
+  <text x="255" y="422" fill="#888899" font-size="10">Infrastructure / Déploiement</text>
+  <rect x="420" y="412" width="11" height="11" fill="#e05c5c" rx="3"/>
+  <text x="435" y="422" fill="#888899" font-size="10">Sécurité</text>
+  <rect x="510" y="412" width="11" height="11" fill="#5c9ade" rx="3"/>
+  <text x="525" y="422" fill="#888899" font-size="10">Fonctionnel</text>
+  <rect x="610" y="412" width="11" height="11" fill="#7c5cde" rx="3"/>
+  <text x="625" y="422" fill="#888899" font-size="10">Tests &amp; démo</text>
+
+</svg>
