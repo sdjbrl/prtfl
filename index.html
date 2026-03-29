@@ -535,7 +535,7 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
                 data-project-context="Projet scolaire réalisé à IRIS Mediaschool Nice en réponse à une demande client : déploiement d'un serveur de chat local permettant à des clients de se connecter, converser et échanger des fichiers en réseau interne. Les étudiants SISR ont pris en charge la configuration et l'administration des machines serveurs, les étudiants SLAM ont développé les machines clientes. Travail en mode projet inter-filière."
                 data-project-link="https://github.com/sdjbrl/classcord_djibril"
                 data-project-link-label="Voir sur GitHub"
-                data-project-methods="Agile"
+                data-project-methods="Approche incrémentale sur 5 jours avec livraison quotidienne : J1 déploiement local (Python, systemd), J2 mise en réseau (NAT, Docker), J3 sécurisation (ufw, fail2ban, logging, cron), J4 enrichissement fonctionnel (canaux, SQLite), J5 tests inter-filières et documentation finale. Versionnement Git obligatoire avec journal de bord technique (README, SECURITE.md, DOC_CONNEXION.md)."
                 data-project-skills="Gérer le patrimoine informatique,Travailler en mode projet,Mettre à disposition des utilisateurs un service informatique"
                 data-project-gantt="./assets/images/gantt-classcord.svg">
               <a href="#" data-project-item>
@@ -606,11 +606,11 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
             </li>
 
             <li class="project-item  active" data-filter-item data-category="applications"
-                data-project-dates="2024 — 2025"
-                data-project-context="Déploiement et administration d'une instance Outline (wiki collaboratif) en environnement scolaire à IRIS Mediaschool Nice. Gestion des utilisateurs, des espaces et des droits d'accès."
+                data-project-dates="Fév 2026"
+                data-project-context="Semaine intensive SISR en binôme : déploiement d'Outline (wiki collaboratif) pour centraliser la documentation technique et pédagogique d'IRIS Nice. Stack Docker Compose complète (Outline + PostgreSQL + Redis + MinIO) derrière un reverse proxy Traefik avec TLS. Authentification SSO/OIDC via Keycloak, permissions granulaires par collections et groupes (promotions, formateurs)."
                 data-project-link="https://wiki.iris.a3n.fr:4433"
                 data-project-link-label="Accéder au wiki"
-                data-project-methods="Agile"
+                data-project-methods="Démarche en 3 phases : benchmark de 4 solutions (Outline, BookStack, Wiki.js, Confluence) avec grille de critères → déploiement Docker Compose (Outline + PostgreSQL + Redis + MinIO) → intégration à l'infrastructure IRIS (reverse proxy Traefik HTTPS, SSO OIDC Keycloak). Travail en binôme sur 1 semaine intensive. Livrables : stack fonctionnelle, authentification SSO, collections et droits par groupes, documentation technique complète."
                 data-project-skills="Gérer le patrimoine informatique,Mettre à disposition des utilisateurs un service informatique,Répondre aux incidents et aux demandes d'assistance et d'évolution"
                 data-project-gantt="./assets/images/gantt-wikioutline.svg">
               <a href="#" data-project-item>
@@ -657,10 +657,10 @@ sauvegardes, Support technique et maintenance de parc (15 postes)
 
             <li class="project-item  active" data-filter-item data-category="projet personnel"
                 data-project-dates="Déc 2025"
-                data-project-context="Configuration et administration d'un environnement Windows Server en virtualisation : déploiement des rôles AD DS, DNS et DHCP, gestion des stratégies de groupe (GPO)."
-                data-project-link=""
-                data-project-link-label=""
-                data-project-methods="Projet personnel"
+                data-project-context="Réponse à un appel d'offre scolaire : automatisation complète d'une infrastructure Windows Server pour établissement scolaire via Vagrant. Déploiement de 3 VMs (SRV-DC1, SRV-FS1, CLIENT-WIN11) sur un réseau privé 192.168.100.0/24. Rôles déployés : AD DS (domaine mediaschool.local, 8 OU, 3 groupes), DNS, DHCP, GPO, FSRM (quotas par profil), WSUS, WDS. Infrastructure déployable en ~45 min via une seule commande Vagrant."
+                data-project-link="https://github.com/Mediaschool-IRIS-BTS-SISR-2025/TP_WS_Said"
+                data-project-link-label="Voir sur GitHub"
+                data-project-methods="Infrastructure as Code avec Vagrant (VirtualBox) : provisioning séquentiel DC → FS → Client via 10 scripts PowerShell idempotents. Approche itérative : TP manuel converti en déploiement automatisé (gain de 85% de temps). Validation à chaque étape (ping, résolution DNS, baux DHCP, jonction domaine, accès partages, WSUS port 8530). Documentation : README, guide de vérification, checklist de validation."
                 data-project-skills="Gérer le patrimoine informatique,Mettre à disposition des utilisateurs un service informatique"
                 data-project-gantt="./assets/images/gantt-windowsserver.svg">
               <a href="#" data-project-item>
