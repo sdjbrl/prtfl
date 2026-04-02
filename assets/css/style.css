@@ -172,10 +172,9 @@ h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
    HERO
 ============================================================ */
 .section-hero {
-  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 100px 24px 60px;
+  padding: 140px 24px 80px;
 }
 .hero-inner {
   max-width: 780px;
