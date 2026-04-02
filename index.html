@@ -534,24 +534,17 @@
         <h3>Docker — Conteneurisation &amp; Orchestration</h3>
         <p>Comment Docker facilite-t-il le déploiement, l'isolation et la portabilité d'une application dans un environnement SISR ?</p>
       </div>
-      <div class="veille-text reveal">
-        <h4>Origine et contexte : pourquoi Docker a "pris"</h4>
-        <p>Avant Docker, le déploiement des applications était souvent complexe et difficile à reproduire. Docker a simplifié cette problématique en introduisant les conteneurs, permettant de regrouper une application et ses dépendances dans une image légère et portable. Cette approche facilite le déploiement, améliore la cohérence entre les environnements et s'est rapidement imposée comme un standard dans les infrastructures modernes.</p>
-      </div>
       <div class="veille-timeline">
-        <div class="vt-item reveal"><span class="vt-year">2013</span><div class="vt-card"><h4>Naissance de Docker</h4><p>Lancement de Docker, popularisation des conteneurs. Adoption rapide grâce à la simplicité de packaging et de partage des images.</p></div></div>
-        <div class="vt-item reveal"><span class="vt-year">2014</span><div class="vt-card"><h4>Docker Hub &amp; Images</h4><p>Mise en place d'écosystèmes pour distribuer des images (Docker Hub) et émergence des premières images officielles.</p></div></div>
-        <div class="vt-item reveal"><span class="vt-year">2015</span><div class="vt-card"><h4>Docker Compose &amp; multi-conteneurs</h4><p>Apparition d'outils pour orchestrer localement plusieurs conteneurs et faciliter le développement multi-services.</p></div></div>
-        <div class="vt-item reveal"><span class="vt-year">2017</span><div class="vt-card"><h4>Kubernetes devient central</h4><p>Kubernetes s'impose comme solution d'orchestration à grande échelle ; intégration dans les architectures cloud natives.</p></div></div>
-        <div class="vt-item reveal"><span class="vt-year">2019</span><div class="vt-card"><h4>Écosystème mature</h4><p>Stabilisation des outils et montée en puissance des bonnes pratiques de sécurité et de scanning d'images.</p></div></div>
-        <div class="vt-item reveal"><span class="vt-year">2024</span><div class="vt-card"><h4>Standardisation &amp; industrialisation</h4><p>Containers utilisés largement en production; focus sur la sécurité supply chain et les registries privés.</p></div></div>
-        <div class="vt-item reveal"><span class="vt-year">2025</span><div class="vt-card"><h4>Intégration &amp; efficience</h4><p>Optimisation des runtimes, réduction des tailles d'images, intégration poussée dans les pipelines CI/CD.</p></div></div>
+        <div class="vt-item reveal"><span class="vt-year">2013</span><div class="vt-card"><h4>Naissance de Docker</h4><p>Conteneurs Linux packagés et distribuables. Adoption massive grâce à la simplicité du format image.</p></div></div>
+        <div class="vt-item reveal"><span class="vt-year">2015</span><div class="vt-card"><h4>Docker Compose</h4><p>Orchestration multi-conteneurs en un fichier YAML — standard pour les environnements de dev et les stacks applicatives.</p></div></div>
+        <div class="vt-item reveal"><span class="vt-year">2017</span><div class="vt-card"><h4>Kubernetes s'impose</h4><p>Orchestration à grande échelle. Docker devient le runtime de base des architectures cloud-native.</p></div></div>
+        <div class="vt-item reveal"><span class="vt-year">2025</span><div class="vt-card"><h4>Standard de l'industrie</h4><p>Présent dans 90 % des offres DevOps/SysAdmin. Focus sur la sécurité supply chain et les registries privés.</p></div></div>
       </div>
       <div class="veille-points">
         <div class="vp-card reveal"><div class="vp-icon violet"><ion-icon name="cube-outline"></ion-icon></div><h4>Engine, Images &amp; Registries</h4><p>Runtime principal, format d'image immuable, distribution via registries publics ou privés.</p></div>
-        <div class="vp-card reveal"><div class="vp-icon cyan"><ion-icon name="desktop-outline"></ion-icon></div><h4>Docker Desktop &amp; Dev</h4><p>Simplification du développement local, parité d'environnement, considérations de licences.</p></div>
-        <div class="vp-card reveal"><div class="vp-icon green"><ion-icon name="globe-outline"></ion-icon></div><h4>Réseau &amp; Stockage</h4><p>Overlay networks (CNI), provisioning de volumes, stratégies de stockage en production.</p></div>
-        <div class="vp-card reveal"><div class="vp-icon orange"><ion-icon name="shield-outline"></ion-icon></div><h4>Sécurité &amp; Supply Chain</h4><p>Scanning d'images, principe de moindre privilège, politiques de registry.</p></div>
+        <div class="vp-card reveal"><div class="vp-icon cyan"><ion-icon name="terminal-outline"></ion-icon></div><h4>Docker Compose</h4><p>Déclaration d'infrastructures multi-services en YAML — utilisé en production dans cette veille (stack Prometheus/Loki).</p></div>
+        <div class="vp-card reveal"><div class="vp-icon green"><ion-icon name="globe-outline"></ion-icon></div><h4>Réseau &amp; Isolation</h4><p>Overlay networks, user namespaces, bridges dédiés — isolation inter-conteneurs et inter-étudiants.</p></div>
+        <div class="vp-card reveal"><div class="vp-icon orange"><ion-icon name="shield-outline"></ion-icon></div><h4>Sécurité</h4><p>Scanning d'images, principe de moindre privilège, AppArmor, politiques de registry.</p></div>
       </div>
     </section>
 
