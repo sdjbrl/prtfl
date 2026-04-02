@@ -575,6 +575,51 @@ h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
 .modal-link { margin-top: 4px; }
 
 /* ============================================================
+   BOOT SCREEN
+============================================================ */
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease;
+}
+.boot-screen.fade-out { opacity: 0; pointer-events: none; }
+
+.boot-inner {
+  font-family: var(--ff-mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 300px;
+}
+.boot-line { opacity: 0; transition: opacity 0.25s ease; }
+.boot-line.visible { opacity: 1; }
+.boot-user   { color: var(--text); }
+.boot-status { color: var(--text-dim); }
+.boot-status .status-online { color: var(--green); }
+
+.boot-bar {
+  margin-top: 12px;
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.boot-progress {
+  height: 100%;
+  width: 0%;
+  background: var(--cyan);
+  border-radius: 2px;
+  transition: width 2.2s ease;
+}
+
+/* ============================================================
    ANIMATIONS
 ============================================================ */
 @keyframes pulse {

@@ -1,5 +1,46 @@
 'use strict';
 
+// ——— Boot screen ———
+const bootScreen = document.getElementById('boot-screen');
+if (bootScreen) {
+  const bootDate = document.getElementById('boot-date');
+  const bootTime = document.getElementById('boot-time');
+  const progress = document.getElementById('boot-progress');
+  const lines    = bootScreen.querySelectorAll('.boot-line');
+
+  const DAYS   = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+  const MONTHS = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'];
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function setDate() {
+    const d = new Date();
+    bootDate.textContent = `DATE &nbsp;&nbsp;: ${DAYS[d.getDay()]} ${pad(d.getDate())} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+  }
+
+  function setTime() {
+    const d = new Date();
+    bootTime.textContent = `TIME &nbsp;&nbsp;: ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+  }
+
+  setDate();
+  setTime();
+  const clock = setInterval(setTime, 1000);
+
+  // Apparition des lignes une par une
+  lines.forEach((line, i) => setTimeout(() => line.classList.add('visible'), i * 220));
+
+  // Barre de progression
+  setTimeout(() => { progress.style.width = '100%'; }, 150);
+
+  // Fermeture
+  setTimeout(() => {
+    clearInterval(clock);
+    bootScreen.classList.add('fade-out');
+    setTimeout(() => bootScreen.remove(), 700);
+  }, 3000);
+}
+
 // ——— Navbar : masquer au scroll bas, réafficher au scroll haut ———
 const navbar = document.querySelector('[data-navbar]');
 let lastY = window.scrollY;
