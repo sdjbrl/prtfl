@@ -4,8 +4,8 @@
   <rect width="780" height="430" fill="#1d1d2e" rx="14"/>
 
   <!-- Title -->
-  <text x="390" y="28" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="600">Infrastructure IRIS — Diagramme de Gantt</text>
-  <text x="390" y="46" text-anchor="middle" fill="#888899" font-size="11">Semaine intensive · Réseau + Virtualisation + RADIUS</text>
+  <text x="390" y="28" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="600">Infrastructure IRIS — Proposition Technique v4</text>
+  <text x="390" y="46" text-anchor="middle" fill="#888899" font-size="11">Semaine intensive · 24 – 28 février 2026</text>
 
   <!-- Vertical grid -->
   <line x1="240" y1="58" x2="240" y2="402" stroke="#2a2a3e" stroke-width="1"/>
@@ -17,15 +17,15 @@
 
   <!-- Day headers -->
   <rect x="240" y="58" width="108" height="22" fill="#26263a"/>
-  <text x="294" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Lun — Analyse</text>
+  <text x="294" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Lun 24/02</text>
   <rect x="348" y="58" width="108" height="22" fill="#26263a"/>
-  <text x="402" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Mar — Réseau</text>
+  <text x="402" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Mar 25/02</text>
   <rect x="456" y="58" width="108" height="22" fill="#26263a"/>
-  <text x="510" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Mer — Serveur</text>
+  <text x="510" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Mer 26/02</text>
   <rect x="564" y="58" width="108" height="22" fill="#26263a"/>
-  <text x="618" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Jeu — Intégration</text>
+  <text x="618" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Jeu 27/02</text>
   <rect x="672" y="58" width="108" height="22" fill="#26263a"/>
-  <text x="726" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Ven — Soutenance</text>
+  <text x="726" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Ven 28/02</text>
 
   <!-- Alternating row backgrounds -->
   <rect x="0" y="80"  width="780" height="34" fill="#22223a"/>
@@ -38,41 +38,41 @@
   <rect x="0" y="318" width="780" height="34" fill="#1d1d2e"/>
 
   <!-- Task labels -->
-  <text x="234" y="102" text-anchor="end" fill="#d4d4d8" font-size="11">Analyse besoin &amp; cadrage</text>
-  <text x="234" y="136" text-anchor="end" fill="#d4d4d8" font-size="11">Benchmarks &amp; architecture</text>
-  <text x="234" y="170" text-anchor="end" fill="#d4d4d8" font-size="11">Config switches / VLANs</text>
-  <text x="234" y="204" text-anchor="end" fill="#d4d4d8" font-size="11">WiFi + ACLs inter-VLAN</text>
-  <text x="234" y="238" text-anchor="end" fill="#d4d4d8" font-size="11">FreeRADIUS + 802.1X</text>
-  <text x="234" y="272" text-anchor="end" fill="#d4d4d8" font-size="11">Stack KVM + Docker</text>
-  <text x="234" y="306" text-anchor="end" fill="#d4d4d8" font-size="11">VM étudiantes + intégration</text>
-  <text x="234" y="340" text-anchor="end" fill="#d4d4d8" font-size="11">Tests, docs &amp; soutenance</text>
+  <text x="234" y="102" text-anchor="end" fill="#d4d4d8" font-size="11">Debian 12 + KVM + bridges</text>
+  <text x="234" y="136" text-anchor="end" fill="#d4d4d8" font-size="11">VMs services (RADIUS, DNS)</text>
+  <text x="234" y="170" text-anchor="end" fill="#d4d4d8" font-size="11">Switch 2960-S + VLANs + 802.1X</text>
+  <text x="234" y="204" text-anchor="end" fill="#d4d4d8" font-size="11">Routeur 1941 + ACLs + NAT/QoS</text>
+  <text x="234" y="238" text-anchor="end" fill="#d4d4d8" font-size="11">EWC + FreeRADIUS + OpenLDAP</text>
+  <text x="234" y="272" text-anchor="end" fill="#d4d4d8" font-size="11">Templates + 60 VMs SISR + WebVirtCloud</text>
+  <text x="234" y="306" text-anchor="end" fill="#d4d4d8" font-size="11">Docker SLAM + BorgBackup + Sécurité</text>
+  <text x="234" y="340" text-anchor="end" fill="#d4d4d8" font-size="11">Tests recette × 7 + DOC + Livraison</text>
 
   <!-- GANTT BARS -->
-  <!-- Row 0: Analyse besoin — Lun full -->
+  <!-- Row 0: Debian + KVM + bridges — Lun full -->
   <rect x="242" y="86" width="104" height="22" fill="#f3a94a" rx="5"/>
-  <!-- Row 1: Benchmarks & architecture — Lun pm + Mar full -->
-  <rect x="294" y="120" width="158" height="22" fill="#f3a94a" rx="5"/>
-  <!-- Row 2: Config switches / VLANs — Mar full -->
+  <!-- Row 1: VMs services — Lun pm + Mar am -->
+  <rect x="294" y="120" width="106" height="22" fill="#f3a94a" rx="5"/>
+  <!-- Row 2: Switch 2960-S + VLANs + 802.1X — Mar full -->
   <rect x="350" y="154" width="104" height="22" fill="#e05c5c" rx="5"/>
-  <!-- Row 3: WiFi + ACLs — Mar pm + Mer am -->
+  <!-- Row 3: Routeur 1941 + ACLs — Mar pm + Mer am -->
   <rect x="402" y="188" width="106" height="22" fill="#e05c5c" rx="5"/>
-  <!-- Row 4: FreeRADIUS + 802.1X — Mer full -->
+  <!-- Row 4: EWC + FreeRADIUS + OpenLDAP — Mer full -->
   <rect x="458" y="222" width="104" height="22" fill="#e05c5c" rx="5"/>
-  <!-- Row 5: Stack KVM + Docker — Mer pm + Jeu am -->
-  <rect x="510" y="256" width="106" height="22" fill="#5c9ade" rx="5"/>
-  <!-- Row 6: VM étudiantes + intégration — Jeu full -->
-  <rect x="566" y="290" width="104" height="22" fill="#5c9ade" rx="5"/>
-  <!-- Row 7: Tests, docs & soutenance — Jeu pm + Ven full -->
-  <rect x="618" y="324" width="158" height="22" fill="#7c5cde" rx="5"/>
+  <!-- Row 5: Templates + 60 VMs SISR + WebVirtCloud — Jeu full -->
+  <rect x="566" y="256" width="104" height="22" fill="#5c9ade" rx="5"/>
+  <!-- Row 6: Docker SLAM + Dockhand + BorgBackup + nwfilter/AppArmor — Jeu pm + Ven am -->
+  <rect x="618" y="290" width="106" height="22" fill="#5c9ade" rx="5"/>
+  <!-- Row 7: Tests × 7 + Documentation + Livraison — Ven full -->
+  <rect x="674" y="324" width="104" height="22" fill="#7c5cde" rx="5"/>
 
   <!-- Legend -->
   <rect x="240" y="412" width="11" height="11" fill="#f3a94a" rx="3"/>
-  <text x="255" y="422" fill="#888899" font-size="10">Analyse / Architecture</text>
+  <text x="255" y="422" fill="#888899" font-size="10">Infra de base / Services</text>
   <rect x="400" y="412" width="11" height="11" fill="#e05c5c" rx="3"/>
-  <text x="415" y="422" fill="#888899" font-size="10">Réseau / RADIUS</text>
+  <text x="415" y="422" fill="#888899" font-size="10">Réseau / RADIUS / WiFi</text>
   <rect x="545" y="412" width="11" height="11" fill="#5c9ade" rx="3"/>
-  <text x="560" y="422" fill="#888899" font-size="10">Virtualisation / VM</text>
+  <text x="560" y="422" fill="#888899" font-size="10">VMs SISR / Docker SLAM</text>
   <rect x="700" y="412" width="11" height="11" fill="#7c5cde" rx="3"/>
-  <text x="715" y="422" fill="#888899" font-size="10">Tests &amp; soutenance</text>
+  <text x="715" y="422" fill="#888899" font-size="10">Tests &amp; livraison</text>
 
 </svg>

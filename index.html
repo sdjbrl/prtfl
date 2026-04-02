@@ -482,20 +482,20 @@
         </div>
 
         <div class="project-card reveal" data-filter-item data-category="infrastructure réseau"
-             data-project-title="Infrastructure IRIS"
+             data-project-title="Infra Réseau &amp; Virtualisation — IRIS Nice"
              data-project-category="Infrastructure réseau"
-             data-project-dates="Semaine intensive · 2ème année BTS SIO"
-             data-project-context="L'école IRIS Nice ouvre sa première promotion BTS SIO (SISR + SLAM) sans infrastructure de TP. Mission : déployer un environnement complet permettant aux étudiants d'utiliser des VMs et des conteneurs, avec un accès réseau sécurisé et tracé. Contrainte pédagogique : environnement ouvert à l'expérimentation tout en protégeant l'infrastructure de production."
-             data-project-methods="Analyse du besoin client + benchmarks argumentés (OS, hyperviseur, conteneurisation). Architecture réseau : VLANs (Serveur/Postes/WiFi/Management), trunks 802.1Q sur Cisco 2960-S, routage inter-VLAN sur Cisco 1941, WiFi WPA3-Enterprise sur AP C9105AXI-E. Authentification 802.1X + FreeRADIUS (attribution dynamique de VLAN par profil). Serveur Debian 12 : KVM/libvirt/QEMU pour les VMs + Docker Engine pour les conteneurs. Déploiement de VM Windows Server par étudiant, tests d'intégration bout en bout, documentation technique + soutenance individuelle (format E5/E6)."
-             data-project-skills="Gérer le patrimoine informatique,Mettre à disposition des utilisateurs un service informatique,Travailler en mode projet,Répondre aux incidents"
+             data-project-dates="24 – 28 fév 2026"
+             data-project-context="Proposition technique v4 (PROP-IRIS-v4) — École IRIS Nice, première promotion BTS SIO (SISR + SLAM). Aucune infrastructure de TP en place. Mission : déployer un environnement complet (VMs + conteneurs) avec accès réseau sécurisé, authentification individuelle et traçabilité. Budget : 50 000 € (consommé : 37 356 € TTC, solde : 12 644 €). Réalisée en binôme avec Tiago QUENETTE."
+             data-project-methods="Benchmark hyperviseur (KVM natif retenu vs Proxmox/VMware/XCP-ng) — exposition des couches basses virsh/libvirt/QEMU pour les étudiants SISR. Architecture réseau : 5 VLANs (SISR/Admin/Serveurs/SLAM/Management), Cisco Catalyst 2960-S (Rapid-PVST+, 802.1X, trunks), routage inter-VLAN et ACLs IOS sur Cisco 1941W, WiFi EWC sur C9105AXI-E (WPA3-Enterprise, sans VM 9800-CL). Authentification 802.1X + FreeRADIUS 3 + OpenLDAP (attribution VLAN dynamique par groupe). Serveur Debian 12 : KVM/libvirt/QEMU + WebVirtCloud RBAC (portail par étudiant), 60 VMs SISR déployées (WS2022 8GB + Debian 12). SLAM : Docker CE natif + Dockhand. Sécurité : nwfilter anti-spoofing IP/MAC, AppArmor QEMU, snapshots + BorgBackup nightly. 7 protocoles de tests de recette. 5 livrables documentaires (DOC-01 à 05)."
+             data-project-skills="Gérer le patrimoine informatique,Mettre à disposition des utilisateurs un service informatique,Travailler en mode projet,Répondre aux incidents,Cybersécurité"
              data-project-gantt="./assets/images/gantt-infrastructure-iris.svg">
           <div class="project-card-img">
             <img src="./assets/images/project-8.svg" alt="Infrastructure IRIS" loading="lazy">
           </div>
           <div class="project-card-body">
             <span class="project-tag">Infrastructure réseau</span>
-            <h3>Infrastructure IRIS</h3>
-            <p>Réseau VLAN + 802.1X/RADIUS + KVM/Docker sur Debian pour l'école IRIS Nice.</p>
+            <h3>Infra Réseau &amp; Virtualisation — IRIS</h3>
+            <p>KVM natif + 5 VLANs + 802.1X/OpenLDAP + 60 VMs SISR + Docker SLAM — PROP-IRIS-v4.</p>
           </div>
         </div>
 
