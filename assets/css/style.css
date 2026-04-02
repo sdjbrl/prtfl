@@ -389,6 +389,9 @@ h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
 .tl-org  { font-size: 12px; color: var(--violet-l); margin-bottom: 6px; }
 .tl-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
 
+/* CV docs buttons */
+.cv-docs { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+
 /* PDF Drawer */
 .pdf-drawer { margin-top: 8px; }
 .pdf-toggle {
