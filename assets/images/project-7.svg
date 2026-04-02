@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="600" height="340" font-family="JetBrains Mono, monospace">
+
+  <!-- Background -->
+  <rect width="600" height="340" fill="#0d0d1a"/>
+
+  <!-- Grid lines -->
+  <line x1="0" y1="60"  x2="600" y2="60"  stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="0" y1="120" x2="600" y2="120" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="0" y1="180" x2="600" y2="180" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="0" y1="240" x2="600" y2="240" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="0" y1="300" x2="600" y2="300" stroke="#1a1a2e" stroke-width="1"/>
+
+  <line x1="100" y1="0" x2="100" y2="340" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="200" y1="0" x2="200" y2="340" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="300" y1="0" x2="300" y2="340" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="340" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="500" y1="0" x2="500" y2="340" stroke="#1a1a2e" stroke-width="1"/>
+
+  <!-- Top bar -->
+  <rect width="600" height="28" fill="#111122"/>
+  <circle cx="16" cy="14" r="5" fill="#e05c5c"/>
+  <circle cx="30" cy="14" r="5" fill="#f3a94a"/>
+  <circle cx="44" cy="14" r="5" fill="#3fb950"/>
+  <text x="300" y="19" text-anchor="middle" fill="#444466" font-size="10">Grafana — IRIS Dashboard</text>
+
+  <!-- Stat boxes -->
+  <rect x="20"  y="40" width="120" height="56" fill="#13132b" rx="6" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="80"  y="60" text-anchor="middle" fill="#888899" font-size="9">CPU</text>
+  <text x="80"  y="82" text-anchor="middle" fill="#06b6d4" font-size="22" font-weight="700">34%</text>
+
+  <rect x="160" y="40" width="120" height="56" fill="#13132b" rx="6" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="220" y="60" text-anchor="middle" fill="#888899" font-size="9">RAM</text>
+  <text x="220" y="82" text-anchor="middle" fill="#a78bfa" font-size="22" font-weight="700">6.2 GB</text>
+
+  <rect x="300" y="40" width="120" height="56" fill="#13132b" rx="6" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="360" y="60" text-anchor="middle" fill="#888899" font-size="9">DISK</text>
+  <text x="360" y="82" text-anchor="middle" fill="#f59e0b" font-size="22" font-weight="700">71%</text>
+
+  <rect x="440" y="40" width="120" height="56" fill="#13132b" rx="6" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="500" y="60" text-anchor="middle" fill="#888899" font-size="9">CONTAINERS</text>
+  <text x="500" y="82" text-anchor="middle" fill="#3fb950" font-size="22" font-weight="700">12</text>
+
+  <!-- CPU chart area -->
+  <rect x="20" y="112" width="360" height="100" fill="#13132b" rx="6" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="32" y="128" fill="#666688" font-size="9">CPU Usage — dernières 6h</text>
+
+  <!-- CPU sparkline -->
+  <polyline
+    points="30,195 60,188 90,182 120,170 150,175 180,160 210,155 200,165 230,148 260,152 290,145 320,158 350,150 370,155"
+    fill="none" stroke="#06b6d4" stroke-width="2"/>
+  <!-- Fill under line -->
+  <polygon
+    points="30,210 30,195 60,188 90,182 120,170 150,175 180,160 210,155 200,165 230,148 260,152 290,145 320,158 350,150 370,155 370,210"
+    fill="#06b6d4" fill-opacity="0.08"/>
+
+  <!-- Y axis labels -->
+  <text x="26" y="148" fill="#333355" font-size="8">100%</text>
+  <text x="26" y="178" font-size="8" fill="#333355">50%</text>
+  <text x="26" y="208" font-size="8" fill="#333355">0%</text>
+
+  <!-- Containers panel -->
+  <rect x="400" y="112" width="160" height="100" fill="#13132b" rx="6" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="412" y="128" fill="#666688" font-size="9">Containers actifs</text>
+
+  <circle cx="420" cy="148" r="4" fill="#3fb950"/>
+  <text x="430" y="152" fill="#ccccdd" font-size="9">prometheus</text>
+  <circle cx="420" cy="165" r="4" fill="#3fb950"/>
+  <text x="430" y="169" fill="#ccccdd" font-size="9">grafana</text>
+  <circle cx="420" cy="182" r="4" fill="#3fb950"/>
+  <text x="430" y="186" fill="#ccccdd" font-size="9">loki</text>
+  <circle cx="420" cy="199" r="4" fill="#f59e0b"/>
+  <text x="430" y="203" fill="#ccccdd" font-size="9">node-exporter</text>
+
+  <!-- Logs panel -->
+  <rect x="20" y="228" width="260" height="96" fill="#13132b" rx="6" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="32" y="244" fill="#666688" font-size="9">Loki — Logs récents</text>
+  <text x="30" y="260" fill="#3fb950" font-size="8" font-family="monospace">INFO  systemd: Started prometheus.service</text>
+  <text x="30" y="273" fill="#3fb950" font-size="8" font-family="monospace">INFO  grafana: HTTP Server Listen</text>
+  <text x="30" y="286" fill="#f59e0b" font-size="8" font-family="monospace">WARN  disk: usage 71% on /dev/sda1</text>
+  <text x="30" y="299" fill="#3fb950" font-size="8" font-family="monospace">INFO  alertmanager: config reloaded</text>
+  <text x="30" y="312" fill="#e05c5c" font-size="8" font-family="monospace">ALERT cpu_high — resolved</text>
+
+  <!-- Alerts panel -->
+  <rect x="300" y="228" width="260" height="96" fill="#13132b" rx="6" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="312" y="244" fill="#666688" font-size="9">Alertmanager</text>
+
+  <rect x="312" y="252" width="232" height="20" fill="#3fb950" fill-opacity="0.1" rx="4" stroke="#3fb950" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="320" y="265" fill="#3fb950" font-size="8">OK  — aucune alerte active</text>
+
+  <text x="312" y="288" fill="#444466" font-size="8">Regles actives :</text>
+  <text x="312" y="300" fill="#888899" font-size="8">cpu_high · ram_high · disk_critical</text>
+  <text x="312" y="312" fill="#888899" font-size="8">container_down · node_unreachable</text>
+
+  <!-- Bottom label -->
+  <text x="300" y="334" text-anchor="middle" fill="#2a2a4a" font-size="9">Prometheus · Grafana · Loki · Alertmanager — IRIS</text>
+
+</svg>

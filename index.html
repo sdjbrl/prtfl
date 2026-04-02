@@ -310,6 +310,7 @@
           <button class="filter-btn" data-filter-btn data-filter="applications">Applications</button>
           <button class="filter-btn" data-filter-btn data-filter="développement web">Développement web</button>
           <button class="filter-btn" data-filter-btn data-filter="projet personnel">Projet personnel</button>
+          <button class="filter-btn" data-filter-btn data-filter="administration système">Administration système</button>
         </div>
       </div>
 
@@ -476,6 +477,24 @@
             <span class="project-tag">Projet personnel</span>
             <h3>Parc AD DS</h3>
             <p>Domaine Active Directory familial — en cours.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-filter-item data-category="administration système"
+             data-project-title="Supervision Serveur IRIS"
+             data-project-category="Administration système"
+             data-project-dates="Semaine du 23 fév 2026"
+             data-project-context="Mise en place d'une stack de supervision complète sur un serveur Proxmox (IRIS) hébergeant plusieurs VMs en production : métriques système, conteneurs, logs centralisés et alerting. Objectif : visibilité temps réel et remontée d'alertes vers l'équipe sans accès distant permanent au serveur."
+             data-project-methods="Benchmark de 4 solutions (Zabbix, PRTG, Checkmk, stack Prometheus). Déploiement via Docker Compose : Prometheus + Node-Exporter + cAdvisor + Loki + Promtail. Construction de dashboards Grafana (infrastructure, conteneurs, logs). Configuration Alertmanager avec règles CPU/RAM/disk. Tests de charge et documentation finale."
+             data-project-skills="Mettre à disposition des utilisateurs un service informatique,Gérer le patrimoine informatique,Travailler en mode projet"
+             data-project-gantt="./assets/images/gantt-supervision.svg">
+          <div class="project-card-img">
+            <img src="./assets/images/project-7.svg" alt="Supervision Serveur IRIS" loading="lazy">
+          </div>
+          <div class="project-card-body">
+            <span class="project-tag">Administration système</span>
+            <h3>Supervision Serveur IRIS</h3>
+            <p>Stack Prometheus + Grafana — métriques, logs et alerting sur serveur Proxmox.</p>
           </div>
         </div>
 
