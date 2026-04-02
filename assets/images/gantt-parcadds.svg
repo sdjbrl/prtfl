@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 430" width="780" height="430" font-family="Poppins, Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="780" height="430" fill="#1d1d2e" rx="14"/>
+
+  <!-- Title -->
+  <text x="390" y="28" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="600">Parc AD DS — Diagramme de Gantt</text>
+  <text x="390" y="46" text-anchor="middle" fill="#888899" font-size="11">Projet personnel · Avr 2025 — En cours</text>
+
+  <!-- Vertical grid lines -->
+  <line x1="228" y1="58" x2="228" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="274" y1="58" x2="274" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="320" y1="58" x2="320" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="366" y1="58" x2="366" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="412" y1="58" x2="412" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="458" y1="58" x2="458" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="504" y1="58" x2="504" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="550" y1="58" x2="550" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="596" y1="58" x2="596" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="642" y1="58" x2="642" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="688" y1="58" x2="688" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+  <line x1="734" y1="58" x2="734" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+
+  <!-- Month headers -->
+  <rect x="228" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="251" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Avr 25</text>
+  <rect x="274" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="297" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Mai 25</text>
+  <rect x="320" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="343" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Jun 25</text>
+  <rect x="366" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="389" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Jul 25</text>
+  <rect x="412" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="435" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Aoû 25</text>
+  <rect x="458" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="481" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Sep 25</text>
+  <rect x="504" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="527" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Oct 25</text>
+  <rect x="550" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="573" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Nov 25</text>
+  <rect x="596" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="619" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Déc 25</text>
+  <rect x="642" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="665" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Jan 26</text>
+  <rect x="688" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="711" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Fév 26</text>
+  <rect x="734" y="58" width="46" height="22" fill="#26263a"/>
+  <text x="757" y="73" text-anchor="middle" fill="#bbbbcc" font-size="10" font-weight="500">Mar 26</text>
+
+  <!-- Alternating row backgrounds -->
+  <rect x="0" y="80"  width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="114" width="780" height="34" fill="#1d1d2e"/>
+  <rect x="0" y="148" width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="182" width="780" height="34" fill="#1d1d2e"/>
+  <rect x="0" y="216" width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="250" width="780" height="34" fill="#1d1d2e"/>
+  <rect x="0" y="284" width="780" height="34" fill="#22223a"/>
+  <rect x="0" y="318" width="780" height="34" fill="#1d1d2e"/>
+
+  <!-- Task labels -->
+  <text x="224" y="102" text-anchor="end" fill="#d4d4d8" font-size="11">Analyse &amp; planification</text>
+  <text x="224" y="136" text-anchor="end" fill="#d4d4d8" font-size="11">Déploiement VM + WS</text>
+  <text x="224" y="170" text-anchor="end" fill="#d4d4d8" font-size="11">Configuration AD DS + DNS</text>
+  <text x="224" y="204" text-anchor="end" fill="#d4d4d8" font-size="11">DHCP + jonction domaine</text>
+  <text x="224" y="238" text-anchor="end" fill="#d4d4d8" font-size="11">GPO par profil</text>
+  <text x="224" y="272" text-anchor="end" fill="#d4d4d8" font-size="11">Partages réseau</text>
+  <text x="224" y="306" text-anchor="end" fill="#d4d4d8" font-size="11">Scripts PowerShell</text>
+  <text x="224" y="340" text-anchor="end" fill="#d4d4d8" font-size="11">Documentation (continu)</text>
+
+  <!-- GANTT BARS -->
+  <!-- Row 0: Analyse - Avr 2025 -->
+  <rect x="230" y="86" width="44" height="22" fill="#f3a94a" rx="5"/>
+
+  <!-- Row 1: Déploiement VM + WS - Avr-Mai 2025 -->
+  <rect x="230" y="120" width="90" height="22" fill="#f3a94a" rx="5"/>
+
+  <!-- Row 2: Config AD DS + DNS - Mai-Jun 2025 -->
+  <rect x="276" y="154" width="90" height="22" fill="#e05c5c" rx="5"/>
+
+  <!-- Row 3: DHCP + jonction - Jun-Jul 2025 -->
+  <rect x="322" y="188" width="90" height="22" fill="#e05c5c" rx="5"/>
+
+  <!-- Row 4: GPO par profil - Jul-Sep 2025 -->
+  <rect x="368" y="222" width="136" height="22" fill="#e05c5c" rx="5"/>
+
+  <!-- Row 5: Partages réseau - Sep-Oct 2025 -->
+  <rect x="460" y="256" width="90" height="22" fill="#e05c5c" rx="5"/>
+
+  <!-- Row 6: Scripts PowerShell - Nov 2025 → En cours -->
+  <rect x="552" y="290" width="218" height="22" fill="#5c9ade" rx="5"/>
+  <polygon points="770,290 778,301 770,312" fill="#5c9ade"/>
+
+  <!-- Row 7: Documentation - continu (barre fine) -->
+  <rect x="230" y="328" width="540" height="14" fill="#7c5cde" rx="4" opacity="0.75"/>
+  <polygon points="770,328 778,335 770,342" fill="#7c5cde" opacity="0.75"/>
+
+  <!-- Bottom row border -->
+  <line x1="0" y1="360" x2="780" y2="360" stroke="#2a2a3e" stroke-width="1"/>
+
+  <!-- Legend -->
+  <rect x="228" y="374" width="11" height="11" fill="#f3a94a" rx="3"/>
+  <text x="243" y="384" fill="#888899" font-size="10">Infrastructure / Déploiement</text>
+  <rect x="400" y="374" width="11" height="11" fill="#e05c5c" rx="3"/>
+  <text x="415" y="384" fill="#888899" font-size="10">Configuration services</text>
+  <rect x="560" y="374" width="11" height="11" fill="#5c9ade" rx="3"/>
+  <text x="575" y="384" fill="#888899" font-size="10">Automatisation</text>
+  <rect x="670" y="374" width="11" height="11" fill="#7c5cde" rx="3"/>
+  <text x="685" y="384" fill="#888899" font-size="10">Documentation</text>
+
+</svg>
