@@ -90,6 +90,14 @@ h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
   display: none;
 }
 .status-online { color: var(--green); }
+.nav-clock {
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+  display: none;
+  opacity: 0.85;
+}
 
 .nav-links {
   display: none;
@@ -639,6 +647,7 @@ h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
 
 @media (min-width: 768px) {
   .nav-status { display: block; }
+  .nav-clock  { display: block; }
   .nav-badge  { display: flex; }
   .nav-toggle { display: none; }
   .nav-links  { display: flex; margin-left: auto; }

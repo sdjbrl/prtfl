@@ -41,6 +41,20 @@ if (bootScreen) {
   }, 3000);
 }
 
+// ——— Horloge navbar ———
+const navClock = document.getElementById('nav-clock');
+if (navClock) {
+  function updateNavClock() {
+    const d = new Date();
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mm = String(d.getMinutes()).padStart(2, '0');
+    const ss = String(d.getSeconds()).padStart(2, '0');
+    navClock.textContent = `${hh}:${mm}:${ss}`;
+  }
+  updateNavClock();
+  setInterval(updateNavClock, 1000);
+}
+
 // ——— Navbar : masquer au scroll bas, réafficher au scroll haut ———
 const navbar = document.querySelector('[data-navbar]');
 let lastY = window.scrollY;
