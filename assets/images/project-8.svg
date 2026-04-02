@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="600" height="340" font-family="JetBrains Mono, monospace">
+
+  <!-- Background -->
+  <rect width="600" height="340" fill="#0d0d1a"/>
+
+  <!-- Grid -->
+  <line x1="0" y1="60"  x2="600" y2="60"  stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="0" y1="120" x2="600" y2="120" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="0" y1="180" x2="600" y2="180" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="0" y1="240" x2="600" y2="240" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="0" y1="300" x2="600" y2="300" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="150" y1="0" x2="150" y2="340" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="300" y1="0" x2="300" y2="340" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="450" y1="0" x2="450" y2="340" stroke="#1a1a2e" stroke-width="1"/>
+
+  <!-- Top bar -->
+  <rect width="600" height="28" fill="#111122"/>
+  <circle cx="16" cy="14" r="5" fill="#e05c5c"/>
+  <circle cx="30" cy="14" r="5" fill="#f3a94a"/>
+  <circle cx="44" cy="14" r="5" fill="#3fb950"/>
+  <text x="300" y="19" text-anchor="middle" fill="#444466" font-size="10">Infrastructure IRIS — Topologie réseau</text>
+
+  <!-- Internet cloud -->
+  <ellipse cx="300" cy="52" rx="38" ry="16" fill="#1a1a30" stroke="#333355" stroke-width="1"/>
+  <text x="300" y="56" text-anchor="middle" fill="#555577" font-size="9">Internet</text>
+
+  <!-- Line Internet -> Routeur -->
+  <line x1="300" y1="68" x2="300" y2="84" stroke="#333355" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Routeur -->
+  <rect x="252" y="84" width="96" height="28" fill="#1e1e35" rx="5" stroke="#f59e0b" stroke-width="1"/>
+  <text x="300" y="102" text-anchor="middle" fill="#f59e0b" font-size="9">Cisco 1941 · GW</text>
+
+  <!-- Line Routeur -> Switch -->
+  <line x1="300" y1="112" x2="300" y2="128" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="310" y="122" fill="#333355" font-size="8">trunk 802.1Q</text>
+
+  <!-- Switch -->
+  <rect x="226" y="128" width="148" height="28" fill="#1e1e35" rx="5" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="300" y="146" text-anchor="middle" fill="#06b6d4" font-size="9">Catalyst 2960-S</text>
+
+  <!-- 3 branches from switch -->
+  <!-- VLAN 10 -->
+  <line x1="260" y1="156" x2="120" y2="190" stroke="#3fb950" stroke-width="1.5"/>
+  <rect x="60" y="190" width="120" height="44" fill="#1e1e35" rx="5" stroke="#3fb950" stroke-width="1"/>
+  <text x="120" y="207" text-anchor="middle" fill="#3fb950" font-size="8" font-weight="600">VLAN 10 — Serveur</text>
+  <text x="120" y="220" text-anchor="middle" fill="#666688" font-size="8">Debian · KVM · Docker</text>
+  <text x="120" y="231" text-anchor="middle" fill="#666688" font-size="8">FreeRADIUS</text>
+
+  <!-- VLAN 20 -->
+  <line x1="300" y1="156" x2="300" y2="190" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="220" y="190" width="160" height="44" fill="#1e1e35" rx="5" stroke="#a78bfa" stroke-width="1"/>
+  <text x="300" y="207" text-anchor="middle" fill="#a78bfa" font-size="8" font-weight="600">VLAN 20 — Postes</text>
+  <text x="300" y="220" text-anchor="middle" fill="#666688" font-size="8">Étudiants filaires</text>
+  <text x="300" y="231" text-anchor="middle" fill="#666688" font-size="8">802.1X auth</text>
+
+  <!-- VLAN 30 WiFi -->
+  <line x1="340" y1="156" x2="480" y2="190" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="420" y="190" width="130" height="44" fill="#1e1e35" rx="5" stroke="#f59e0b" stroke-width="1"/>
+  <text x="485" y="207" text-anchor="middle" fill="#f59e0b" font-size="8" font-weight="600">VLAN 30 — WiFi</text>
+  <text x="485" y="220" text-anchor="middle" fill="#666688" font-size="8">AP C9105AXI-E</text>
+  <text x="485" y="231" text-anchor="middle" fill="#666688" font-size="8">WPA3-Enterprise</text>
+
+  <!-- VM stack under serveur -->
+  <line x1="120" y1="234" x2="120" y2="254" stroke="#3fb950" stroke-width="1" stroke-dasharray="2,2"/>
+  <rect x="42" y="254" width="72" height="20" fill="#0d2b1a" rx="3" stroke="#3fb950" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="78" y="268" text-anchor="middle" fill="#3fb950" font-size="8">VM Win Server</text>
+  <rect x="122" y="254" width="56" height="20" fill="#0d2b1a" rx="3" stroke="#3fb950" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="150" y="268" font-size="8" fill="#3fb950" text-anchor="middle">Container</text>
+
+  <!-- RADIUS auth arrow -->
+  <line x1="162" y1="210" x2="220" y2="210" stroke="#e05c5c" stroke-width="1" stroke-dasharray="3,2"/>
+  <polygon points="218,207 224,210 218,213" fill="#e05c5c"/>
+  <text x="191" y="207" text-anchor="middle" fill="#e05c5c" font-size="7">RADIUS auth</text>
+
+  <!-- VLAN 99 management label -->
+  <rect x="20" y="300" width="560" height="18" fill="#1a1a28" rx="3"/>
+  <text x="300" y="313" text-anchor="middle" fill="#333355" font-size="8">VLAN 99 (Management) — switches · routeur · AP · SSH restreint au VLAN serveur</text>
+
+  <!-- Bottom label -->
+  <text x="300" y="334" text-anchor="middle" fill="#2a2a4a" font-size="9">Cisco 2960-S · C9105AXI-E · 1941 — Debian 12 · KVM/libvirt · Docker · FreeRADIUS</text>
+
+</svg>
