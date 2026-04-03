@@ -215,6 +215,50 @@ if (form && formBtn) {
   });
 }
 
+// ——— Bouton section suivante ———
+const sectionNavBtn   = document.getElementById('section-nav-btn');
+const sectionNavLabel = document.getElementById('section-nav-label');
+const SECTIONS = ['hero', 'apropos', 'arsenal', 'cv', 'portfolio', 'veille', 'contact'];
+const SECTION_LABELS = {
+  hero:      'À propos',
+  apropos:   'Arsenal',
+  arsenal:   'Parcours',
+  cv:        'Projets',
+  portfolio: 'Veille',
+  veille:    'Contact',
+  contact:   'Haut de page',
+};
+
+if (sectionNavBtn) {
+  function getCurrentSection() {
+    const scrollY = window.scrollY + 100;
+    let current = SECTIONS[0];
+    for (const id of SECTIONS) {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) current = id;
+    }
+    return current;
+  }
+
+  function updateNavBtn() {
+    const current = getCurrentSection();
+    sectionNavLabel.textContent = SECTION_LABELS[current] || 'Suivant';
+  }
+
+  sectionNavBtn.addEventListener('click', () => {
+    const current = getCurrentSection();
+    const idx = SECTIONS.indexOf(current);
+    if (idx < SECTIONS.length - 1) {
+      document.getElementById(SECTIONS[idx + 1]).scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+
+  updateNavBtn();
+  window.addEventListener('scroll', updateNavBtn, { passive: true });
+}
+
 // ——— Drawer PDF tableau de synthèse ———
 const pdfDrawer = document.querySelector('[data-pdf-drawer]');
 if (pdfDrawer) {

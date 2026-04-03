@@ -556,6 +556,31 @@ h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
 .footer-links a:hover { color: var(--text); }
 
 /* ============================================================
+   SECTION NAV BUTTON
+============================================================ */
+.section-nav-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  transition: color var(--t), border-color var(--t), opacity var(--t);
+  opacity: 0.7;
+}
+.section-nav-btn:hover { color: var(--cyan); border-color: var(--cyan); opacity: 1; }
+.section-nav-btn ion-icon { font-size: 14px; }
+
+/* ============================================================
    MODAL
 ============================================================ */
 .modal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: flex-end; justify-content: center; pointer-events: none; opacity: 0; transition: opacity 0.3s ease; }
