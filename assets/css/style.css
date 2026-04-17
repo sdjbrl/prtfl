@@ -2443,3 +2443,130 @@ h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
   .arsenal-card.wide  { grid-column: 1 / -1; }
 }
 
+
+/* ============================================================
+   PREMIUM EFFECTS - Advanced Animations
+============================================================ */
+
+/* Cursor Glow Trail - Premium */
+.cursor-glow {
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+/* 3D Card Glow on hover */
+.project-card::after,
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: var(--glow-y, 50%);
+  left: var(--glow-x, 50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, hsla(192, 91%, 42%, 0.2) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity var(--anim-base);
+  pointer-events: none;
+}
+
+.project-card:hover::after,
+.service-card:hover::after {
+  opacity: 1;
+}
+
+/* Text Reveal Animation */
+[data-text-reveal] span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px) rotateX(-90deg);
+  animation: none;
+}
+
+[data-text-reveal].text-revealed span {
+  animation: revealLetter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealLetter {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+/* Magnetic Button Effect */
+.btn,
+.filter-btn {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Parallax Smooth */
+.hero,
+.highlights,
+.about-photo img {
+  will-change: transform;
+}
+
+/* Glow Radial on Project Cards */
+.project-card {
+  overflow: visible;
+}
+
+.project-card-img {
+  overflow: hidden;
+}
+
+/* Enhanced Shadow Depths */
+.project-card:hover {
+  filter: drop-shadow(0 20px 40px hsla(192, 91%, 42%, 0.3));
+}
+
+/* Arsenal Cards Premium Hover */
+.arsenal-card {
+  transition: all var(--anim-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.arsenal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, hsla(192, 91%, 42%, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.arsenal-card:hover::before {
+  left: 100%;
+}
+
+.arsenal-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--cyan);
+  box-shadow: 
+    0 12px 40px hsla(0, 0%, 0%, 0.4),
+    0 0 30px hsla(192, 91%, 42%, 0.2);
+}
+
+/* Highlight Cards Icon Rotation */
+.hi-icon {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+/* Button Glow on Hover */
+.btn:hover {
+  box-shadow: 
+    0 0 30px hsla(192, 91%, 42%, 0.4),
+    0 8px 24px hsla(0, 0%, 0%, 0.3);
+}
+
+/* Section Titles Gradient */
+.section-title {
+  background: linear-gradient(135deg, var(--text) 0%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

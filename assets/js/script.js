@@ -410,3 +410,177 @@ if ('loading' in HTMLImageElement.prototype) {
   script.src = 'https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js';
   document.body.appendChild(script);
 }
+
+// ============================================================
+// 3D CARD TILT EFFECT - Premium
+// ============================================================
+const projectCards = document.querySelectorAll('.project-card');
+const serviceCards = document.querySelectorAll('.service-card');
+
+function setup3DTilt(cards, maxTilt = 8) {
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left; // Position X dans la carte
+      const y = e.clientY - rect.top;  // Position Y dans la carte
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Calcul de l'inclinaison en degrés (-maxTilt à +maxTilt)
+      const rotateX = ((y - centerY) / centerY) * -maxTilt;
+      const rotateY = ((x - centerX) / centerX) * maxTilt;
+      
+      // Application de la transformation 3D
+      card.style.transform = `
+        perspective(1000px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-8px)
+        scale(1.02)
+      `;
+      
+      // Ajout d'un highlight suivant le curseur
+      const glowX = (x / rect.width) * 100;
+      const glowY = (y / rect.height) * 100;
+      card.style.setProperty('--glow-x', `${glowX}%`);
+      card.style.setProperty('--glow-y', `${glowY}%`);
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      // Reset à la position normale avec transition smooth
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+    });
+  });
+}
+
+// Activer le 3D tilt sur les cartes
+setup3DTilt(projectCards, 6); // Tilt de 6° pour les projets
+setup3DTilt(serviceCards, 4); // Tilt de 4° pour les services (plus subtil)
+
+// ============================================================
+// SMOOTH PARALLAX SCROLLING
+// ============================================================
+let ticking = false;
+let scrollY = window.pageYOffset;
+
+const parallaxElements = [
+  { selector: '.hero', speed: 0.3 },
+  { selector: '.highlights', speed: 0.15 },
+  { selector: '.about-photo img', speed: 0.5 },
+];
+
+function updateParallax() {
+  parallaxElements.forEach(({ selector, speed }) => {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(el => {
+      const offset = scrollY * speed;
+      el.style.transform = `translateY(${offset}px)`;
+    });
+  });
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  scrollY = window.pageYOffset;
+  
+  if (!ticking) {
+    requestAnimationFrame(updateParallax);
+    ticking = true;
+  }
+});
+
+// ============================================================
+// MAGNETIC BUTTONS - Attraction au curseur
+// ============================================================
+const magneticButtons = document.querySelectorAll('.btn, .filter-btn');
+
+magneticButtons.forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    
+    // Attraction magnétique (max 8px de déplacement)
+    const distance = Math.sqrt(x * x + y * y);
+    const strength = Math.min(distance / 20, 1); // Limiter la force
+    
+    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+  });
+  
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = 'translate(0, 0)';
+  });
+});
+
+// ============================================================
+// CURSOR GLOW TRAIL - Premium effect
+// ============================================================
+const cursorGlow = document.createElement('div');
+cursorGlow.className = 'cursor-glow';
+cursorGlow.style.cssText = `
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, hsla(192, 91%, 42%, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+`;
+document.body.appendChild(cursorGlow);
+
+let cursorX = 0;
+let cursorY = 0;
+let glowX = 0;
+let glowY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  cursorX = e.clientX;
+  cursorY = e.clientY;
+  cursorGlow.style.opacity = '1';
+});
+
+document.addEventListener('mouseleave', () => {
+  cursorGlow.style.opacity = '0';
+});
+
+function animateGlow() {
+  // Smooth follow avec lerp (linear interpolation)
+  glowX += (cursorX - glowX) * 0.15;
+  glowY += (cursorY - glowY) * 0.15;
+  
+  cursorGlow.style.transform = `translate(${glowX - 200}px, ${glowY - 200}px)`;
+  requestAnimationFrame(animateGlow);
+}
+
+animateGlow();
+
+// ============================================================
+// TEXT REVEAL ON SCROLL - Letter by letter
+// ============================================================
+const revealTexts = document.querySelectorAll('[data-text-reveal]');
+
+revealTexts.forEach(text => {
+  const originalText = text.textContent;
+  text.innerHTML = originalText
+    .split('')
+    .map((char, i) => `<span style="animation-delay: ${i * 0.03}s">${char === ' ' ? '&nbsp;' : char}</span>`)
+    .join('');
+});
+
+// Activer l'animation au scroll
+const textObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('text-revealed');
+      textObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+revealTexts.forEach(text => textObserver.observe(text));
+
+console.log('🎨 Premium Animations Loaded - by SA');
+
