@@ -448,27 +448,27 @@
         <span class="section-tag">// PROBLÉMATIQUES IT RÉSOLUES</span>
       </div>
 
-      <!-- Project: Infrastructure IRIS (Format PSR) -->
+      <!-- Project: Wiki Outline (Format PSR) -->
       <div class="project-psr reveal">
         <div class="psr-header">
           <div class="psr-header-left">
             <div class="psr-icon">
-              <ion-icon name="server-outline"></ion-icon>
+              <ion-icon name="book-outline"></ion-icon>
             </div>
             <div>
-              <h3 class="psr-title">Infrastructure Réseau & Virtualisation — IRIS Nice</h3>
+              <h3 class="psr-title">Wiki Outline — Documentation Collaborative IRIS</h3>
               <div class="psr-meta">
                 <span class="psr-meta-item">
                   <ion-icon name="calendar-outline"></ion-icon>
-                  24 – 28 fév 2026
+                  Fév 2026
                 </span>
                 <span class="psr-meta-item">
                   <ion-icon name="people-outline"></ion-icon>
-                  Binôme (Tiago QUENETTE)
+                  Semaine intensive SISR
                 </span>
                 <span class="psr-meta-item">
-                  <ion-icon name="pricetag-outline"></ion-icon>
-                  50 000 € budget
+                  <ion-icon name="link-outline"></ion-icon>
+                  <a href="https://wiki.iris.a3n.fr:4433" target="_blank" style="color: var(--cyan);">wiki.iris.a3n.fr</a>
                 </span>
               </div>
             </div>
@@ -488,13 +488,13 @@
               </div>
             </div>
             <div class="psr-content">
-              <p><strong>École IRIS Nice</strong> — Première promotion BTS SIO (SISR + SLAM). <strong>Aucune infrastructure de TP</strong> en place.</p>
+              <p><strong>École IRIS Nice</strong> — Première promotion BTS SIO. <strong>Pas de plateforme centralisée</strong> pour la documentation technique et pédagogique.</p>
               <ul class="psr-list">
-                <li><ion-icon name="close-circle"></ion-icon> Pas d'environnement de virtualisation pour pratique</li>
-                <li><ion-icon name="close-circle"></ion-icon> Pas d'accès réseau sécurisé et tracé par étudiant</li>
-                <li><ion-icon name="close-circle"></ion-icon> Besoin de VMs pour SISR + conteneurs pour SLAM</li>
-                <li><ion-icon name="close-circle"></ion-icon> Budget limité : 50 000 € TTC max</li>
-                <li><ion-icon name="close-circle"></ion-icon> Délai serré : 5 jours de déploiement</li>
+                <li><ion-icon name="close-circle"></ion-icon> Documentation technique dispersée (Google Docs, Notion, localement)</li>
+                <li><ion-icon name="close-circle"></ion-icon> Pas de collaboration temps réel entre étudiants et formateurs</li>
+                <li><ion-icon name="close-circle"></ion-icon> Besoin de permissions granulaires (promotions SISR/SLAM, formateurs, admin)</li>
+                <li><ion-icon name="close-circle"></ion-icon> Authentification unifiée avec SSO (intégration Keycloak existant)</li>
+                <li><ion-icon name="close-circle"></ion-icon> Déploiement en 1 semaine intensive</li>
               </ul>
             </div>
           </div>
@@ -510,34 +510,34 @@
             <div class="psr-content">
               <div class="psr-grid">
                 <div class="psr-grid-item">
-                  <h4><ion-icon name="hardware-chip-outline"></ion-icon> Hyperviseur</h4>
-                  <p><strong>KVM natif</strong> (vs Proxmox/VMware/XCP-ng)</p>
-                  <p class="psr-why">Exposition des couches virsh/libvirt/QEMU pour apprentissage SISR</p>
+                  <h4><ion-icon name="book-outline"></ion-icon> Application</h4>
+                  <p><strong>Outline Wiki</strong> (React + Node.js)</p>
+                  <p class="psr-why">Interface moderne, Markdown, collaboration temps réel, API complète</p>
                 </div>
                 <div class="psr-grid-item">
-                  <h4><ion-icon name="git-network-outline"></ion-icon> Réseau</h4>
-                  <p><strong>5 VLANs Cisco</strong> + routage inter-VLAN</p>
-                  <p class="psr-why">Catalyst 2960-S + Cisco 1941W + WiFi EWC C9105AXI-E</p>
+                  <h4><ion-icon name="logo-docker"></ion-icon> Stack Docker</h4>
+                  <p><strong>Docker Compose 5 services</strong></p>
+                  <p class="psr-why">Outline + PostgreSQL + Redis + MinIO (S3) + Traefik</p>
                 </div>
                 <div class="psr-grid-item">
-                  <h4><ion-icon name="lock-closed-outline"></ion-icon> Authentification</h4>
-                  <p><strong>802.1X + FreeRADIUS + LDAP</strong></p>
-                  <p class="psr-why">Attribution VLAN dynamique par groupe étudiant</p>
+                  <h4><ion-icon name="shield-checkmark-outline"></ion-icon> Authentification</h4>
+                  <p><strong>SSO/OIDC via Keycloak</strong></p>
+                  <p class="psr-why">Login unique, gestion centralisée des utilisateurs et groupes</p>
                 </div>
                 <div class="psr-grid-item">
-                  <h4><ion-icon name="desktop-outline"></ion-icon> Virtualisation</h4>
-                  <p><strong>WebVirtCloud RBAC</strong></p>
-                  <p class="psr-why">Portail par étudiant + 60 VMs SISR (WS2022 + Debian 12)</p>
+                  <h4><ion-icon name="git-network-outline"></ion-icon> Reverse Proxy</h4>
+                  <p><strong>Traefik avec TLS automatique</strong></p>
+                  <p class="psr-why">HTTPS Let's Encrypt, routage dynamique, dashboard monitoring</p>
                 </div>
                 <div class="psr-grid-item">
-                  <h4><ion-icon name="logo-docker"></ion-icon> Conteneurs</h4>
-                  <p><strong>Docker CE + Dockhand</strong></p>
-                  <p class="psr-why">Environnement dev pour promotion SLAM</p>
+                  <h4><ion-icon name="people-outline"></ion-icon> Permissions</h4>
+                  <p><strong>Collections par groupe</strong></p>
+                  <p class="psr-why">Promotions SISR/SLAM, formateurs, admin — permissions granulaires</p>
                 </div>
                 <div class="psr-grid-item">
-                  <h4><ion-icon name="shield-checkmark-outline"></ion-icon> Sécurité</h4>
-                  <p><strong>nwfilter + AppArmor + BorgBackup</strong></p>
-                  <p class="psr-why">Anti-spoofing IP/MAC + snapshots + backups nightly</p>
+                  <h4><ion-icon name="cloud-upload-outline"></ion-icon> Stockage S3</h4>
+                  <p><strong>MinIO self-hosted</strong></p>
+                  <p class="psr-why">Compatible S3, backups automatiques, versioning fichiers</p>
                 </div>
               </div>
             </div>
@@ -554,29 +554,29 @@
             <div class="psr-content">
               <div class="psr-stats">
                 <div class="psr-stat">
-                  <div class="psr-stat-value">60</div>
-                  <div class="psr-stat-label">VMs SISR déployées</div>
-                </div>
-                <div class="psr-stat">
                   <div class="psr-stat-value">5</div>
-                  <div class="psr-stat-label">VLANs Cisco configurés</div>
+                  <div class="psr-stat-label">Services Docker orchestrés</div>
                 </div>
                 <div class="psr-stat">
-                  <div class="psr-stat-value">37 356 €</div>
-                  <div class="psr-stat-label">Budget consommé TTC</div>
+                  <div class="psr-stat-value">3</div>
+                  <div class="psr-stat-label">Niveaux de permissions</div>
                 </div>
                 <div class="psr-stat success">
-                  <div class="psr-stat-value">12 644 €</div>
-                  <div class="psr-stat-label">Économie réalisée</div>
+                  <div class="psr-stat-value">100%</div>
+                  <div class="psr-stat-label">SSO Keycloak fonctionnel</div>
+                </div>
+                <div class="psr-stat">
+                  <div class="psr-stat-value">7j</div>
+                  <div class="psr-stat-label">Semaine intensive complète</div>
                 </div>
               </div>
               <div class="psr-deliverables">
                 <h4>📦 Livrables</h4>
                 <div class="psr-tags">
-                  <span class="psr-tag">7 protocoles de tests de recette</span>
-                  <span class="psr-tag">5 documents techniques (DOC-01 à 05)</span>
-                  <span class="psr-tag">Architecture réseau complète</span>
-                  <span class="psr-tag">Guide d'exploitation</span>
+                  <span class="psr-tag">Wiki en production (wiki.iris.a3n.fr)</span>
+                  <span class="psr-tag">Docker Compose complet + .env</span>
+                  <span class="psr-tag">Documentation d'exploitation</span>
+                  <span class="psr-tag">Guide utilisateur formateurs</span>
                 </div>
               </div>
             </div>
@@ -584,14 +584,14 @@
 
           <!-- ACTIONS -->
           <div class="psr-actions">
-            <a href="./assets/images/gantt-infrastructure-iris.svg" target="_blank" class="btn btn-ghost">
+            <a href="./assets/images/gantt-wikioutline.svg" target="_blank" class="btn btn-ghost">
               <ion-icon name="document-outline"></ion-icon>
               Voir le Gantt
             </a>
-            <button class="btn btn-primary" data-open-modal>
-              <ion-icon name="information-circle-outline"></ion-icon>
-              Détails complets
-            </button>
+            <a href="https://wiki.iris.a3n.fr:4433" target="_blank" class="btn btn-primary">
+              <ion-icon name="open-outline"></ion-icon>
+              Accéder au wiki
+            </a>
           </div>
         </div>
       </div>
