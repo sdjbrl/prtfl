@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" style="background: #0f0f16; font-family: 'JetBrains Mono', monospace;">
+  <defs>
+    <style>
+      .gantt-title { font-size: 18px; font-weight: 700; fill: #e2e8f0; }
+      .gantt-subtitle { font-size: 12px; fill: #94a3b8; }
+      .gantt-label { font-size: 11px; fill: #cbd5e1; }
+      .gantt-date { font-size: 9px; fill: #64748b; }
+      .gantt-bar { rx: 4; ry: 4; }
+      .phase-1 { fill: #7c3aed; }
+      .phase-2 { fill: #06b6d4; }
+      .phase-3 { fill: #3fb950; }
+      .phase-4 { fill: #f59e0b; }
+      .phase-5 { fill: #ef4444; }
+      .grid-line { stroke: #1e293b; stroke-width: 1; }
+      .milestone { fill: #fbbf24; }
+    </style>
+  </defs>
+  
+  <!-- Header -->
+  <text x="20" y="30" class="gantt-title">Smart Projector IRIS — Planning</text>
+  <text x="20" y="50" class="gantt-subtitle">5 janv. 2026 — 13 fév. 2026 (6 semaines)</text>
+  
+  <!-- Grid vertical lines (semaines) -->
+  <line x1="200" y1="80" x2="200" y2="370" class="grid-line"/>
+  <line x1="360" y1="80" x2="360" y2="370" class="grid-line"/>
+  <line x1="520" y1="80" x2="520" y2="370" class="grid-line"/>
+  <line x1="680" y1="80" x2="680" y2="370" class="grid-line"/>
+  <line x1="840" y1="80" x2="840" y2="370" class="grid-line"/>
+  <line x1="1000" y1="80" x2="1000" y2="370" class="grid-line"/>
+  
+  <!-- Axes des semaines -->
+  <text x="280" y="95" class="gantt-date">S1 (6-12 jan)</text>
+  <text x="440" y="95" class="gantt-date">S2 (13-19 jan)</text>
+  <text x="600" y="95" class="gantt-date">S3 (20-26 jan)</text>
+  <text x="760" y="95" class="gantt-date">S4 (27 jan-2 fév)</text>
+  <text x="920" y="95" class="gantt-date">S5 (3-9 fév)</text>
+  <text x="1030" y="95" class="gantt-date">S6 (10-13 fév)</text>
+  
+  <!-- Phase 1: Analyse besoins -->
+  <text x="20" y="130" class="gantt-label">Phase 1</text>
+  <text x="20" y="145" class="gantt-date">Analyse besoins</text>
+  <rect x="200" y="115" width="160" height="35" class="gantt-bar phase-1"/>
+  <text x="270" y="137" style="fill: white; font-size: 11px; font-weight: 600;">1 semaine</text>
+  
+  <!-- Phase 2: Choix matériel -->
+  <text x="20" y="190" class="gantt-label">Phase 2</text>
+  <text x="20" y="205" class="gantt-date">Choix matériel</text>
+  <rect x="360" y="175" width="160" height="35" class="gantt-bar phase-2"/>
+  <text x="420" y="197" style="fill: white; font-size: 11px; font-weight: 600;">1 semaine</text>
+  
+  <!-- Phase 3: Développement interface -->
+  <text x="20" y="250" class="gantt-label">Phase 3</text>
+  <text x="20" y="265" class="gantt-date">Dev interface web</text>
+  <rect x="520" y="235" width="320" height="35" class="gantt-bar phase-3"/>
+  <text x="640" y="257" style="fill: white; font-size: 11px; font-weight: 600;">2 semaines</text>
+  
+  <!-- Phase 4: Déploiement pilote -->
+  <text x="20" y="310" class="gantt-label">Phase 4</text>
+  <text x="20" y="325" class="gantt-date">Pilote (2 salles)</text>
+  <rect x="840" y="295" width="80" height="35" class="gantt-bar phase-4"/>
+  <text x="860" y="317" style="fill: white; font-size: 10px; font-weight: 600;">3j</text>
+  
+  <!-- Phase 5: Rollout complet -->
+  <text x="20" y="370" class="gantt-label">Phase 5</text>
+  <text x="20" y="385" class="gantt-date">Rollout (10 salles)</text>
+  <rect x="920" y="355" width="160" height="35" class="gantt-bar phase-5"/>
+  <text x="970" y="377" style="fill: white; font-size: 11px; font-weight: 600;">1 semaine</text>
+  
+  <!-- Milestones -->
+  <circle cx="360" cy="132" r="6" class="milestone"/>
+  <text x="370" y="135" style="fill: #fbbf24; font-size: 9px; font-weight: 600;">M1: Cahier charges validé</text>
+  
+  <circle cx="520" cy="192" r="6" class="milestone"/>
+  <text x="530" y="195" style="fill: #fbbf24; font-size: 9px; font-weight: 600;">M2: Matériel commandé</text>
+  
+  <circle cx="840" cy="252" r="6" class="milestone"/>
+  <text x="850" y="255" style="fill: #fbbf24; font-size: 9px; font-weight: 600;">M3: Interface Flask opérationnelle</text>
+  
+  <circle cx="920" cy="312" r="6" class="milestone"/>
+  <text x="930" y="315" style="fill: #fbbf24; font-size: 9px; font-weight: 600;">M4: Pilote validé</text>
+  
+  <circle cx="1080" cy="372" r="6" class="milestone"/>
+  <text x="1090" y="375" style="fill: #fbbf24; font-size: 9px; font-weight: 600;">M5: Déploiement terminé</text>
+  
+  <!-- Légende -->
+  <rect x="20" y="410" width="15" height="15" rx="2" class="phase-1"/>
+  <text x="40" y="421" class="gantt-date">Phase 1: Analyse</text>
+  
+  <rect x="140" y="410" width="15" height="15" rx="2" class="phase-2"/>
+  <text x="160" y="421" class="gantt-date">Phase 2: Matériel</text>
+  
+  <rect x="270" y="410" width="15" height="15" rx="2" class="phase-3"/>
+  <text x="290" y="421" class="gantt-date">Phase 3: Développement</text>
+  
+  <rect x="410" y="410" width="15" height="15" rx="2" class="phase-4"/>
+  <text x="430" y="421" class="gantt-date">Phase 4: Pilote</text>
+  
+  <rect x="530" y="410" width="15" height="15" rx="2" class="phase-5"/>
+  <text x="550" y="421" class="gantt-date">Phase 5: Rollout</text>
+  
+  <circle cx="667" cy="417" r="5" class="milestone"/>
+  <text x="680" y="421" class="gantt-date">Milestone</text>
+</svg>
