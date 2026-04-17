@@ -190,10 +190,10 @@
       </div>
       <div class="highlight-divider"></div>
       <div class="highlight-card scale-in stagger-2">
-        <ion-icon name="globe-outline" class="hi-icon cyan"></ion-icon>
+        <ion-icon name="server-outline" class="hi-icon cyan"></ion-icon>
         <div>
-          <h3>2 Sites en Production</h3>
-          <p>DÉVELOPPEMENT WEB</p>
+          <h3>Infrastructure IRIS</h3>
+          <p>VIRTUALISATION &amp; RÉSEAU</p>
         </div>
       </div>
       <div class="highlight-divider"></div>
@@ -217,7 +217,7 @@
           <img src="./assets/images/said-photo.jpg" alt="Saïd Ahmed Moussa">
         </div>
         <div class="about-text slide-in-right">
-          <p>Technicien SISR avec une année de terrain — infrastructure réseau, sites en production, et automatisation Windows Server. J'ai administré un parc de 15 postes chez Kiné@dom Nice, déployé deux sites web en production et automatisé une infrastructure Windows Server complète via Vagrant et PowerShell.</p>
+          <p>Technicien SISR avec une année de terrain — infrastructure réseau, virtualisation et automatisation. J'ai administré un parc de 15 postes chez Kiné@dom Nice, déployé une infrastructure réseau complète à l'école IRIS et automatisé un environnement Windows Server via Vagrant et PowerShell.</p>
           <p>Je m'adapte vite, j'adore le défi, et je cherche les environnements où ça casse et où ça se répare. Active Directory, Docker, Keycloak — j'explore, je documente, je livre.</p>
           <div class="about-links">
             <a href="mailto:pro.saidahmed@yahoo.com" class="about-link">
@@ -241,14 +241,14 @@
             <p>Gestion des utilisateurs et des ressources informatiques à l'aide d'Active Directory.</p>
           </div>
           <div class="service-card fade-in-up stagger-2">
-            <div class="service-icon cyan"><ion-icon name="code-slash-outline"></ion-icon></div>
-            <h4>Développement Web</h4>
-            <p>Création de sites web pour des entreprises locales, HTML/CSS/JS sans framework.</p>
+            <div class="service-icon cyan"><ion-icon name="cube-outline"></ion-icon></div>
+            <h4>Virtualisation &amp; Conteneurs</h4>
+            <p>Déploiement d'environnements virtualisés avec VirtualBox, Vagrant, Docker et orchestration.</p>
           </div>
           <div class="service-card fade-in-up stagger-3">
             <div class="service-icon green"><ion-icon name="terminal-outline"></ion-icon></div>
             <h4>Scripting &amp; Automatisation</h4>
-            <p>Automatisation des tâches et optimisation des systèmes via Vagrant et PowerShell.</p>
+            <p>Automatisation des tâches et optimisation des systèmes via Vagrant, PowerShell et Bash.</p>
           </div>
         </div>
       </div>
@@ -323,13 +323,14 @@
                 <li>PowerShell</li>
                 <li>Python 3</li>
                 <li>Bash</li>
-                <li>HTML / CSS / JS</li>
+                <li>YAML / JSON</li>
               </ul>
             </div>
             <div class="arsenal-col">
               <span class="col-label">IAC &amp; VCS</span>
               <ul>
                 <li>Vagrant</li>
+                <li>Docker Compose</li>
                 <li>Git / GitHub</li>
               </ul>
             </div>
@@ -366,7 +367,7 @@
               <div class="tl-card">
                 <h4>BTS SIO SISR</h4>
                 <p class="tl-org">IRIS Mediaschool Nice</p>
-                <p class="tl-desc">Administration systèmes, virtualisation, développement web.</p>
+                <p class="tl-desc">Administration systèmes, virtualisation, conteneurisation et infrastructure réseau.</p>
               </div>
             </div>
             <div class="tl-item reveal">
@@ -398,7 +399,7 @@
               <div class="tl-card">
                 <h4>Technicien Systèmes &amp; Réseaux</h4>
                 <p class="tl-org">Kiné@dom Nice · Alternance</p>
-                <p class="tl-desc">Administration d'un parc de 15 postes, infrastructure réseau, publication des sites web, automatisation des sauvegardes.</p>
+                <p class="tl-desc">Administration d'un parc de 15 postes, infrastructure réseau, déploiement services internes, automatisation des sauvegardes.</p>
               </div>
             </div>
           </div>
@@ -602,7 +603,6 @@
       <div class="filter-bar">
         <button class="filter-btn active" data-filter-btn data-filter="tous">Tous</button>
         <button class="filter-btn" data-filter-btn data-filter="applications">Applications</button>
-        <button class="filter-btn" data-filter-btn data-filter="développement web">Développement web</button>
         <button class="filter-btn" data-filter-btn data-filter="projet personnel">Projet personnel</button>
         <button class="filter-btn" data-filter-btn data-filter="administration système">Administration système</button>
         <button class="filter-btn" data-filter-btn data-filter="infrastructure réseau">Infrastructure réseau</button>
@@ -694,43 +694,23 @@
           </div>
         </div>
 
-        <div class="project-card reveal" data-filter-item data-category="développement web"
-             data-project-title="Kiné@Dom Pro"
-             data-project-category="Développement web"
-             data-project-dates="Mai 2025"
-             data-project-context="Site professionnel de Kiné@dom à destination des kinésithérapeutes (recrutement, informations RH)."
-             data-project-link="https://pro.kineadom.fr/"
-             data-project-link-label="Voir le site"
-             data-project-methods="Recueil des besoins par brief oral, développement HTML/CSS/JS sans framework."
-             data-project-skills="Développer la présence en ligne de l'organisation,Travailler en mode projet,Mettre à disposition des utilisateurs un service informatique,Répondre aux incidents et aux demandes d'assistance et d'évolution"
-             data-project-gantt="./assets/images/gantt-kineadom-pro.svg">
+        <div class="project-card reveal" data-filter-item data-category="infrastructure réseau"
+             data-project-title="Smart Projector IRIS"
+             data-project-category="Infrastructure réseau"
+             data-project-dates="5 jan — 13 fév 2026"
+             data-project-context="Automatisation des vidéoprojecteurs des salles de classe IRIS Nice pour simplifier l'usage quotidien par les formateurs. Problématique : allumage/extinction manuelle chronophage, gestion des sources HDMI complexe, pas de centralisation. Solution : Raspberry Pi 4 + relais pour contrôle alimentation + commutation HDMI automatique. Interface web locale pour contrôle à distance depuis les postes enseignants."
+             data-project-link="./assets/files/smart-projector-iris.pdf"
+             data-project-link-label="Voir la documentation technique"
+             data-project-methods="Phase 1 : Analyse des besoins (10 salles, 3 sources HDMI par salle) → Phase 2 : Choix matériel (Raspberry Pi 4 2GB, module relais 4 canaux, switch HDMI 3→1) → Phase 3 : Développement interface web (Python Flask + GPIO control) → Phase 4 : Déploiement pilote sur 2 salles → Phase 5 : Rollout complet avec documentation formateurs."
+             data-project-skills="Gérer le patrimoine informatique,Mettre à disposition des utilisateurs un service informatique,Travailler en mode projet,Répondre aux incidents et aux demandes d'assistance et d'évolution"
+             data-project-gantt="">
           <div class="project-card-img">
-            <img src="./assets/images/kineadom-pro.png" alt="Kiné@Dom Pro" loading="lazy">
+            <img src="./assets/images/project-smart-projector.png" alt="Smart Projector IRIS" loading="lazy">
           </div>
           <div class="project-card-body">
-            <span class="project-tag">Développement web</span>
-            <h3>Kiné@Dom Pro</h3>
-            <p>Site RH pour les kinésithérapeutes — en production.</p>
-          </div>
-        </div>
-
-        <div class="project-card reveal" data-filter-item data-category="développement web"
-             data-project-title="Kiné@dom"
-             data-project-category="Développement web"
-             data-project-dates="Déc 2024"
-             data-project-context="Site grand public de Kiné@dom à destination des patients (présentation des services, prise de contact)."
-             data-project-link="https://kineadom.fr/"
-             data-project-link-label="Voir le site"
-             data-project-methods="Recueil des besoins par brief oral, développement HTML/CSS/JS sans framework."
-             data-project-skills="Développer la présence en ligne de l'organisation,Travailler en mode projet,Répondre aux incidents et aux demandes d'assistance et d'évolution"
-             data-project-gantt="./assets/images/gantt-kineadom.svg">
-          <div class="project-card-img">
-            <img src="./assets/images/kineadom.png" alt="Kiné@dom" loading="lazy">
-          </div>
-          <div class="project-card-body">
-            <span class="project-tag">Développement web</span>
-            <h3>Kiné@dom</h3>
-            <p>Site grand public pour les patients — en production.</p>
+            <span class="project-tag">Infrastructure réseau</span>
+            <h3>Smart Projector IRIS</h3>
+            <p>Automatisation vidéoprojecteurs via Raspberry Pi — 10 salles équipées.</p>
           </div>
         </div>
 
@@ -1060,16 +1040,96 @@
     <ion-icon name="arrow-down-outline"></ion-icon>
   </button>
 
+  <!-- FOOTER NAVBAR -->
   <footer class="footer">
-    <div class="footer-inner">
-      <span class="footer-initials">SA</span>
-      <p>Saïd Ahmed Moussa · Admin Sys SISR · Nice</p>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/sdjbrl/" target="_blank" rel="noopener"><ion-icon name="logo-linkedin"></ion-icon></a>
-        <a href="https://twitter.com/flrdlsx" target="_blank" rel="noopener"><ion-icon name="logo-twitter"></ion-icon></a>
-        <a href="https://www.instagram.com/ahm_saaid" target="_blank" rel="noopener"><ion-icon name="logo-instagram"></ion-icon></a>
-        <a href="mailto:pro.saidahmed@yahoo.com"><ion-icon name="mail-outline"></ion-icon></a>
+    <div class="footer-container">
+      
+      <!-- Footer Top: Navigation -->
+      <div class="footer-nav">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="footer-initials">SA</span>
+          </div>
+          <div>
+            <h3 class="footer-name">Saïd Ahmed Moussa</h3>
+            <p class="footer-tagline">Administrateur Systèmes & Réseaux</p>
+          </div>
+        </div>
+
+        <nav class="footer-links-grid">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Navigation</h4>
+            <ul class="footer-menu">
+              <li><a href="#apropos" class="footer-link">À propos</a></li>
+              <li><a href="#arsenal" class="footer-link">Arsenal Technique</a></li>
+              <li><a href="#portfolio" class="footer-link">Projets</a></li>
+              <li><a href="#cv" class="footer-link">CV & Parcours</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-col-title">Compétences</h4>
+            <ul class="footer-menu">
+              <li><a href="#arsenal" class="footer-link">Systèmes & Virtualisation</a></li>
+              <li><a href="#arsenal" class="footer-link">Réseau & Services</a></li>
+              <li><a href="#arsenal" class="footer-link">Scripting & Automatisation</a></li>
+              <li><a href="#veille" class="footer-link">Veille Technologique</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-col-title">Contact</h4>
+            <ul class="footer-menu">
+              <li>
+                <a href="mailto:pro.saidahmed@yahoo.com" class="footer-link">
+                  <ion-icon name="mail-outline"></ion-icon>
+                  pro.saidahmed@yahoo.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+33763731976" class="footer-link">
+                  <ion-icon name="call-outline"></ion-icon>
+                  +33 7 63 73 19 76
+                </a>
+              </li>
+              <li>
+                <span class="footer-link">
+                  <ion-icon name="location-outline"></ion-icon>
+                  Nice, France
+                </span>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </div>
+
+      <!-- Footer Bottom: Socials & Copyright -->
+      <div class="footer-bottom">
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/sdjbrl/" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+          <a href="https://github.com/sdjbrl" target="_blank" rel="noopener" class="footer-social-link" aria-label="GitHub">
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+          <a href="https://twitter.com/flrdlsx" target="_blank" rel="noopener" class="footer-social-link" aria-label="Twitter">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+          <a href="https://www.instagram.com/ahm_saaid" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </div>
+        
+        <div class="footer-copyright">
+          <p>&copy; 2026 Saïd Ahmed Moussa. Tous droits réservés.</p>
+          <p class="footer-status">
+            <span class="status-dot"></span>
+            Disponible à l'embauche
+          </p>
+        </div>
+
+      </div>
+
     </div>
   </footer>
 
