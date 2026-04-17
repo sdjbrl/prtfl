@@ -725,27 +725,204 @@
       </div>
     </section>
 
-    <!-- VEILLE -->
+    <!-- VEILLE TECHNOLOGIQUE -->
     <section id="veille" class="section">
       <div class="section-head">
         <h2 class="section-title">Veille Technologique</h2>
-        <span class="section-tag">// DOCKER</span>
+        <span class="section-tag">// STRATÉGIE & ANALYSE</span>
       </div>
-      <div class="veille-intro reveal">
-        <h3>Docker — Conteneurisation &amp; Orchestration</h3>
-        <p>Comment Docker facilite-t-il le déploiement, l'isolation et la portabilité d'une application dans un environnement SISR ?</p>
+
+      <!-- 1. ORGANISATION DE LA VEILLE -->
+      <div class="veille-organization reveal">
+        <h3 class="veille-subtitle">
+          <ion-icon name="telescope-outline"></ion-icon>
+          Organisation de ma Veille
+        </h3>
+        <p class="veille-intro-text">
+          En tant que technicien SISR, ma veille technologique est structurée autour d'outils et de sources ciblées 
+          pour suivre l'évolution des infrastructures, de la virtualisation et de la cybersécurité.
+        </p>
+
+        <!-- Outils de veille -->
+        <div class="veille-tools">
+          <h4 class="veille-tools-title">🔧 Mes Outils de Veille</h4>
+          <div class="tools-grid">
+            <div class="tool-badge reveal">
+              <div class="tool-icon feedly">
+                <ion-icon name="logo-rss"></ion-icon>
+              </div>
+              <div class="tool-info">
+                <strong>Feedly</strong>
+                <span>Agrégateur RSS centralisé</span>
+              </div>
+            </div>
+            <div class="tool-badge reveal">
+              <div class="tool-icon reddit">
+                <ion-icon name="logo-reddit"></ion-icon>
+              </div>
+              <div class="tool-info">
+                <strong>Reddit</strong>
+                <span>r/sysadmin · r/homelab · r/networking</span>
+              </div>
+            </div>
+            <div class="tool-badge reveal">
+              <div class="tool-icon twitter">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </div>
+              <div class="tool-info">
+                <strong>Twitter / X</strong>
+                <span>Experts infra & DevOps</span>
+              </div>
+            </div>
+            <div class="tool-badge reveal">
+              <div class="tool-icon github">
+                <ion-icon name="logo-github"></ion-icon>
+              </div>
+              <div class="tool-info">
+                <strong>GitHub</strong>
+                <span>Repos trending · Release notes</span>
+              </div>
+            </div>
+            <div class="tool-badge reveal">
+              <div class="tool-icon youtube">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </div>
+              <div class="tool-info">
+                <strong>YouTube</strong>
+                <span>NetworkChuck · Learn Linux TV</span>
+              </div>
+            </div>
+            <div class="tool-badge reveal">
+              <div class="tool-icon newsletter">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="tool-info">
+                <strong>Newsletters</strong>
+                <span>TLDR DevOps · Hacker News Digest</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sources principales -->
+        <div class="veille-sources">
+          <h4 class="veille-sources-title">📚 Sources Principales</h4>
+          <div class="sources-list">
+            <div class="source-item reveal">
+              <ion-icon name="globe-outline" class="source-icon"></ion-icon>
+              <div>
+                <strong>Documentation Officielle</strong>
+                <span>Docker Docs, Proxmox Wiki, Cisco DevNet, Microsoft Learn</span>
+              </div>
+            </div>
+            <div class="source-item reveal">
+              <ion-icon name="newspaper-outline" class="source-icon"></ion-icon>
+              <div>
+                <strong>Blogs Techniques</strong>
+                <span>Red Hat Blog, AWS Architecture Blog, Ars Technica</span>
+              </div>
+            </div>
+            <div class="source-item reveal">
+              <ion-icon name="people-outline" class="source-icon"></ion-icon>
+              <div>
+                <strong>Communautés</strong>
+                <span>Stack Overflow, Server Fault, Discord HomeLab</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="veille-timeline">
-        <div class="vt-item reveal"><span class="vt-year">2013</span><div class="vt-card"><h4>Naissance de Docker</h4><p>Conteneurs Linux packagés et distribuables. Adoption massive grâce à la simplicité du format image.</p></div></div>
-        <div class="vt-item reveal"><span class="vt-year">2015</span><div class="vt-card"><h4>Docker Compose</h4><p>Orchestration multi-conteneurs en un fichier YAML — standard pour les environnements de dev et les stacks applicatives.</p></div></div>
-        <div class="vt-item reveal"><span class="vt-year">2017</span><div class="vt-card"><h4>Kubernetes s'impose</h4><p>Orchestration à grande échelle. Docker devient le runtime de base des architectures cloud-native.</p></div></div>
-        <div class="vt-item reveal"><span class="vt-year">2025</span><div class="vt-card"><h4>Standard de l'industrie</h4><p>Présent dans 90 % des offres DevOps/SysAdmin. Focus sur la sécurité supply chain et les registries privés.</p></div></div>
+
+      <!-- 2. SUJETS SURVEILLÉS -->
+      <div class="veille-topics reveal">
+        <h3 class="veille-subtitle">
+          <ion-icon name="pulse-outline"></ion-icon>
+          Sujets Actuellement Surveillés
+        </h3>
+        <p class="veille-topics-intro">
+          Thématiques IT que je suis activement pour rester à jour sur les évolutions du métier.
+        </p>
+        <div class="topics-pills">
+          <span class="topic-pill infrastructure">#Infrastructure</span>
+          <span class="topic-pill cloud">#Cloud</span>
+          <span class="topic-pill cybersecurity">#Cybersécurité</span>
+          <span class="topic-pill virtualization">#Virtualisation</span>
+          <span class="topic-pill containers">#Conteneurs</span>
+          <span class="topic-pill kubernetes">#Kubernetes</span>
+          <span class="topic-pill automation">#Automatisation</span>
+          <span class="topic-pill monitoring">#Supervision</span>
+          <span class="topic-pill networking">#SDN</span>
+          <span class="topic-pill iac">#Infrastructure-as-Code</span>
+          <span class="topic-pill devops">#DevOps</span>
+          <span class="topic-pill windows">#Windows Server</span>
+          <span class="topic-pill linux">#Linux</span>
+          <span class="topic-pill backup">#Backup & DR</span>
+        </div>
       </div>
-      <div class="veille-points">
-        <div class="vp-card reveal"><div class="vp-icon violet"><ion-icon name="cube-outline"></ion-icon></div><h4>Engine, Images &amp; Registries</h4><p>Runtime principal, format d'image immuable, distribution via registries publics ou privés.</p></div>
-        <div class="vp-card reveal"><div class="vp-icon cyan"><ion-icon name="terminal-outline"></ion-icon></div><h4>Docker Compose</h4><p>Déclaration d'infrastructures multi-services en YAML — utilisé en production dans cette veille (stack Prometheus/Loki).</p></div>
-        <div class="vp-card reveal"><div class="vp-icon green"><ion-icon name="globe-outline"></ion-icon></div><h4>Réseau &amp; Isolation</h4><p>Overlay networks, user namespaces, bridges dédiés — isolation inter-conteneurs et inter-étudiants.</p></div>
-        <div class="vp-card reveal"><div class="vp-icon orange"><ion-icon name="shield-outline"></ion-icon></div><h4>Sécurité</h4><p>Scanning d'images, principe de moindre privilège, AppArmor, politiques de registry.</p></div>
+
+      <!-- 3. VEILLE APPROFONDIE : DOCKER -->
+      <div class="veille-deep-dive reveal">
+        <div class="deep-dive-header">
+          <div class="deep-dive-badge">FOCUS ACTUEL</div>
+          <h3>Docker — Conteneurisation & Orchestration</h3>
+          <p>Comment Docker facilite-t-il le déploiement, l'isolation et la portabilité d'une application dans un environnement SISR ?</p>
+        </div>
+
+        <div class="veille-timeline">
+          <div class="vt-item reveal"><span class="vt-year">2013</span><div class="vt-card"><h4>Naissance de Docker</h4><p>Conteneurs Linux packagés et distribuables. Adoption massive grâce à la simplicité du format image.</p></div></div>
+          <div class="vt-item reveal"><span class="vt-year">2015</span><div class="vt-card"><h4>Docker Compose</h4><p>Orchestration multi-conteneurs en un fichier YAML — standard pour les environnements de dev et les stacks applicatives.</p></div></div>
+          <div class="vt-item reveal"><span class="vt-year">2017</span><div class="vt-card"><h4>Kubernetes s'impose</h4><p>Orchestration à grande échelle. Docker devient le runtime de base des architectures cloud-native.</p></div></div>
+          <div class="vt-item reveal"><span class="vt-year">2025</span><div class="vt-card"><h4>Standard de l'industrie</h4><p>Présent dans 90 % des offres DevOps/SysAdmin. Focus sur la sécurité supply chain et les registries privés.</p></div></div>
+        </div>
+
+        <div class="veille-points">
+          <div class="vp-card reveal"><div class="vp-icon violet"><ion-icon name="cube-outline"></ion-icon></div><h4>Engine, Images &amp; Registries</h4><p>Runtime principal, format d'image immuable, distribution via registries publics ou privés.</p></div>
+          <div class="vp-card reveal"><div class="vp-icon cyan"><ion-icon name="terminal-outline"></ion-icon></div><h4>Docker Compose</h4><p>Déclaration d'infrastructures multi-services en YAML — utilisé en production dans cette veille (stack Prometheus/Loki).</p></div>
+          <div class="vp-card reveal"><div class="vp-icon green"><ion-icon name="globe-outline"></ion-icon></div><h4>Réseau &amp; Isolation</h4><p>Overlay networks, user namespaces, bridges dédiés — isolation inter-conteneurs et inter-étudiants.</p></div>
+          <div class="vp-card reveal"><div class="vp-icon orange"><ion-icon name="shield-outline"></ion-icon></div><h4>Sécurité</h4><p>Scanning d'images, principe de moindre privilège, AppArmor, politiques de registry.</p></div>
+        </div>
+      </div>
+
+      <!-- 4. VISION & ANALYSE -->
+      <div class="veille-vision reveal">
+        <h3 class="veille-subtitle">
+          <ion-icon name="bulb-outline"></ion-icon>
+          Vision & Analyse
+        </h3>
+        <div class="vision-content">
+          <div class="vision-block">
+            <h4>🔮 Évolution du Métier</h4>
+            <p>
+              L'administrateur système devient de plus en plus un <strong>architecte d'infrastructure automatisée</strong>. 
+              Les compétences en scripting (PowerShell, Python, Bash) et en Infrastructure-as-Code (Vagrant, Terraform) 
+              ne sont plus optionnelles : elles sont essentielles pour gérer des parcs à échelle.
+            </p>
+          </div>
+          <div class="vision-block">
+            <h4>☁️ Cloud & Hybride</h4>
+            <p>
+              La frontière entre on-premise et cloud s'estompe. Les entreprises adoptent des <strong>architectures hybrides</strong>, 
+              nécessitant une double compétence : maîtrise des systèmes physiques/virtuels traditionnels ET compréhension 
+              des services cloud (AWS, Azure, GCP).
+            </p>
+          </div>
+          <div class="vision-block">
+            <h4>🔒 Cybersécurité Intégrée</h4>
+            <p>
+              La sécurité n'est plus une couche ajoutée après coup. Elle doit être <strong>intégrée dès la conception</strong> 
+              (Zero Trust, principe du moindre privilège, micro-segmentation réseau, authentification forte type 802.1X).
+            </p>
+          </div>
+          <div class="vision-block">
+            <h4>🚀 Ma Trajectoire</h4>
+            <p>
+              Mon objectif : devenir un <strong>administrateur systèmes polyvalent</strong> capable de déployer, sécuriser et 
+              superviser des infrastructures complètes (physiques, virtuelles, conteneurisées). Compétences clés : 
+              <code>Windows Server</code>, <code>Linux</code>, <code>Virtualisation</code>, <code>Réseau Cisco</code>, 
+              <code>Docker/K8s</code>, <code>Automatisation</code>, <code>Monitoring</code>.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
