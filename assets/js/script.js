@@ -23,22 +23,31 @@ if (bootScreen) {
     bootTime.textContent = `TIME &nbsp;&nbsp;: ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
   }
 
+  function closeBootScreen() {
+    clearInterval(clock);
+    bootScreen.classList.add('fade-out');
+    setTimeout(() => {
+      if (bootScreen && bootScreen.parentNode) {
+        bootScreen.remove();
+      }
+    }, 700);
+  }
+
   setDate();
   setTime();
   const clock = setInterval(setTime, 1000);
 
   // Apparition des lignes une par une
-  lines.forEach((line, i) => setTimeout(() => line.classList.add('visible'), i * 220));
+  lines.forEach((line, i) => setTimeout(() => line.classList.add('visible'), i * 150));
 
   // Barre de progression
-  setTimeout(() => { progress.style.width = '100%'; }, 150);
+  setTimeout(() => { if (progress) progress.style.width = '100%'; }, 100);
 
-  // Fermeture
-  setTimeout(() => {
-    clearInterval(clock);
-    bootScreen.classList.add('fade-out');
-    setTimeout(() => bootScreen.remove(), 700);
-  }, 3000);
+  // Fermeture rapide (1.5s au lieu de 3s)
+  setTimeout(closeBootScreen, 1500);
+  
+  // Fallback de sécurité : fermeture forcée après 3s max
+  setTimeout(closeBootScreen, 3000);
 }
 
 // ——— Horloge navbar ———
