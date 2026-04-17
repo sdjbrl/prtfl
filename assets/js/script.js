@@ -57,13 +57,31 @@ if (navClock) {
 
 // ——— Navbar : masquer au scroll bas, réafficher au scroll haut ———
 const navbar = document.querySelector('[data-navbar]');
+const topBar = document.querySelector('[data-top-bar]');
 let lastY = window.scrollY;
 
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
-  navbar.classList.toggle('hidden', y > lastY && y > 80);
+  const shouldHide = y > lastY && y > 80;
+  
+  if (topBar) topBar.classList.toggle('hidden', shouldHide);
+  if (navbar) navbar.classList.toggle('hidden', shouldHide);
+  
   lastY = y;
 }, { passive: true });
+
+// ——— Back to top button ———
+const backToTop = document.querySelector('[data-back-to-top]');
+
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 // ——— Navigation mobile ———
 const navToggle = document.querySelector('[data-nav-toggle]');
