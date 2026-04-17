@@ -438,9 +438,9 @@ let ticking = false;
 let scrollY = window.pageYOffset;
 
 const parallaxElements = [
-  { selector: '.hero', speed: 0.3 },
-  { selector: '.highlights', speed: 0.15 },
-  { selector: '.about-photo img', speed: 0.5 },
+  { selector: '.hero', speed: 0.08 },      // Réduit de 0.3 → 0.08 (très subtil)
+  { selector: '.highlights', speed: 0.05 }, // Réduit de 0.15 → 0.05 (ultra subtil)
+  { selector: '.about-photo img', speed: 0.12 }, // Réduit de 0.5 → 0.12 (subtil)
 ];
 
 function updateParallax() {
