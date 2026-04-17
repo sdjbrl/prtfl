@@ -353,33 +353,6 @@ const animatedElements = document.querySelectorAll(
 animatedElements.forEach(el => scrollObserver.observe(el));
 
 // ============================================================
-// PARALLAX SUBTIL (optionnel)
-// ============================================================
-const parallaxElements = document.querySelectorAll('.parallax');
-
-if (parallaxElements.length > 0) {
-  let ticking = false;
-  
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const scrolled = window.pageYOffset;
-        
-        parallaxElements.forEach(el => {
-          const speed = el.dataset.speed || 0.5;
-          const yPos = -(scrolled * speed);
-          el.style.transform = `translateY(${yPos}px)`;
-        });
-        
-        ticking = false;
-      });
-      
-      ticking = true;
-    }
-  });
-}
-
-// ============================================================
 // HOVER GLOW EFFECT - Suivi de souris
 // ============================================================
 const glowCards = document.querySelectorAll('.glow-card');
