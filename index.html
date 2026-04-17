@@ -322,10 +322,33 @@
           <ion-icon name="document-outline"></ion-icon>
           Télécharger le CV
         </a>
-        <a href="./assets/files/tableau-synthese-e5.pdf" target="_blank" rel="noopener" download class="btn btn-ghost">
-          <ion-icon name="document-text-outline"></ion-icon>
-          Télécharger le tableau de synthèse E5
-        </a>
+      </div>
+
+      <!-- Tableau de Synthèse E6 en iframe -->
+      <div class="cv-iframe-container reveal">
+        <div class="cv-iframe-header">
+          <h3>
+            <ion-icon name="document-text-outline"></ion-icon>
+            Tableau de Synthèse E6
+          </h3>
+          <a href="./assets/files/tableau-synthese-e5.pdf" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+            <ion-icon name="download-outline"></ion-icon>
+            Télécharger
+          </a>
+        </div>
+        <iframe 
+          src="./assets/files/tableau-synthese-e5.pdf" 
+          class="cv-iframe"
+          title="Tableau de Synthèse E6"
+          loading="lazy">
+        </iframe>
+        <div class="cv-iframe-fallback">
+          <p>
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            Votre navigateur ne peut pas afficher le PDF. 
+            <a href="./assets/files/tableau-synthese-e5.pdf" target="_blank" rel="noopener">Cliquez ici pour le télécharger</a>
+          </p>
+        </div>
       </div>
     </section>
 
@@ -333,14 +356,168 @@
     <section id="portfolio" class="section">
       <div class="section-head">
         <h2 class="section-title">Projets</h2>
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter-btn data-filter="tous">Tous</button>
-          <button class="filter-btn" data-filter-btn data-filter="applications">Applications</button>
-          <button class="filter-btn" data-filter-btn data-filter="développement web">Développement web</button>
-          <button class="filter-btn" data-filter-btn data-filter="projet personnel">Projet personnel</button>
-          <button class="filter-btn" data-filter-btn data-filter="administration système">Administration système</button>
-          <button class="filter-btn" data-filter-btn data-filter="infrastructure réseau">Infrastructure réseau</button>
+        <span class="section-tag">// PROBLÉMATIQUES IT RÉSOLUES</span>
+      </div>
+
+      <!-- Project: Infrastructure IRIS (Format PSR) -->
+      <div class="project-psr reveal">
+        <div class="psr-header">
+          <div class="psr-header-left">
+            <div class="psr-icon">
+              <ion-icon name="server-outline"></ion-icon>
+            </div>
+            <div>
+              <h3 class="psr-title">Infrastructure Réseau & Virtualisation — IRIS Nice</h3>
+              <div class="psr-meta">
+                <span class="psr-meta-item">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  24 – 28 fév 2026
+                </span>
+                <span class="psr-meta-item">
+                  <ion-icon name="people-outline"></ion-icon>
+                  Binôme (Tiago QUENETTE)
+                </span>
+                <span class="psr-meta-item">
+                  <ion-icon name="pricetag-outline"></ion-icon>
+                  50 000 € budget
+                </span>
+              </div>
+            </div>
+          </div>
+          <button class="psr-toggle" data-psr-toggle aria-label="Déplier détails">
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </button>
         </div>
+
+        <div class="psr-body">
+          <!-- PROBLÉMATIQUE -->
+          <div class="psr-section psr-problem">
+            <div class="psr-section-head">
+              <div class="psr-badge problem">
+                <ion-icon name="alert-circle-outline"></ion-icon>
+                PROBLÉMATIQUE
+              </div>
+            </div>
+            <div class="psr-content">
+              <p><strong>École IRIS Nice</strong> — Première promotion BTS SIO (SISR + SLAM). <strong>Aucune infrastructure de TP</strong> en place.</p>
+              <ul class="psr-list">
+                <li><ion-icon name="close-circle"></ion-icon> Pas d'environnement de virtualisation pour pratique</li>
+                <li><ion-icon name="close-circle"></ion-icon> Pas d'accès réseau sécurisé et tracé par étudiant</li>
+                <li><ion-icon name="close-circle"></ion-icon> Besoin de VMs pour SISR + conteneurs pour SLAM</li>
+                <li><ion-icon name="close-circle"></ion-icon> Budget limité : 50 000 € TTC max</li>
+                <li><ion-icon name="close-circle"></ion-icon> Délai serré : 5 jours de déploiement</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- SOLUTION -->
+          <div class="psr-section psr-solution">
+            <div class="psr-section-head">
+              <div class="psr-badge solution">
+                <ion-icon name="construct-outline"></ion-icon>
+                SOLUTION DÉPLOYÉE
+              </div>
+            </div>
+            <div class="psr-content">
+              <div class="psr-grid">
+                <div class="psr-grid-item">
+                  <h4><ion-icon name="hardware-chip-outline"></ion-icon> Hyperviseur</h4>
+                  <p><strong>KVM natif</strong> (vs Proxmox/VMware/XCP-ng)</p>
+                  <p class="psr-why">Exposition des couches virsh/libvirt/QEMU pour apprentissage SISR</p>
+                </div>
+                <div class="psr-grid-item">
+                  <h4><ion-icon name="git-network-outline"></ion-icon> Réseau</h4>
+                  <p><strong>5 VLANs Cisco</strong> + routage inter-VLAN</p>
+                  <p class="psr-why">Catalyst 2960-S + Cisco 1941W + WiFi EWC C9105AXI-E</p>
+                </div>
+                <div class="psr-grid-item">
+                  <h4><ion-icon name="lock-closed-outline"></ion-icon> Authentification</h4>
+                  <p><strong>802.1X + FreeRADIUS + LDAP</strong></p>
+                  <p class="psr-why">Attribution VLAN dynamique par groupe étudiant</p>
+                </div>
+                <div class="psr-grid-item">
+                  <h4><ion-icon name="desktop-outline"></ion-icon> Virtualisation</h4>
+                  <p><strong>WebVirtCloud RBAC</strong></p>
+                  <p class="psr-why">Portail par étudiant + 60 VMs SISR (WS2022 + Debian 12)</p>
+                </div>
+                <div class="psr-grid-item">
+                  <h4><ion-icon name="logo-docker"></ion-icon> Conteneurs</h4>
+                  <p><strong>Docker CE + Dockhand</strong></p>
+                  <p class="psr-why">Environnement dev pour promotion SLAM</p>
+                </div>
+                <div class="psr-grid-item">
+                  <h4><ion-icon name="shield-checkmark-outline"></ion-icon> Sécurité</h4>
+                  <p><strong>nwfilter + AppArmor + BorgBackup</strong></p>
+                  <p class="psr-why">Anti-spoofing IP/MAC + snapshots + backups nightly</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RÉSULTAT -->
+          <div class="psr-section psr-result">
+            <div class="psr-section-head">
+              <div class="psr-badge result">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                RÉSULTAT & IMPACT
+              </div>
+            </div>
+            <div class="psr-content">
+              <div class="psr-stats">
+                <div class="psr-stat">
+                  <div class="psr-stat-value">60</div>
+                  <div class="psr-stat-label">VMs SISR déployées</div>
+                </div>
+                <div class="psr-stat">
+                  <div class="psr-stat-value">5</div>
+                  <div class="psr-stat-label">VLANs Cisco configurés</div>
+                </div>
+                <div class="psr-stat">
+                  <div class="psr-stat-value">37 356 €</div>
+                  <div class="psr-stat-label">Budget consommé TTC</div>
+                </div>
+                <div class="psr-stat success">
+                  <div class="psr-stat-value">12 644 €</div>
+                  <div class="psr-stat-label">Économie réalisée</div>
+                </div>
+              </div>
+              <div class="psr-deliverables">
+                <h4>📦 Livrables</h4>
+                <div class="psr-tags">
+                  <span class="psr-tag">7 protocoles de tests de recette</span>
+                  <span class="psr-tag">5 documents techniques (DOC-01 à 05)</span>
+                  <span class="psr-tag">Architecture réseau complète</span>
+                  <span class="psr-tag">Guide d'exploitation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTIONS -->
+          <div class="psr-actions">
+            <a href="./assets/images/gantt-infrastructure-iris.svg" target="_blank" class="btn btn-ghost">
+              <ion-icon name="document-outline"></ion-icon>
+              Voir le Gantt
+            </a>
+            <button class="btn btn-primary" data-open-modal>
+              <ion-icon name="information-circle-outline"></ion-icon>
+              Détails complets
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-section">
+        <span class="divider-text">AUTRES PROJETS</span>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter-btn data-filter="tous">Tous</button>
+        <button class="filter-btn" data-filter-btn data-filter="applications">Applications</button>
+        <button class="filter-btn" data-filter-btn data-filter="développement web">Développement web</button>
+        <button class="filter-btn" data-filter-btn data-filter="projet personnel">Projet personnel</button>
+        <button class="filter-btn" data-filter-btn data-filter="administration système">Administration système</button>
+        <button class="filter-btn" data-filter-btn data-filter="infrastructure réseau">Infrastructure réseau</button>
       </div>
 
       <!-- Featured: Windows Server -->

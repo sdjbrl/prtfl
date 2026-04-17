@@ -277,6 +277,28 @@ if (sectionNavBtn) {
   window.addEventListener('scroll', updateNavBtn, { passive: true });
 }
 
+// ——— PSR Accordion (Problématique-Solution-Résultat) ———
+const psrToggles = document.querySelectorAll('[data-psr-toggle]');
+
+psrToggles.forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const psr = toggle.closest('.project-psr');
+    const body = psr.querySelector('.psr-body');
+    const isOpen = body.classList.contains('open');
+    
+    // Toggle l'accordéon
+    body.classList.toggle('open');
+    toggle.classList.toggle('open');
+    
+    // Animation smooth
+    if (!isOpen) {
+      body.style.maxHeight = body.scrollHeight + 'px';
+    } else {
+      body.style.maxHeight = '0';
+    }
+  });
+});
+
 // ——— Drawer PDF tableau de synthèse ———
 const pdfDrawer = document.querySelector('[data-pdf-drawer]');
 if (pdfDrawer) {
