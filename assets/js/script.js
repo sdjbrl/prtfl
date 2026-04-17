@@ -319,3 +319,94 @@ if (pdfDrawer) {
     });
   }
 }
+
+// ============================================================
+// SCROLL ANIMATIONS - Intersection Observer
+// ============================================================
+
+// Configuration de l'observer
+const observerOptions = {
+  threshold: 0.1, // 10% de l'élément visible
+  rootMargin: '0px 0px -100px 0px' // Trigger 100px avant le bottom
+};
+
+// Callback quand un élément devient visible
+const handleIntersection = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Option: unobserve après animation (performance)
+      // observer.unobserve(entry.target);
+    }
+  });
+};
+
+// Créer l'observer
+const scrollObserver = new IntersectionObserver(handleIntersection, observerOptions);
+
+// Sélectionner tous les éléments à animer
+const animatedElements = document.querySelectorAll(
+  '.fade-in-up, .fade-in, .slide-in-left, .slide-in-right, .scale-in, .animate-on-scroll'
+);
+
+// Observer chaque élément
+animatedElements.forEach(el => scrollObserver.observe(el));
+
+// ============================================================
+// PARALLAX SUBTIL (optionnel)
+// ============================================================
+const parallaxElements = document.querySelectorAll('.parallax');
+
+if (parallaxElements.length > 0) {
+  let ticking = false;
+  
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+        
+        parallaxElements.forEach(el => {
+          const speed = el.dataset.speed || 0.5;
+          const yPos = -(scrolled * speed);
+          el.style.transform = `translateY(${yPos}px)`;
+        });
+        
+        ticking = false;
+      });
+      
+      ticking = true;
+    }
+  });
+}
+
+// ============================================================
+// HOVER GLOW EFFECT - Suivi de souris
+// ============================================================
+const glowCards = document.querySelectorAll('.glow-card');
+
+glowCards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  });
+});
+
+// ============================================================
+// PRELOAD OPTIMIZATION
+// ============================================================
+// Lazy load des images (si besoin)
+if ('loading' in HTMLImageElement.prototype) {
+  const images = document.querySelectorAll('img[loading="lazy"]');
+  images.forEach(img => {
+    img.src = img.dataset.src || img.src;
+  });
+} else {
+  // Fallback pour navigateurs anciens
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js';
+  document.body.appendChild(script);
+}

@@ -1,0 +1,13 @@
+# robots.txt - Portfolio Saïd Ahmed Moussa
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sdjbrl.me/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 0
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /.git/
