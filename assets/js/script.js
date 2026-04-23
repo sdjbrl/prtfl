@@ -64,6 +64,19 @@ if (navClock) {
   setInterval(updateNavClock, 1000);
 }
 
+// ——— Barre de progression de lecture ———
+const readingProgress = document.getElementById('reading-progress');
+if (readingProgress) {
+  function updateReadingProgress() {
+    const scrollTop  = window.scrollY;
+    const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+    const pct        = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+    readingProgress.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateReadingProgress, { passive: true });
+  updateReadingProgress();
+}
+
 // ——— Navbar : masquer au scroll bas, réafficher au scroll haut ———
 const navbar = document.querySelector('[data-navbar]');
 const topBar = document.querySelector('[data-top-bar]');
@@ -287,15 +300,16 @@ if (form && formBtn) {
 // ——— Bouton section suivante ———
 const sectionNavBtn   = document.getElementById('section-nav-btn');
 const sectionNavLabel = document.getElementById('section-nav-label');
-const SECTIONS = ['hero', 'apropos', 'arsenal', 'cv', 'portfolio', 'veille', 'contact'];
+const SECTIONS = ['hero', 'apropos', 'arsenal', 'cv', 'competences-bts', 'portfolio', 'veille', 'contact'];
 const SECTION_LABELS = {
-  hero:      'À propos',
-  apropos:   'Arsenal',
-  arsenal:   'Parcours',
-  cv:        'Projets',
-  portfolio: 'Veille',
-  veille:    'Contact',
-  contact:   'Haut de page',
+  hero:             'À propos',
+  apropos:          'Arsenal',
+  arsenal:          'Parcours',
+  cv:               'Compétences BTS',
+  'competences-bts':'Projets',
+  portfolio:        'Veille',
+  veille:           'Contact',
+  contact:          'Haut de page',
 };
 
 if (sectionNavBtn) {

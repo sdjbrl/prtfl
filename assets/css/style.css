@@ -316,6 +316,19 @@ h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
 ::selection { background: var(--violet); color: #fff; }
 :focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
 
+/* ── Reading progress bar ── */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  z-index: 9999;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
 /* ============================================================
    TOP BAR
 ============================================================ */
