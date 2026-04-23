@@ -38,6 +38,19 @@
     .doc-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:32px; }
     .doc-btn { display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:6px;font-size:.85rem;font-family:'JetBrains Mono',monospace;text-decoration:none;transition:opacity .2s;border:1px solid var(--cyan);color:var(--cyan); }
     .doc-btn:hover { opacity:.75; }
+    .risk-table { width:100%;border-collapse:collapse;font-size:.875rem; }
+    .risk-table th { text-align:left;padding:10px 14px;background:rgba(0,188,212,.08);border:1px solid var(--border);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .risk-table td { padding:10px 14px;border:1px solid var(--border);color:var(--text-secondary);vertical-align:top; }
+    .risk-table tr:nth-child(even) td { background:rgba(255,255,255,.02); }
+    .badge-risk { display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .badge-h { background:rgba(239,83,80,.15);color:#ef5350; }
+    .badge-m { background:rgba(255,152,0,.15);color:#ff9800; }
+    .badge-l { background:rgba(76,175,80,.15);color:#4caf50; }
+    .pra-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:16px; }
+    .pra-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px; }
+    .pra-label { font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px; }
+    .pra-value { font-size:1.25rem;font-weight:700;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:4px; }
+    .pra-desc { font-size:.8rem;color:var(--text-secondary);line-height:1.5; }
   </style>
 </head>
 <body>
@@ -60,17 +73,19 @@
     <a href="../index.html#portfolio" class="doc-back">← Retour aux projets</a>
 
     <div class="doc-hero">
-      <p class="doc-category">// Applications — Projet scolaire inter-filière</p>
+      <p class="doc-category">// Infrastructure réseau — Semaine intensive inter-filière</p>
       <h1>ClassCord</h1>
-      <p class="doc-dates">📅 2024 — 2025</p>
+      <p class="doc-dates">📅 Semaine intensive — Jan 2025</p>
     </div>
 
     <!-- DOCUMENTATION -->
     <div class="doc-section">
       <h2 class="doc-section-title">Documentation technique</h2>
       <div class="doc-text">
-        <p>Projet scolaire réalisé à IRIS Mediaschool Nice en réponse à une demande client : déploiement d'un serveur de chat local permettant à des clients de se connecter, converser et échanger des fichiers en réseau interne. Les étudiants SISR ont pris en charge la configuration et l'administration des machines serveurs, les étudiants SLAM ont développé les machines clientes. Travail en mode projet inter-filière.</p>
-        <p>Approche incrémentale sur 5 jours avec livraison quotidienne, versionnement Git obligatoire. SISR : configuration serveur, réseau, administration. SLAM : développement clients. Intégration continue entre les deux filières pour les tests en réseau interne.</p>
+        <p>Semaine intensive inter-filière à IRIS Mediaschool Nice. Mission SISR : déployer, sécuriser et administrer un serveur de tchat TCP/IP Python multi-clients accessible aux étudiants SLAM depuis le réseau pédagogique interne. Les étudiants SLAM ont développé les clients Java ; notre rôle SISR était exclusivement côté infrastructure serveur.</p>
+        <p><strong style="color:var(--text-primary)">Architecture réseau :</strong> Le serveur Python tourne sur une VM Linux Debian (192.168.x.x) hébergée sur le poste hôte SISR (10.0.108.42). Une règle NAT est configurée sur l'hôte pour que les connexions entrantes sur 10.0.108.42:12345 soient redirigées vers la VM. Les clients SLAM (ex : 10.0.108.34) se connectent à l'IP de l'hôte physique sans connaissance de la VM.</p>
+        <p><strong style="color:var(--text-primary)">Stack technique :</strong> Python 3 (sockets TCP, port 12345, multi-threads) — Docker &amp; docker-compose (image portable reproductible) — systemd (service <code>classcord.service</code>, user système dédié, <code>Restart=on-failure</code>) — SQLite (persistance utilisateurs + messages horodatés) — fail2ban (filtre connexions anormales) — UFW/iptables (whitelist réseau pédagogique) — rsyslog + logrotate (logs applicatifs centralisés).</p>
+        <p><strong style="color:var(--text-primary)">Organisation 5 jours :</strong> J1 : déploiement local + tests 2 clients · J2 : exposition réseau (NAT), Docker, systemd, <code>doc_connexion.md</code> · J3 : sécurité active (fail2ban, UFW, sauvegardes cron horaires) · J4 : évolutions fonctionnelles (canaux JSON #général/#dev/#admin, SQLite, messages système) · J5 : démo croisée SISR/SLAM, finalisation dépôt GitHub, fiche RP.</p>
       </div>
     </div>
 
@@ -78,8 +93,11 @@
     <div class="doc-section">
       <h2 class="doc-section-title">Compétences BTS SIO SISR mobilisées</h2>
       <div class="doc-tags">
-        <span class="doc-tag">Gérer le patrimoine informatique</span>
-        <span class="doc-tag">Travailler en mode projet</span>
+        <span class="doc-tag">Déploiement et administration d'un service réseau</span>
+        <span class="doc-tag">Sécurisation d'un service (fail2ban, UFW, logs)</span>
+        <span class="doc-tag">Virtualisation et containerisation (Docker)</span>
+        <span class="doc-tag">Automatisation système (systemd, cron)</span>
+        <span class="doc-tag">Travailler en mode projet inter-filière</span>
         <span class="doc-tag">Mettre à disposition des utilisateurs un service informatique</span>
       </div>
     </div>
@@ -88,10 +106,13 @@
     <div class="doc-section">
       <h2 class="doc-section-title">Livrables</h2>
       <ul class="livrable-list">
-        <li>Serveur de chat déployé et opérationnel</li>
-        <li>Configuration réseau documentée</li>
-        <li>Rapport de projet (présentation J5)</li>
-        <li>Dépôt Git versionné</li>
+        <li>Serveur Python TCP multi-clients opérationnel (port 12345, service systemd actif)</li>
+        <li>Image Docker déployable (<code>docker-compose up</code>)</li>
+        <li>Service systemd <code>classcord.service</code> avec redémarrage automatique</li>
+        <li>Sécurisation : fail2ban configuré, UFW whitelist, logs rsyslog centralisés</li>
+        <li>Sauvegarde automatique SQLite via cron (toutes les heures)</li>
+        <li>Documentation d'accès client (<code>doc_connexion.md</code> — IP, port, schéma NAT)</li>
+        <li>Dépôt GitHub avec commits quotidiens et README complet</li>
       </ul>
     </div>
 
@@ -99,9 +120,12 @@
     <div class="doc-section">
       <h2 class="doc-section-title">Critères d'évaluation</h2>
       <div class="critere-grid">
-        <div class="critere-card">Connexion multi-clients fonctionnelle en réseau interne</div>
-        <div class="critere-card">Échange de messages et fichiers opérationnel</div>
-        <div class="critere-card">Collaboration SISR (infra) + SLAM (clients) effective</div>
+        <div class="critere-card">2+ clients SLAM connectés simultanément depuis le réseau pédagogique</div>
+        <div class="critere-card">Service systemd actif et redémarrage automatique validé</div>
+        <div class="critere-card">fail2ban opérationnel (tentatives bloquées journalisées)</div>
+        <div class="critere-card">Image Docker fonctionnelle (docker-compose up)</div>
+        <div class="critere-card">Sauvegarde SQLite automatique (cron horaire)</div>
+        <div class="critere-card">README et doc_connexion.md accessibles et complets</div>
       </div>
     </div>
 
@@ -109,7 +133,68 @@
     <div class="doc-section">
       <h2 class="doc-section-title">Modalités de clôture</h2>
       <div class="doc-text">
-        <p>Livraison quotidienne (J1→J5). Démonstration en conditions réelles J5. Remise du rapport de projet.</p>
+        <p>Démonstration J5 avec au moins 2 clients Java SLAM connectés simultanément. Présentation de la sécurité (fail2ban actif, logs, UFW), des mécanismes de disponibilité (systemd restart automatique), et des livrables (image Docker, dépôt GitHub, fiche RP). Livraison quotidienne validée (J1→J5) par commits Git datés.</p>
+      </div>
+    </div>
+
+    <!-- GESTION DES RISQUES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Gestion des risques</h2>
+      <table class="risk-table">
+        <thead>
+          <tr><th>Risque identifié</th><th>Probabilité</th><th>Impact</th><th>Mesure de mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Incompatibilité protocole client Java / serveur Python</td>
+            <td><span class="badge-risk badge-h">Élevée</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Tests croisés quotidiens dès J1 avec le client de référence du formateur</td>
+          </tr>
+          <tr>
+            <td>Indisponibilité de la redirection NAT (réseau pédagogique)</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Documentation d'un port de secours + coordination formateur J2 pour validation NAT</td>
+          </tr>
+          <tr>
+            <td>Crash serveur Python (exception non gérée, déconnexion brutale client)</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>systemd <code>Restart=on-failure</code> + journalisation complète des exceptions Python</td>
+          </tr>
+          <tr>
+            <td>Attaque brute-force ou connexions malveillantes sur port 12345</td>
+            <td><span class="badge-risk badge-l">Faible</span></td>
+            <td><span class="badge-risk badge-m">Moyen</span></td>
+            <td>fail2ban (filtre connexions anormales) + UFW whitelist sur le sous-réseau pédagogique</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PRA / PCA -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">PRA / PCA</h2>
+      <div class="pra-grid">
+        <div class="pra-card">
+          <div class="pra-label">RTO</div>
+          <div class="pra-value">&lt; 2 min</div>
+          <div class="pra-desc">Redémarrage automatique via systemd <code>Restart=on-failure</code></div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">RPO</div>
+          <div class="pra-value">1 heure</div>
+          <div class="pra-desc">Sauvegarde SQLite via cron toutes les heures</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">Reprise manuelle</div>
+          <div class="pra-value">Docker</div>
+          <div class="pra-desc"><code>docker-compose up -d</code> — redéploiement complet en &lt; 5 min sur tout hôte Linux</div>
+        </div>
+      </div>
+      <div class="doc-text">
+        <p>La stratégie de continuité repose sur trois niveaux : (1) redémarrage automatique du service systemd sans intervention humaine ; (2) restauration des données depuis la dernière sauvegarde cron en moins de 2 minutes ; (3) redéploiement complet via <code>docker-compose up</code> sur tout hôte Linux en moins de 5 minutes, garantissant la portabilité du service.</p>
       </div>
     </div>
 

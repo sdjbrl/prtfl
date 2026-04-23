@@ -38,6 +38,19 @@
     .doc-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:32px; }
     .doc-btn { display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:6px;font-size:.85rem;font-family:'JetBrains Mono',monospace;text-decoration:none;transition:opacity .2s;border:1px solid var(--cyan);color:var(--cyan); }
     .doc-btn:hover { opacity:.75; }
+    .risk-table { width:100%;border-collapse:collapse;font-size:.875rem; }
+    .risk-table th { text-align:left;padding:10px 14px;background:rgba(0,188,212,.08);border:1px solid var(--border);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .risk-table td { padding:10px 14px;border:1px solid var(--border);color:var(--text-secondary);vertical-align:top; }
+    .risk-table tr:nth-child(even) td { background:rgba(255,255,255,.02); }
+    .badge-risk { display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .badge-h { background:rgba(239,83,80,.15);color:#ef5350; }
+    .badge-m { background:rgba(255,152,0,.15);color:#ff9800; }
+    .badge-l { background:rgba(76,175,80,.15);color:#4caf50; }
+    .pra-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:16px; }
+    .pra-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px; }
+    .pra-label { font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px; }
+    .pra-value { font-size:1.25rem;font-weight:700;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:4px; }
+    .pra-desc { font-size:.8rem;color:var(--text-secondary);line-height:1.5; }
   </style>
 </head>
 <body>
@@ -112,6 +125,67 @@
       <h2 class="doc-section-title">Modalités de clôture</h2>
       <div class="doc-text">
         <p>Recette sur 2 salles pilotes (Phase 4). Validation formateurs. Déploiement complet sur 10 salles (Phase 5). Documentation technique remise.</p>
+      </div>
+    </div>
+
+    <!-- GESTION DES RISQUES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Gestion des risques</h2>
+      <table class="risk-table">
+        <thead>
+          <tr><th>Risque identifié</th><th>Probabilité</th><th>Impact</th><th>Mesure de mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Panne du Raspberry Pi (surchauffe, alimentation défectueuse)</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Boîtier ventilé + alimentation officielle + image SD de remplacement prête à flasher en &lt; 10 min</td>
+          </tr>
+          <tr>
+            <td>Incompatibilité GPIO — relais activé sans commande (sécurité électrique)</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Tests de câblage sur banc avant installation en salle + état par défaut des relais sur OFF (NO)</td>
+          </tr>
+          <tr>
+            <td>Interface web inaccessible (réseau WiFi instable en salle)</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-m">Moyen</span></td>
+            <td>Connexion Ethernet filaire du Raspberry Pi au réseau IRIS + adresse IP statique documentée</td>
+          </tr>
+          <tr>
+            <td>Non-adoption par les formateurs (complexité interface)</td>
+            <td><span class="badge-risk badge-l">Faible</span></td>
+            <td><span class="badge-risk badge-m">Moyen</span></td>
+            <td>Interface réduite à 3 boutons (ON/OFF/Source) + guide formateurs d'une page distribué en salle</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PRA / PCA -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">PRA / PCA</h2>
+      <div class="pra-grid">
+        <div class="pra-card">
+          <div class="pra-label">RTO</div>
+          <div class="pra-value">&lt; 10 min</div>
+          <div class="pra-desc">Flash de la carte SD de remplacement + redémarrage Raspberry Pi</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">RPO</div>
+          <div class="pra-value">N/A</div>
+          <div class="pra-desc">Pas de données persistantes critiques — scripts Python versionnés sur Git</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">Fallback manuel</div>
+          <div class="pra-value">Physique</div>
+          <div class="pra-desc">En cas de panne totale, les projecteurs restent utilisables manuellement via télécommande IR</div>
+        </div>
+      </div>
+      <div class="doc-text">
+        <p>Le code source (Flask + scripts GPIO) est versionné sur Git, permettant un redéploiement depuis zéro sur tout Raspberry Pi 4 en moins de 10 minutes (flash SD + <code>git clone</code> + <code>systemctl start projector</code>). En cas de panne totale du système, les projecteurs restent utilisables manuellement via télécommandes IR, garantissant la continuité pédagogique.</p>
       </div>
     </div>
 

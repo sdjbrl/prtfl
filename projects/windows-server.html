@@ -38,6 +38,19 @@
     .doc-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:32px; }
     .doc-btn { display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:6px;font-size:.85rem;font-family:'JetBrains Mono',monospace;text-decoration:none;transition:opacity .2s;border:1px solid var(--cyan);color:var(--cyan); }
     .doc-btn:hover { opacity:.75; }
+    .risk-table { width:100%;border-collapse:collapse;font-size:.875rem; }
+    .risk-table th { text-align:left;padding:10px 14px;background:rgba(0,188,212,.08);border:1px solid var(--border);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .risk-table td { padding:10px 14px;border:1px solid var(--border);color:var(--text-secondary);vertical-align:top; }
+    .risk-table tr:nth-child(even) td { background:rgba(255,255,255,.02); }
+    .badge-risk { display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .badge-h { background:rgba(239,83,80,.15);color:#ef5350; }
+    .badge-m { background:rgba(255,152,0,.15);color:#ff9800; }
+    .badge-l { background:rgba(76,175,80,.15);color:#4caf50; }
+    .pra-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:16px; }
+    .pra-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px; }
+    .pra-label { font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px; }
+    .pra-value { font-size:1.25rem;font-weight:700;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:4px; }
+    .pra-desc { font-size:.8rem;color:var(--text-secondary);line-height:1.5; }
   </style>
 </head>
 <body>
@@ -110,6 +123,67 @@
       <h2 class="doc-section-title">Modalités de clôture</h2>
       <div class="doc-text">
         <p>Démonstration via <code>vagrant up</code> (commande unique). Recette complète : ping, DNS, DHCP, jonction domaine, partages, WSUS.</p>
+      </div>
+    </div>
+
+    <!-- GESTION DES RISQUES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Gestion des risques</h2>
+      <table class="risk-table">
+        <thead>
+          <tr><th>Risque identifié</th><th>Probabilité</th><th>Impact</th><th>Mesure de mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vagrant box Windows Server corrompue ou indisponible</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Mirror local de la box Vagrant + box alternative testée (StefanScherer/windows_2019)</td>
+          </tr>
+          <tr>
+            <td>Timeout WinRM lors du provisioning Vagrant</td>
+            <td><span class="badge-risk badge-h">Élevée</span></td>
+            <td><span class="badge-risk badge-m">Moyen</span></td>
+            <td>Délais WinRM augmentés dans le Vagrantfile + scripts idempotents (relancables sans effet de bord)</td>
+          </tr>
+          <tr>
+            <td>Conflit réseau entre la VM et l'interface hôte</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-m">Moyen</span></td>
+            <td>Plan d'adressage dédié (172.16.x.x) isolé du réseau de l'hôte + mode host-only VirtualBox</td>
+          </tr>
+          <tr>
+            <td>Timeout WSUS lors des mises à jour en réseau restreint</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-l">Faible</span></td>
+            <td>Désactivation de WSUS en environnement hors-prod + documentation du paramètre optionnel</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PRA / PCA -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">PRA / PCA</h2>
+      <div class="pra-grid">
+        <div class="pra-card">
+          <div class="pra-label">RTO</div>
+          <div class="pra-value">&lt; 45 min</div>
+          <div class="pra-desc">Reconstruction complète via <code>vagrant destroy &amp;&amp; vagrant up</code></div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">RPO</div>
+          <div class="pra-value">Intégral</div>
+          <div class="pra-desc">Scripts idempotents = reconstruction depuis zéro sans perte de configuration</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">Snapshot</div>
+          <div class="pra-value">VirtualBox</div>
+          <div class="pra-desc">Snapshot pris après chaque étape clé (AD, DNS, DHCP, GPO) pour restauration ciblée</div>
+        </div>
+      </div>
+      <div class="doc-text">
+        <p>La nature Infrastructure-as-Code (IaC) du projet est en elle-même un PRA : l'ensemble de l'infrastructure est codifiée dans le Vagrantfile et les scripts PowerShell. Toute reconstruction à l'identique est possible en moins de 45 minutes sur n'importe quelle machine disposant de VirtualBox et Vagrant. Les snapshots VirtualBox permettent une restauration ciblée après une étape spécifique.</p>
       </div>
     </div>
 

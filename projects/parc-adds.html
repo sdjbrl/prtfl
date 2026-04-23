@@ -36,9 +36,19 @@
     .gantt-figure img { width:100%;border-radius:8px;border:1px solid var(--border); }
     .gantt-figure figcaption { text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:8px;font-family:'JetBrains Mono',monospace; }
     .doc-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:32px; }
-    .status-badge { display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:rgba(255,165,0,.1);border:1px solid rgba(255,165,0,.3);border-radius:20px;font-size:.75rem;font-family:'JetBrains Mono',monospace;color:#ffa500;margin-left:12px;vertical-align:middle; }
-    .status-badge::before { content:'';width:6px;height:6px;border-radius:50%;background:#ffa500;animation:pulse-orange 2s infinite; }
-    @keyframes pulse-orange { 0%,100%{opacity:1} 50%{opacity:.4} }
+    .risk-table { width:100%;border-collapse:collapse;font-size:.875rem; }
+    .risk-table th { text-align:left;padding:10px 14px;background:rgba(0,188,212,.08);border:1px solid var(--border);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .risk-table td { padding:10px 14px;border:1px solid var(--border);color:var(--text-secondary);vertical-align:top; }
+    .risk-table tr:nth-child(even) td { background:rgba(255,255,255,.02); }
+    .badge-risk { display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .badge-h { background:rgba(239,83,80,.15);color:#ef5350; }
+    .badge-m { background:rgba(255,152,0,.15);color:#ff9800; }
+    .badge-l { background:rgba(76,175,80,.15);color:#4caf50; }
+    .pra-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:16px; }
+    .pra-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px; }
+    .pra-label { font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px; }
+    .pra-value { font-size:1.25rem;font-weight:700;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:4px; }
+    .pra-desc { font-size:.8rem;color:var(--text-secondary);line-height:1.5; }
   </style>
 </head>
 <body>
@@ -62,8 +72,8 @@
 
     <div class="doc-hero">
       <p class="doc-category">// Administration système — Projet personnel</p>
-      <h1>Parc AD DS <span class="status-badge">En cours</span></h1>
-      <p class="doc-dates">📅 Avr 2025 — En cours</p>
+      <h1>Parc AD DS</h1>
+      <p class="doc-dates">📅 Avr 2025 — Juil 2025</p>
     </div>
 
     <!-- DOCUMENTATION -->
@@ -111,7 +121,68 @@
     <div class="doc-section">
       <h2 class="doc-section-title">Modalités de clôture</h2>
       <div class="doc-text">
-        <p>Projet en cours — mise à jour continue au fil des évolutions. Documentation personnelle maintenue.</p>
+        <p>Projet terminé — domaine Active Directory opérationnel, GPO appliquées par profil (parents/enfants), partages réseau fonctionnels. Documentation personnelle finalisée et scripts PowerShell versionnés. Recette finale : connexion des postes au domaine validée, application des GPO vérifiée par profil, accès aux partages contrôlés.</p>
+      </div>
+    </div>
+
+    <!-- GESTION DES RISQUES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Gestion des risques</h2>
+      <table class="risk-table">
+        <thead>
+          <tr><th>Risque identifié</th><th>Probabilité</th><th>Impact</th><th>Mesure de mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Corruption de la base AD DS (mauvaise manipulation, crash VM)</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Snapshots VirtualBox avant chaque modification critique + AD Recycle Bin activé</td>
+          </tr>
+          <tr>
+            <td>Conflit DHCP entre le contrôleur de domaine et la box internet</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-m">Moyen</span></td>
+            <td>Adresses IP statiques attribuées au DC, DHCP Windows Server configuré sur plage dédiée</td>
+          </tr>
+          <tr>
+            <td>GPO mal configurée bloquant l'accès aux postes</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Tests sur une OU de test dédiée avant déploiement sur les OU de production</td>
+          </tr>
+          <tr>
+            <td>Perte de connaissance du mot de passe administrateur local</td>
+            <td><span class="badge-risk badge-l">Faible</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Compte administrateur local distinct du compte de domaine, conservé hors VM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PRA / PCA -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">PRA / PCA</h2>
+      <div class="pra-grid">
+        <div class="pra-card">
+          <div class="pra-label">RTO</div>
+          <div class="pra-value">&lt; 5 min</div>
+          <div class="pra-desc">Restauration du snapshot VirtualBox le plus récent</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">RPO</div>
+          <div class="pra-value">Avant modif</div>
+          <div class="pra-desc">Snapshot pris systématiquement avant chaque opération critique sur l'AD</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">Sauvegarde AD</div>
+          <div class="pra-value">ntdsutil</div>
+          <div class="pra-desc">Export de l'annuaire via <code>ntdsutil</code> pour restauration indépendante de la VM</div>
+        </div>
+      </div>
+      <div class="doc-text">
+        <p>Stratégie de reprise à deux niveaux : restauration rapide via snapshot VirtualBox (RTO &lt; 5 min) pour les incidents courants, et restauration AD via <code>ntdsutil</code> pour les incidents de corruption de la base NTDS. L'AD Recycle Bin est activé pour permettre la restauration d'objets supprimés sans interruption de service.</p>
       </div>
     </div>
 
