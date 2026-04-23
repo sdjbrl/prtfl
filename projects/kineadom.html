@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiné@dom Nice — Alternance SISR | Saïd Ahmed Moussa</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/x-icon" href="../assets/images/logo.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .navbar { top: 0 !important; }
+    .doc-page { max-width: 900px; margin: 72px auto 80px; padding: 0 24px; }
+    .doc-back { display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-decoration:none;font-size:0.9rem;font-family:'JetBrains Mono',monospace;margin-bottom:32px;transition:opacity .2s; }
+    .doc-back:hover { opacity:.7; }
+    .doc-hero { margin-bottom:48px; }
+    .doc-hero .doc-category { font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);margin-bottom:8px; }
+    .doc-hero h1 { font-size:clamp(2rem,5vw,3rem);font-weight:700;margin-bottom:12px; }
+    .doc-hero .doc-dates { color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.85rem; }
+    .doc-section { margin-bottom:48px; }
+    .doc-section-title { font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:20px;display:flex;align-items:center;gap:8px; }
+    .doc-section-title::after { content:'';flex:1;height:1px;background:var(--border); }
+    .doc-text { color:var(--text-secondary);line-height:1.8;font-size:.95rem; }
+    .doc-text p+p { margin-top:12px; }
+    .doc-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:12px; }
+    .doc-tag { background:rgba(0,188,212,.08);border:1px solid rgba(0,188,212,.25);color:var(--cyan);padding:6px 14px;border-radius:20px;font-size:.8rem;font-family:'JetBrains Mono',monospace; }
+    .livrable-list { list-style:none;padding:0;display:flex;flex-direction:column;gap:10px; }
+    .livrable-list li { display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-size:.9rem; }
+    .livrable-list li::before { content:'→';color:var(--cyan);flex-shrink:0;font-family:'JetBrains Mono',monospace; }
+    .critere-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px; }
+    .critere-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:var(--text-secondary); }
+    .critere-card::before { content:'✓ ';color:#4caf50;font-weight:700; }
+    .risk-table { width:100%;border-collapse:collapse;font-size:.875rem; }
+    .risk-table th { text-align:left;padding:10px 14px;background:rgba(0,188,212,.08);border:1px solid var(--border);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .risk-table td { padding:10px 14px;border:1px solid var(--border);color:var(--text-secondary);vertical-align:top; }
+    .risk-table tr:nth-child(even) td { background:rgba(255,255,255,.02); }
+    .badge-risk { display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .badge-h { background:rgba(239,83,80,.15);color:#ef5350; }
+    .badge-m { background:rgba(255,152,0,.15);color:#ff9800; }
+    .badge-l { background:rgba(76,175,80,.15);color:#4caf50; }
+    .pra-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:16px; }
+    .pra-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px; }
+    .pra-label { font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px; }
+    .pra-value { font-size:1.25rem;font-weight:700;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:4px; }
+    .pra-desc { font-size:.8rem;color:var(--text-secondary);line-height:1.5; }
+
+    /* Bloc entreprise */
+    .company-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:20px; }
+    .company-card { padding:16px 18px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px; }
+    .company-card-label { font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px; }
+    .company-card-value { font-size:.9rem;color:var(--text-secondary);font-weight:500; }
+
+    /* Bloc Ephycient */
+    .ephycient-box { background:rgba(0,188,212,.05);border:1px solid rgba(0,188,212,.2);border-radius:10px;padding:24px 28px; }
+    .ephycient-box h3 { font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:600;color:var(--cyan);margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em; }
+    .ephycient-features { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:14px; }
+    .ephycient-feature { display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:var(--text-secondary); }
+    .ephycient-feature span.icon { color:var(--cyan);flex-shrink:0;font-size:1rem; }
+
+    /* Ticket timeline */
+    .ticket-flow { display:flex;flex-direction:column;gap:0; }
+    .ticket-step { display:flex;gap:16px;padding-bottom:20px;position:relative; }
+    .ticket-step:not(:last-child)::before { content:'';position:absolute;left:19px;top:40px;bottom:0;width:2px;background:var(--border); }
+    .ticket-num { width:38px;height:38px;border-radius:50%;background:rgba(0,188,212,.1);border:1px solid rgba(0,188,212,.3);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--cyan);font-weight:700;flex-shrink:0; }
+    .ticket-content { padding-top:8px; }
+    .ticket-content strong { display:block;font-size:.9rem;color:var(--text-primary);margin-bottom:4px; }
+    .ticket-content span { font-size:.85rem;color:var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header class="navbar" data-navbar>
+    <div class="nav-left">
+      <span class="nav-initials">SA</span>
+      <span class="nav-status">SYS_STATUS: <span class="status-online">ONLINE</span></span>
+    </div>
+    <nav class="nav-links" data-nav-links>
+      <a href="../index.html#apropos" class="nav-link">À propos</a>
+      <a href="../index.html#arsenal" class="nav-link">Arsenal</a>
+      <a href="../index.html#cv" class="nav-link">Parcours</a>
+      <a href="../index.html#portfolio" class="nav-link">Projets</a>
+      <a href="../index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main class="doc-page">
+    <a href="../index.html#portfolio" class="doc-back">← Retour aux projets</a>
+
+    <div class="doc-hero">
+      <p class="doc-category">// Alternance 1ère année BTS SIO SISR — Technicien Systèmes &amp; Réseaux</p>
+      <h1>Kiné@dom Nice</h1>
+      <p class="doc-dates">📅 7 oct. 2024 — 10 juil. 2025 · 10 mois</p>
+    </div>
+
+    <!-- PRÉSENTATION DE L'ENTREPRISE -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">L'entreprise</h2>
+      <div class="doc-text">
+        <p><strong>Kiné@dom Nice</strong> est un cabinet de kinésithérapie à domicile basé à Nice (06). L'entreprise propose des soins de rééducation directement au domicile des patients — à destination des personnes âgées, des patients post-opératoires ou à mobilité réduite. L'équipe se compose de kinésithérapeutes salariés et d'un personnel administratif chargé de la planification, de la facturation et de la coordination des tournées.</p>
+        <p>L'activité implique une forte mobilité des praticiens et une gestion rigoureuse des données de santé — contexte réglementé RGPD avec exigences de disponibilité du SI pour ne pas bloquer les tournées quotidiennes. J'y ai effectué mon <strong>alternance de première année BTS SIO SISR</strong> sur <strong>10 mois</strong>.</p>
+      </div>
+      <div class="company-grid" style="margin-top:20px;">
+        <div class="company-card">
+          <div class="company-card-label">Secteur</div>
+          <div class="company-card-value">Santé — kinésithérapie à domicile</div>
+        </div>
+        <div class="company-card">
+          <div class="company-card-label">Localisation</div>
+          <div class="company-card-value">Nice, 06 — Côte d'Azur</div>
+        </div>
+        <div class="company-card">
+          <div class="company-card-label">Parc informatique</div>
+          <div class="company-card-value">~15 postes administrés</div>
+        </div>
+        <div class="company-card">
+          <div class="company-card-label">Contrainte principale</div>
+          <div class="company-card-value">Disponibilité SI pour tournées quotidiennes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MES MISSIONS -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Missions réalisées</h2>
+      <div class="doc-text">
+        <p>En tant que technicien SISR en alternance, j'avais la charge du maintien en condition opérationnelle du parc informatique et du support aux utilisateurs (personnel administratif et kinésithérapeutes). Les missions couvraient à la fois le support de proximité et l'administration système.</p>
+      </div>
+      <ul class="livrable-list" style="margin-top:16px;">
+        <li>Administration du parc de ~15 postes Windows (mises à jour, configuration, sécurité)</li>
+        <li>Gestion des incidents niveau 1/2 via ticketing interne (demandes du personnel administratif et des kinésithérapeutes)</li>
+        <li>Maintien de l'infrastructure réseau locale (switch, routeur, points d'accès WiFi)</li>
+        <li>Support et administration de l'outil métier Ephycient (droits d'accès, synchronisation, incidents applicatifs)</li>
+        <li>Déploiement et configuration de postes de travail (images, logiciels métier, comptes)</li>
+        <li>Automatisation des sauvegardes des données critiques (planification, vérification des restaurations)</li>
+        <li>Documentation des procédures d'exploitation et des configurations réseau</li>
+      </ul>
+    </div>
+
+    <!-- EPHYCIENT -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Environnement métier — Ephycient</h2>
+      <div class="ephycient-box">
+        <h3>Ephycient by P4M Labs</h3>
+        <div class="doc-text">
+          <p><strong>Ephycient</strong> est le logiciel SaaS de gestion de cabinet utilisé par Kiné@dom Nice. Développé par P4M Labs sur la Côte d'Azur, il centralise l'ensemble des opérations du cabinet : planification des tournées, gestion des dossiers patients, facturation SECU/mutuelle et coordination des équipes mobiles.</p>
+          <p>En tant que technicien, j'assurais le support de premier niveau sur cet outil : gestion des droits d'accès utilisateurs, remontée des incidents applicatifs vers l'éditeur, formation des nouveaux salariés aux fonctionnalités de base et vérification de la conformité RGPD des accès aux dossiers patients.</p>
+        </div>
+        <div class="ephycient-features">
+          <div class="ephycient-feature"><span class="icon">📅</span><span>Planification des tournées à domicile et optimisation géographique</span></div>
+          <div class="ephycient-feature"><span class="icon">📋</span><span>Gestion des dossiers patients (données de santé, historique des soins)</span></div>
+          <div class="ephycient-feature"><span class="icon">💶</span><span>Facturation SECU/mutuelle et suivi des remboursements</span></div>
+          <div class="ephycient-feature"><span class="icon">🔒</span><span>Conformité RGPD — données médicales chiffrées, accès nominatifs</span></div>
+          <div class="ephycient-feature"><span class="icon">☁️</span><span>Accès SaaS via navigateur — disponibilité critique pour les tournées</span></div>
+          <div class="ephycient-feature"><span class="icon">👥</span><span>Gestion des ressources humaines et plannings des praticiens</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GESTION DES TICKETS -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Gestion des incidents &amp; demandes (ITIL N1/N2)</h2>
+      <div class="doc-text">
+        <p>Les demandes de support émanaient de deux populations : le <strong>personnel administratif</strong> (incidents postes, accès Ephycient, imprimantes, connexion réseau) et les <strong>kinésithérapeutes</strong> (accès mobile à Ephycient, synchronisation des dossiers, problèmes WiFi). Le traitement suivait un flux ITIL simplifié avec SLA informel &lt; 24h.</p>
+      </div>
+      <div class="ticket-flow" style="margin-top:20px;">
+        <div class="ticket-step">
+          <div class="ticket-num">1</div>
+          <div class="ticket-content">
+            <strong>Réception de la demande</strong>
+            <span>Ticket créé par l'utilisateur via le système de ticketing interne — catégorisation automatique (matériel / logiciel / réseau / Ephycient)</span>
+          </div>
+        </div>
+        <div class="ticket-step">
+          <div class="ticket-num">2</div>
+          <div class="ticket-content">
+            <strong>Qualification N1</strong>
+            <span>Diagnostic initial — résolution immédiate si incident connu (réinitialisation mot de passe, reconnexion réseau, redémarrage poste)</span>
+          </div>
+        </div>
+        <div class="ticket-step">
+          <div class="ticket-num">3</div>
+          <div class="ticket-content">
+            <strong>Escalade N2 ou éditeur</strong>
+            <span>Pour les incidents applicatifs Ephycient non résolubles en N1 : escalade vers P4M Labs avec logs et captures d'écran</span>
+          </div>
+        </div>
+        <div class="ticket-step">
+          <div class="ticket-num">4</div>
+          <div class="ticket-content">
+            <strong>Résolution &amp; clôture</strong>
+            <span>Validation avec l'utilisateur — documentation de la solution dans le ticket — SLA informel &lt; 24h respecté</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES BTS -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Compétences BTS SIO SISR mobilisées</h2>
+      <div class="doc-tags">
+        <span class="doc-tag">Gérer le patrimoine informatique</span>
+        <span class="doc-tag">Répondre aux incidents et demandes d'assistance</span>
+        <span class="doc-tag">Mettre à disposition des utilisateurs un service informatique</span>
+        <span class="doc-tag">Gestion des incidents ITIL N1/N2</span>
+        <span class="doc-tag">Support logiciel métier SaaS</span>
+        <span class="doc-tag">Conformité RGPD données de santé</span>
+      </div>
+    </div>
+
+    <!-- GESTION DES RISQUES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Gestion des risques</h2>
+      <table class="risk-table">
+        <thead>
+          <tr><th>Risque identifié</th><th>Probabilité</th><th>Impact</th><th>Mesure de mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Indisponibilité d'Ephycient (panne SaaS) bloquant les tournées du jour</td>
+            <td><span class="badge-risk badge-l">Faible</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Procédure de bascule sur planning papier d'urgence + contact direct P4M Labs support prioritaire</td>
+          </tr>
+          <tr>
+            <td>Perte de poste utilisateur clé (administratif) en heure de pointe</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Sauvegarde quotidienne des profils utilisateurs + poste de remplacement préconfiguré disponible</td>
+          </tr>
+          <tr>
+            <td>Fuite de données patients (accès non autorisé à Ephycient)</td>
+            <td><span class="badge-risk badge-l">Faible</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Accès nominatifs avec MFA, révocation immédiate des droits en cas de départ, politique RGPD appliquée</td>
+          </tr>
+          <tr>
+            <td>Coupure réseau Internet (Ephycient inaccessible)</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-m">Moyen</span></td>
+            <td>Ligne de secours 4G disponible + procédures hors-ligne documentées pour le personnel</td>
+          </tr>
+          <tr>
+            <td>Perte des sauvegardes (données administratives et comptables)</td>
+            <td><span class="badge-risk badge-l">Faible</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Sauvegardes automatisées quotidiennes + tests de restauration mensuels</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PRA / PCA -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">PRA / PCA</h2>
+      <div class="pra-grid">
+        <div class="pra-card">
+          <div class="pra-label">RTO poste</div>
+          <div class="pra-value">&lt; 2h</div>
+          <div class="pra-desc">Remplacement par un poste préconfiguré disponible sur site</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">RPO données</div>
+          <div class="pra-value">J-1</div>
+          <div class="pra-desc">Sauvegarde quotidienne automatisée des données locales</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">RTO Ephycient</div>
+          <div class="pra-value">SLA éditeur</div>
+          <div class="pra-desc">Dépend du contrat P4M Labs — bascule sur planning papier en attendant</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">Incidents N1</div>
+          <div class="pra-value">&lt; 24h</div>
+          <div class="pra-desc">SLA informel respecté — résolution ou escalade N2 dans la journée</div>
+        </div>
+      </div>
+      <div class="doc-text">
+        <p>La continuité d'activité chez Kiné@dom repose sur la disponibilité d'Ephycient (SaaS critique) et des postes du personnel administratif. Pour les incidents postes, un poste de remplacement préconfiguré permet une reprise en moins de 2 heures. Pour Ephycient, une procédure de bascule sur planning papier est documentée pour le personnel, le temps que l'éditeur rétablisse le service. Les sauvegardes locales garantissent une perte de données maximale de 24h (RPO J-1).</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div class="footer-copyright"><p>&copy; 2026 Saïd Ahmed Moussa. Tous droits réservés.</p></div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script>
+    const navToggle = document.querySelector('[data-nav-toggle]');
+    const navLinks  = document.querySelector('[data-nav-links]');
+    if (navToggle && navLinks) navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+</body>
+</html>
