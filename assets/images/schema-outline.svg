@@ -45,12 +45,18 @@
   <line x1="354" y1="70" x2="364" y2="70" stroke="#455a64" stroke-width="1.5" opacity="0.6"/>
   <text x="382" y="56" font-family="'JetBrains Mono', monospace" font-size="8"   fill="#607d8b" letter-spacing="1.5">CLIENT</text>
   <text x="382" y="70" font-family="'JetBrains Mono', monospace" font-size="11.5" fill="#e0e0e0">Navigateur Web</text>
-  <text x="382" y="85" font-family="'JetBrains Mono', monospace" font-size="9"   fill="#5a5a7a">HTTPS :443  ·  TLS/SSL</text>
+  <text x="382" y="85" font-family="'JetBrains Mono', monospace" font-size="9"   fill="#5a5a7a">HTTPS :4433  ·  TLS/SSL</text>
 
-  <!-- arrow Navigateur → Traefik -->
+  <!-- Fortinet note : port 443 taken -->
+  <rect x="12" y="100" width="154" height="36" rx="5"
+        fill="#0f0f20" stroke="#f44336" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="4,3"/>
+  <text x="20" y="113" font-family="'JetBrains Mono', monospace" font-size="8" fill="#f44336" opacity="0.7">⚠ Fortinet occupe :443</text>
+  <text x="20" y="127" font-family="'JetBrains Mono', monospace" font-size="8" fill="#5a5a7a">Traefik écoute sur :4433</text>
+
+
   <line x1="480" y1="98" x2="480" y2="128"
         stroke="#00bcd4" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow-teal)"/>
-  <text x="492" y="117" font-family="'JetBrains Mono', monospace" font-size="8" fill="#00bcd4" opacity="0.7">HTTPS</text>
+  <text x="492" y="117" font-family="'JetBrains Mono', monospace" font-size="8" fill="#00bcd4" opacity="0.7">HTTPS :4433</text>
 
   <!-- ══════════════════════════════════════════════
        TRAEFIK — Reverse Proxy
@@ -64,7 +70,7 @@
   <text x="328" y="149" font-family="'JetBrains Mono', monospace" font-size="8"   fill="#00bcd4" letter-spacing="1.5">REVERSE PROXY · TLS TERMINATION</text>
   <text x="298" y="163" font-family="'JetBrains Mono', monospace" font-size="12"  fill="#ffffff" font-weight="bold">Traefik v3.1</text>
   <text x="420" y="163" font-family="'JetBrains Mono', monospace" font-size="9"   fill="#5a5a7a">traefik:v3.1 (Docker)</text>
-  <text x="298" y="179" font-family="'JetBrains Mono', monospace" font-size="9"   fill="#5a5a7a">Routing HTTP/HTTPS  ·  Let's Encrypt TLS  ·  Labels Docker  ·  Dashboard :8080</text>
+  <text x="298" y="179" font-family="'JetBrains Mono', monospace" font-size="9"   fill="#5a5a7a">Écoute :4433  ·  Let's Encrypt TLS  ·  Labels Docker  ·  Dashboard :8080  ·  :443 réservé Fortinet</text>
 
   <!-- arrow Traefik → Outline -->
   <line x1="480" y1="198" x2="480" y2="228"
