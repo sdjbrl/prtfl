@@ -82,8 +82,8 @@
     <div class="doc-section">
       <h2 class="doc-section-title">Documentation technique</h2>
       <div class="doc-text">
-        <p>Réponse à un appel d'offre scolaire : automatisation complète d'une infrastructure Windows Server pour établissement scolaire via Vagrant. Déploiement de 3 VMs (SRV-DC1, SRV-FS1, CLIENT-WIN11) sur un réseau privé 192.168.100.0/24. Rôles déployés : AD DS (domaine mediaschool.local, 8 OU, 3 groupes), DNS, DHCP, GPO, FSRM (quotas par profil), WSUS, WDS. Infrastructure déployable en ~45 min via une seule commande Vagrant.</p>
-        <p>Infrastructure as Code avec Vagrant (VirtualBox) : provisioning séquentiel DC → FS → Client via 10 scripts PowerShell idempotents. Approche itérative : TP manuel converti en déploiement automatisé (gain de 85% de temps). Validation à chaque étape (ping, résolution DNS, baux DHCP, jonction domaine, accès partages, WSUS port 8530).</p>
+        <p>Réponse à un appel d'offre scolaire (RFC simulée — approche ITIL : gestion des changements, recette formelle avant mise en service) : automatisation complète d'une infrastructure Windows Server pour établissement scolaire via Vagrant. Déploiement de 3 VMs (SRV-DC1, SRV-FS1, CLIENT-WIN11) sur un réseau privé 192.168.100.0/24. Rôles déployés : AD DS (domaine mediaschool.local, 8 OU, 3 groupes), DNS, DHCP, GPO, FSRM (quotas par profil), WSUS, WDS. Infrastructure déployable en ~45 min via une seule commande Vagrant.</p>
+        <p>Infrastructure as Code avec Vagrant (VirtualBox) : provisioning séquentiel DC → FS → Client via 10 scripts PowerShell idempotents. Approche itérative : TP manuel converti en déploiement automatisé (gain de 85% de temps). Validation à chaque étape (ping, résolution DNS, baux DHCP, jonction domaine, accès partages, WSUS port 8530). <strong>Scripts disponibles sur GitHub :</strong> <a href="https://github.com/Mediaschool-IRIS-BTS-SISR-2025/TP_WS_Said/tree/main/scripts" target="_blank" rel="noopener" style="color:var(--cyan)">TP_WS_Said/scripts</a>.</p>
       </div>
     </div>
 
@@ -93,6 +93,8 @@
       <div class="doc-tags">
         <span class="doc-tag">Gérer le patrimoine informatique</span>
         <span class="doc-tag">Mettre à disposition des utilisateurs un service informatique</span>
+        <span class="doc-tag">Automatisation et Infrastructure as Code</span>
+        <span class="doc-tag">Gestion des changements (ITIL)</span>
       </div>
     </div>
 
@@ -122,7 +124,7 @@
     <div class="doc-section">
       <h2 class="doc-section-title">Modalités de clôture</h2>
       <div class="doc-text">
-        <p>Démonstration via <code>vagrant up</code> (commande unique). Recette complète : ping, DNS, DHCP, jonction domaine, partages, WSUS.</p>
+        <p>Démonstration via <code>vagrant up</code> (commande unique). Recette complète documentée : ping, DNS, DHCP, jonction domaine, partages, WSUS — 7 points de contrôle formels équivalents à une procédure de recette ITIL avant mise en service. Scripts disponibles sur <a href="https://github.com/Mediaschool-IRIS-BTS-SISR-2025/TP_WS_Said/tree/main/scripts" target="_blank" rel="noopener" style="color:var(--cyan)">GitHub (TP_WS_Said/scripts)</a>.</p>
       </div>
     </div>
 
