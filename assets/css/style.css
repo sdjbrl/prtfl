@@ -2306,6 +2306,7 @@ h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
 .modal-gantt { margin-bottom: 22px; }
 .modal-gantt img { width: 100%; border-radius: var(--radius-sm); }
 .modal-link { margin-top: 4px; }
+.modal-doc-link { margin-top: 8px; display: flex; align-items: center; gap: 8px; justify-content: center; }
 
 /* ============================================================
    BOOT SCREEN

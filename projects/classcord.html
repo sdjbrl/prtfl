@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClassCord — Documentation | Saïd Ahmed Moussa</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/x-icon" href="../assets/images/logo.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .doc-page { max-width: 900px; margin: 120px auto 80px; padding: 0 24px; }
+    .doc-back { display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-decoration:none;font-size:0.9rem;font-family:'JetBrains Mono',monospace;margin-bottom:32px;transition:opacity .2s; }
+    .doc-back:hover { opacity:.7; }
+    .doc-hero { margin-bottom:48px; }
+    .doc-hero .doc-category { font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);margin-bottom:8px; }
+    .doc-hero h1 { font-size:clamp(2rem,5vw,3rem);font-weight:700;margin-bottom:12px; }
+    .doc-hero .doc-dates { color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.85rem; }
+    .doc-section { margin-bottom:48px; }
+    .doc-section-title { font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:20px;display:flex;align-items:center;gap:8px; }
+    .doc-section-title::after { content:'';flex:1;height:1px;background:var(--border); }
+    .doc-text { color:var(--text-secondary);line-height:1.8;font-size:.95rem; }
+    .doc-text p+p { margin-top:12px; }
+    .doc-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:12px; }
+    .doc-tag { background:rgba(0,188,212,.08);border:1px solid rgba(0,188,212,.25);color:var(--cyan);padding:6px 14px;border-radius:20px;font-size:.8rem;font-family:'JetBrains Mono',monospace; }
+    .livrable-list { list-style:none;padding:0;display:flex;flex-direction:column;gap:10px; }
+    .livrable-list li { display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-size:.9rem; }
+    .livrable-list li::before { content:'→';color:var(--cyan);flex-shrink:0;font-family:'JetBrains Mono',monospace; }
+    .critere-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px; }
+    .critere-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:var(--text-secondary); }
+    .critere-card::before { content:'✓ ';color:#4caf50;font-weight:700; }
+    .gantt-figure { margin:0; }
+    .gantt-figure img { width:100%;border-radius:8px;border:1px solid var(--border); }
+    .gantt-figure figcaption { text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:8px;font-family:'JetBrains Mono',monospace; }
+    .doc-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:32px; }
+    .doc-btn { display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:6px;font-size:.85rem;font-family:'JetBrains Mono',monospace;text-decoration:none;transition:opacity .2s;border:1px solid var(--cyan);color:var(--cyan); }
+    .doc-btn:hover { opacity:.75; }
+  </style>
+</head>
+<body>
+  <header class="navbar" data-navbar>
+    <div class="nav-left">
+      <span class="nav-initials">SA</span>
+      <span class="nav-status">SYS_STATUS: <span class="status-online">ONLINE</span></span>
+    </div>
+    <nav class="nav-links" data-nav-links>
+      <a href="../index.html#apropos" class="nav-link">À propos</a>
+      <a href="../index.html#arsenal" class="nav-link">Arsenal</a>
+      <a href="../index.html#cv" class="nav-link">Parcours</a>
+      <a href="../index.html#portfolio" class="nav-link">Projets</a>
+      <a href="../index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main class="doc-page">
+    <a href="../index.html#portfolio" class="doc-back">← Retour aux projets</a>
+
+    <div class="doc-hero">
+      <p class="doc-category">// Applications — Projet scolaire inter-filière</p>
+      <h1>ClassCord</h1>
+      <p class="doc-dates">📅 2024 — 2025</p>
+    </div>
+
+    <!-- DOCUMENTATION -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Documentation technique</h2>
+      <div class="doc-text">
+        <p>Projet scolaire réalisé à IRIS Mediaschool Nice en réponse à une demande client : déploiement d'un serveur de chat local permettant à des clients de se connecter, converser et échanger des fichiers en réseau interne. Les étudiants SISR ont pris en charge la configuration et l'administration des machines serveurs, les étudiants SLAM ont développé les machines clientes. Travail en mode projet inter-filière.</p>
+        <p>Approche incrémentale sur 5 jours avec livraison quotidienne, versionnement Git obligatoire. SISR : configuration serveur, réseau, administration. SLAM : développement clients. Intégration continue entre les deux filières pour les tests en réseau interne.</p>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES BTS -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Compétences BTS SIO SISR mobilisées</h2>
+      <div class="doc-tags">
+        <span class="doc-tag">Gérer le patrimoine informatique</span>
+        <span class="doc-tag">Travailler en mode projet</span>
+        <span class="doc-tag">Mettre à disposition des utilisateurs un service informatique</span>
+      </div>
+    </div>
+
+    <!-- LIVRABLES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Livrables</h2>
+      <ul class="livrable-list">
+        <li>Serveur de chat déployé et opérationnel</li>
+        <li>Configuration réseau documentée</li>
+        <li>Rapport de projet (présentation J5)</li>
+        <li>Dépôt Git versionné</li>
+      </ul>
+    </div>
+
+    <!-- CRITÈRES D'ÉVALUATION -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Critères d'évaluation</h2>
+      <div class="critere-grid">
+        <div class="critere-card">Connexion multi-clients fonctionnelle en réseau interne</div>
+        <div class="critere-card">Échange de messages et fichiers opérationnel</div>
+        <div class="critere-card">Collaboration SISR (infra) + SLAM (clients) effective</div>
+      </div>
+    </div>
+
+    <!-- MODALITÉS DE CLÔTURE -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Modalités de clôture</h2>
+      <div class="doc-text">
+        <p>Livraison quotidienne (J1→J5). Démonstration en conditions réelles J5. Remise du rapport de projet.</p>
+      </div>
+    </div>
+
+    <!-- ANNEXES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Annexes</h2>
+      <figure class="gantt-figure">
+        <img src="../assets/images/gantt-classcord.svg" alt="Diagramme de Gantt — ClassCord">
+        <figcaption>// Diagramme de Gantt — ClassCord</figcaption>
+      </figure>
+      <div class="doc-actions">
+        <a href="https://github.com/sdjbrl/classcord_djibril" class="doc-btn" target="_blank" rel="noopener noreferrer">↗ Voir sur GitHub</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div class="footer-copyright"><p>&copy; 2026 Saïd Ahmed Moussa. Tous droits réservés.</p></div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script>
+    const navToggle = document.querySelector('[data-nav-toggle]');
+    const navLinks  = document.querySelector('[data-nav-links]');
+    if (navToggle && navLinks) navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+</body>
+</html>

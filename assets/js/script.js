@@ -232,6 +232,14 @@ function openModal(card) {
     linkEl.classList.add('hidden');
   }
 
+  const docEl = modal.querySelector('[data-pd-doc]');
+  if (d.projectDocUrl) {
+    docEl.href = d.projectDocUrl;
+    docEl.classList.remove('hidden');
+  } else {
+    docEl.classList.add('hidden');
+  }
+
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';

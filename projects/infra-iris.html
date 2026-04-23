@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infra Réseau &amp; Virtualisation — Documentation | Saïd Ahmed Moussa</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/x-icon" href="../assets/images/logo.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .doc-page { max-width: 900px; margin: 120px auto 80px; padding: 0 24px; }
+    .doc-back { display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-decoration:none;font-size:0.9rem;font-family:'JetBrains Mono',monospace;margin-bottom:32px;transition:opacity .2s; }
+    .doc-back:hover { opacity:.7; }
+    .doc-hero { margin-bottom:48px; }
+    .doc-hero .doc-category { font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);margin-bottom:8px; }
+    .doc-hero h1 { font-size:clamp(2rem,5vw,3rem);font-weight:700;margin-bottom:12px; }
+    .doc-hero .doc-dates { color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.85rem; }
+    .doc-section { margin-bottom:48px; }
+    .doc-section-title { font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:20px;display:flex;align-items:center;gap:8px; }
+    .doc-section-title::after { content:'';flex:1;height:1px;background:var(--border); }
+    .doc-text { color:var(--text-secondary);line-height:1.8;font-size:.95rem; }
+    .doc-text p+p { margin-top:12px; }
+    .doc-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:12px; }
+    .doc-tag { background:rgba(0,188,212,.08);border:1px solid rgba(0,188,212,.25);color:var(--cyan);padding:6px 14px;border-radius:20px;font-size:.8rem;font-family:'JetBrains Mono',monospace; }
+    .livrable-list { list-style:none;padding:0;display:flex;flex-direction:column;gap:10px; }
+    .livrable-list li { display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-size:.9rem; }
+    .livrable-list li::before { content:'→';color:var(--cyan);flex-shrink:0;font-family:'JetBrains Mono',monospace; }
+    .critere-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px; }
+    .critere-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:var(--text-secondary); }
+    .critere-card::before { content:'✓ ';color:#4caf50;font-weight:700; }
+    .gantt-figure { margin:0; }
+    .gantt-figure img { width:100%;border-radius:8px;border:1px solid var(--border); }
+    .gantt-figure figcaption { text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:8px;font-family:'JetBrains Mono',monospace; }
+    .budget-box { display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px; }
+    .budget-item { padding:20px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;text-align:center; }
+    .budget-item .b-label { font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;font-family:'JetBrains Mono',monospace;margin-bottom:8px; }
+    .budget-item .b-value { font-size:1.4rem;font-weight:700; }
+    .budget-item .b-value.cyan { color:var(--cyan); }
+    .budget-item .b-value.green { color:#4caf50; }
+    .doc-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:32px; }
+    @media(max-width:560px){ .budget-box { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="navbar" data-navbar>
+    <div class="nav-left">
+      <span class="nav-initials">SA</span>
+      <span class="nav-status">SYS_STATUS: <span class="status-online">ONLINE</span></span>
+    </div>
+    <nav class="nav-links" data-nav-links>
+      <a href="../index.html#apropos" class="nav-link">À propos</a>
+      <a href="../index.html#arsenal" class="nav-link">Arsenal</a>
+      <a href="../index.html#cv" class="nav-link">Parcours</a>
+      <a href="../index.html#portfolio" class="nav-link">Projets</a>
+      <a href="../index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main class="doc-page">
+    <a href="../index.html#portfolio" class="doc-back">← Retour aux projets</a>
+
+    <div class="doc-hero">
+      <p class="doc-category">// Infrastructure réseau — PROP-IRIS-v4</p>
+      <h1>Infra Réseau &amp; Virtualisation — IRIS Nice</h1>
+      <p class="doc-dates">📅 24 – 28 fév 2026</p>
+    </div>
+
+    <!-- DOCUMENTATION -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Documentation technique</h2>
+      <div class="doc-text">
+        <p>Proposition technique v4 (PROP-IRIS-v4) — École IRIS Nice, première promotion BTS SIO (SISR + SLAM). Aucune infrastructure de TP en place. Mission : déployer un environnement complet (VMs + conteneurs) avec accès réseau sécurisé, authentification individuelle et traçabilité. Budget : 50 000 €. Réalisée en binôme avec Tiago QUENETTE.</p>
+        <p>Benchmark hyperviseur (KVM natif retenu vs Proxmox/VMware/XCP-ng) — exposition des couches basses virsh/libvirt/QEMU pour les étudiants SISR. Architecture réseau : 5 VLANs (SISR/Admin/Serveurs/SLAM/Management), Cisco Catalyst 2960-S (Rapid-PVST+, 802.1X, trunks), routage inter-VLAN et ACLs IOS sur Cisco 1941W, WiFi EWC sur C9105AXI-E (WPA3-Enterprise, sans VM 9800-CL). Authentification 802.1X + FreeRADIUS 3 + OpenLDAP (attribution VLAN dynamique par groupe). Serveur Debian 12 : KVM/libvirt/QEMU + WebVirtCloud RBAC (portail par étudiant), 60 VMs SISR déployées (WS2022 8GB + Debian 12). SLAM : Docker CE natif + Dockhand. Sécurité : nwfilter anti-spoofing IP/MAC, AppArmor QEMU, snapshots + BorgBackup nightly. 7 protocoles de tests de recette. 5 livrables documentaires (DOC-01 à 05).</p>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES BTS -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Compétences BTS SIO SISR mobilisées</h2>
+      <div class="doc-tags">
+        <span class="doc-tag">Gérer le patrimoine informatique</span>
+        <span class="doc-tag">Mettre à disposition des utilisateurs un service informatique</span>
+        <span class="doc-tag">Travailler en mode projet</span>
+        <span class="doc-tag">Répondre aux incidents</span>
+        <span class="doc-tag">Cybersécurité</span>
+      </div>
+    </div>
+
+    <!-- LIVRABLES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Livrables</h2>
+      <ul class="livrable-list">
+        <li>PROP-IRIS-v4 (proposition technique)</li>
+        <li>5 documents DOC-01 à DOC-05</li>
+        <li>7 protocoles de tests de recette</li>
+        <li>Schéma réseau VLAN (5 VLANs)</li>
+        <li>Procédures d'exploitation KVM + Docker</li>
+      </ul>
+    </div>
+
+    <!-- CRITÈRES D'ÉVALUATION -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Critères d'évaluation</h2>
+      <div class="critere-grid">
+        <div class="critere-card">60 VMs SISR déployées et accessibles</div>
+        <div class="critere-card">802.1X fonctionnel (attribution VLAN dynamique)</div>
+        <div class="critere-card">Routage inter-VLAN opérationnel</div>
+        <div class="critere-card">Docker SLAM en service</div>
+        <div class="critere-card">BorgBackup nightly actif</div>
+        <div class="critere-card">Budget maîtrisé (37 356 € sur 50 000 €)</div>
+      </div>
+    </div>
+
+    <!-- MODALITÉS DE CLÔTURE -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Modalités de clôture</h2>
+      <div class="doc-text">
+        <p>7 protocoles de recette validés. Présentation technique au jury BTS. Budget : 37 356 € TTC consommés (solde 12 644 €). Infrastructure opérationnelle pour la promo BTS SIO.</p>
+      </div>
+    </div>
+
+    <!-- ANNEXES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Annexes</h2>
+      <figure class="gantt-figure">
+        <img src="../assets/images/gantt-infrastructure-iris.svg" alt="Diagramme de Gantt — Infra IRIS">
+        <figcaption>// Diagramme de Gantt — Infra Réseau &amp; Virtualisation IRIS Nice</figcaption>
+      </figure>
+      <div class="budget-box">
+        <div class="budget-item">
+          <div class="b-label">Budget total</div>
+          <div class="b-value">50 000 €</div>
+        </div>
+        <div class="budget-item">
+          <div class="b-label">Consommé</div>
+          <div class="b-value cyan">37 356 € TTC</div>
+        </div>
+        <div class="budget-item">
+          <div class="b-label">Solde</div>
+          <div class="b-value green">12 644 €</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div class="footer-copyright"><p>&copy; 2026 Saïd Ahmed Moussa. Tous droits réservés.</p></div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script>
+    const navToggle = document.querySelector('[data-nav-toggle]');
+    const navLinks  = document.querySelector('[data-nav-links]');
+    if (navToggle && navLinks) navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+</body>
+</html>

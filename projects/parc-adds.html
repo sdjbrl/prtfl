@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parc AD DS — Documentation | Saïd Ahmed Moussa</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/x-icon" href="../assets/images/logo.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .doc-page { max-width: 900px; margin: 120px auto 80px; padding: 0 24px; }
+    .doc-back { display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-decoration:none;font-size:0.9rem;font-family:'JetBrains Mono',monospace;margin-bottom:32px;transition:opacity .2s; }
+    .doc-back:hover { opacity:.7; }
+    .doc-hero { margin-bottom:48px; }
+    .doc-hero .doc-category { font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);margin-bottom:8px; }
+    .doc-hero h1 { font-size:clamp(2rem,5vw,3rem);font-weight:700;margin-bottom:12px; }
+    .doc-hero .doc-dates { color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.85rem; }
+    .doc-section { margin-bottom:48px; }
+    .doc-section-title { font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:20px;display:flex;align-items:center;gap:8px; }
+    .doc-section-title::after { content:'';flex:1;height:1px;background:var(--border); }
+    .doc-text { color:var(--text-secondary);line-height:1.8;font-size:.95rem; }
+    .doc-text p+p { margin-top:12px; }
+    .doc-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:12px; }
+    .doc-tag { background:rgba(0,188,212,.08);border:1px solid rgba(0,188,212,.25);color:var(--cyan);padding:6px 14px;border-radius:20px;font-size:.8rem;font-family:'JetBrains Mono',monospace; }
+    .livrable-list { list-style:none;padding:0;display:flex;flex-direction:column;gap:10px; }
+    .livrable-list li { display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-size:.9rem; }
+    .livrable-list li::before { content:'→';color:var(--cyan);flex-shrink:0;font-family:'JetBrains Mono',monospace; }
+    .critere-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px; }
+    .critere-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:var(--text-secondary); }
+    .critere-card::before { content:'✓ ';color:#4caf50;font-weight:700; }
+    .gantt-figure { margin:0; }
+    .gantt-figure img { width:100%;border-radius:8px;border:1px solid var(--border); }
+    .gantt-figure figcaption { text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:8px;font-family:'JetBrains Mono',monospace; }
+    .doc-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:32px; }
+    .status-badge { display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:rgba(255,165,0,.1);border:1px solid rgba(255,165,0,.3);border-radius:20px;font-size:.75rem;font-family:'JetBrains Mono',monospace;color:#ffa500;margin-left:12px;vertical-align:middle; }
+    .status-badge::before { content:'';width:6px;height:6px;border-radius:50%;background:#ffa500;animation:pulse-orange 2s infinite; }
+    @keyframes pulse-orange { 0%,100%{opacity:1} 50%{opacity:.4} }
+  </style>
+</head>
+<body>
+  <header class="navbar" data-navbar>
+    <div class="nav-left">
+      <span class="nav-initials">SA</span>
+      <span class="nav-status">SYS_STATUS: <span class="status-online">ONLINE</span></span>
+    </div>
+    <nav class="nav-links" data-nav-links>
+      <a href="../index.html#apropos" class="nav-link">À propos</a>
+      <a href="../index.html#arsenal" class="nav-link">Arsenal</a>
+      <a href="../index.html#cv" class="nav-link">Parcours</a>
+      <a href="../index.html#portfolio" class="nav-link">Projets</a>
+      <a href="../index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main class="doc-page">
+    <a href="../index.html#portfolio" class="doc-back">← Retour aux projets</a>
+
+    <div class="doc-hero">
+      <p class="doc-category">// Administration système — Projet personnel</p>
+      <h1>Parc AD DS <span class="status-badge">En cours</span></h1>
+      <p class="doc-dates">📅 Avr 2025 — En cours</p>
+    </div>
+
+    <!-- DOCUMENTATION -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Documentation technique</h2>
+      <div class="doc-text">
+        <p>Déploiement d'un domaine Active Directory familial sous Windows Server pour centraliser la gestion des postes du domicile : intégration des machines au domaine, gestion des comptes utilisateurs par profil (parents, enfants), application de GPO (restrictions d'accès, mappage de lecteurs réseau partagés), supervision du parc via PowerShell.</p>
+        <p>Démarche autodidacte : analyse des besoins familiaux, planification de l'infrastructure (plan d'adressage, structure OU), déploiement progressif sous VM VirtualBox. Configuration itérative : AD DS → DNS → DHCP → GPO par profil → partages réseau. Documentation personnelle maintenue au fil des évolutions.</p>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES BTS -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Compétences BTS SIO SISR mobilisées</h2>
+      <div class="doc-tags">
+        <span class="doc-tag">Gérer le patrimoine informatique</span>
+        <span class="doc-tag">Mettre à disposition des utilisateurs un service informatique</span>
+        <span class="doc-tag">Organiser son développement professionnel</span>
+      </div>
+    </div>
+
+    <!-- LIVRABLES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Livrables</h2>
+      <ul class="livrable-list">
+        <li>Documentation personnelle (structure OU, plan d'adressage)</li>
+        <li>Scripts PowerShell de configuration AD</li>
+        <li>GPO documentées par profil</li>
+        <li>Partages réseau opérationnels</li>
+      </ul>
+    </div>
+
+    <!-- CRITÈRES D'ÉVALUATION -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Critères d'évaluation</h2>
+      <div class="critere-grid">
+        <div class="critere-card">Domaine fonctionnel (AD DS, DNS, DHCP)</div>
+        <div class="critere-card">Machines Windows jointes au domaine</div>
+        <div class="critere-card">GPO appliquées par profil (parents/enfants)</div>
+        <div class="critere-card">Partages réseau accessibles selon permissions</div>
+      </div>
+    </div>
+
+    <!-- MODALITÉS DE CLÔTURE -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Modalités de clôture</h2>
+      <div class="doc-text">
+        <p>Projet en cours — mise à jour continue au fil des évolutions. Documentation personnelle maintenue.</p>
+      </div>
+    </div>
+
+    <!-- ANNEXES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Annexes</h2>
+      <figure class="gantt-figure">
+        <img src="../assets/images/gantt-parcadds.svg" alt="Diagramme de Gantt — Parc AD DS">
+        <figcaption>// Diagramme de Gantt — Parc AD DS</figcaption>
+      </figure>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div class="footer-copyright"><p>&copy; 2026 Saïd Ahmed Moussa. Tous droits réservés.</p></div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script>
+    const navToggle = document.querySelector('[data-nav-toggle]');
+    const navLinks  = document.querySelector('[data-nav-links]');
+    if (navToggle && navLinks) navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+</body>
+</html>
