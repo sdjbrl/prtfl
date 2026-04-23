@@ -1,55 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+
   <!-- Homepage -->
   <url>
-    <loc>https://sdjbrl.me</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://sdjbrl.me/</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- Sections anchors -->
+
+  <!-- Section : À propos -->
   <url>
-    <loc>https://sdjbrl.me#about</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://sdjbrl.me/#apropos</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
+  <!-- Section : Arsenal technique -->
   <url>
-    <loc>https://sdjbrl.me#competences</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://sdjbrl.me/#arsenal</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Section : Parcours / CV -->
+  <url>
+    <loc>https://sdjbrl.me/#cv</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Section : Compétences BTS SIO SISR -->
+  <url>
+    <loc>https://sdjbrl.me/#competences-bts</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
+  <!-- Section : Projets -->
   <url>
-    <loc>https://sdjbrl.me#projets</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://sdjbrl.me/#portfolio</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
+  <!-- Section : Veille technologique -->
   <url>
-    <loc>https://sdjbrl.me#cv</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://sdjbrl.me#veille</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://sdjbrl.me/#veille</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
+  <!-- Section : Contact -->
   <url>
-    <loc>https://sdjbrl.me#contact</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://sdjbrl.me/#contact</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Page : Mentions légales -->
+  <url>
+    <loc>https://sdjbrl.me/mentions-legales.html</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
