@@ -2479,7 +2479,7 @@ h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
   .nav-clock  { display: block; }
   .nav-badge  { display: flex; }
   .nav-toggle { display: none; }
-  .nav-links  { display: flex; margin-left: auto; }
+  .nav-links  { display: flex; position: absolute; left: 50%; transform: translateX(-50%); margin-left: 0; }
 
   .about-grid {
     grid-template-columns: 180px 1fr;
