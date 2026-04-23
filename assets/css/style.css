@@ -1451,6 +1451,55 @@ h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
   background: var(--bg-2);
 }
 
+.psr-access-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  background: rgba(0, 188, 212, 0.06);
+  border: 1px solid rgba(0, 188, 212, 0.25);
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.psr-access-note ion-icon {
+  color: var(--cyan);
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.psr-access-note a { color: var(--cyan); text-decoration: underline; }
+
+.psr-criteria {
+  padding: 20px 28px;
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+}
+.psr-criteria .psr-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-family: var(--ff-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.psr-criteria .psr-label ion-icon { color: var(--cyan); font-size: 0.9rem; }
+
+.psr-list.compact { gap: 6px; }
+.psr-list.compact li { font-size: 0.82rem; }
+
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
 .divider-section {
   display: flex;
   align-items: center;

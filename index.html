@@ -396,7 +396,7 @@
           </h3>
           <div class="timeline">
             <div class="tl-item reveal">
-              <div class="tl-date">Oct 2024 — Juil 2025</div>
+              <div class="tl-date">7 oct. 2024 — 10 juil. 2025</div>
               <div class="tl-card">
                 <h4>Technicien Systèmes &amp; Réseaux</h4>
                 <p class="tl-org">Kiné@dom Nice · Alternance</p>
@@ -791,6 +791,43 @@
               Accéder au wiki
             </a>
           </div>
+
+          <!-- CRITÈRES / CLÔTURE -->
+          <div class="psr-section psr-criteria">
+            <div class="psr-section-head">
+              <div class="psr-badge criteria">
+                <ion-icon name="checkmark-done-outline"></ion-icon>
+                CRITÈRES &amp; CLÔTURE
+              </div>
+            </div>
+            <div class="psr-content">
+              <div class="psr-grid">
+                <div class="psr-grid-item">
+                  <h4><ion-icon name="trophy-outline"></ion-icon> Critères d'évaluation</h4>
+                  <ul class="psr-list compact">
+                    <li><ion-icon name="checkmark-outline"></ion-icon> SSO Keycloak opérationnel (connexion OIDC)</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Permissions par collection (SISR / SLAM / formateurs)</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> HTTPS Let's Encrypt actif via Traefik</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Sauvegarde MinIO fonctionnelle</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Wiki accessible depuis le réseau IRIS</li>
+                  </ul>
+                </div>
+                <div class="psr-grid-item">
+                  <h4><ion-icon name="flag-outline"></ion-icon> Modalités de clôture</h4>
+                  <ul class="psr-list compact">
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Recette à J+7 (fin semaine intensive)</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Accès validé par les formateurs IRIS</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Documentation d'exploitation livrée</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Guide utilisateur remis aux formateurs</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="psr-access-note">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <span>Accès au wiki sur demande : <a href="mailto:said.ahmed-moussa@mediaschool.me">said.ahmed-moussa@mediaschool.me</a> (comptes créés en interne)</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -816,7 +853,11 @@
            data-project-link-label="Voir sur GitHub"
            data-project-methods="Infrastructure as Code avec Vagrant (VirtualBox) : provisioning séquentiel DC → FS → Client via 10 scripts PowerShell idempotents. Approche itérative : TP manuel converti en déploiement automatisé (gain de 85% de temps). Validation à chaque étape (ping, résolution DNS, baux DHCP, jonction domaine, accès partages, WSUS port 8530)."
            data-project-skills="Gérer le patrimoine informatique,Mettre à disposition des utilisateurs un service informatique"
-           data-project-gantt="./assets/images/gantt-windowsserver.svg">
+           data-project-gantt="./assets/images/gantt-windowsserver.svg"
+           data-project-livrables="Vagrantfile + 10 scripts PowerShell idempotents,Documentation technique (README),Rapport de recette (7 validations)"
+           data-project-criteres="Infrastructure déployée en < 45 min,AD DS fonctionnel (domaine, OU, groupes),DNS/DHCP/GPO opérationnels,FSRM quotas actifs,Jonction CLIENT-WIN11 au domaine"
+           data-project-cloture="Démonstration via vagrant up (commande unique),Recette complète : ping, DNS, DHCP, jonction domaine, partages, WSUS"
+           data-project-budget="Projet scolaire (ressources pédagogiques)">
         <div class="featured-left">
           <span class="feat-badge">
             <span class="feat-dot"></span>
@@ -881,7 +922,10 @@
              data-project-link-label="Voir sur GitHub"
              data-project-methods="Approche incrémentale 5 jours avec livraison quotidienne, versionnement Git obligatoire."
              data-project-skills="Gérer le patrimoine informatique,Travailler en mode projet,Mettre à disposition des utilisateurs un service informatique"
-             data-project-gantt="./assets/images/gantt-classcord.svg">
+             data-project-gantt="./assets/images/gantt-classcord.svg"
+             data-project-livrables="Serveur de chat déployé et opérationnel,Configuration réseau documentée,Rapport de projet (présentation J5),Dépôt Git versionné"
+             data-project-criteres="Connexion multi-clients fonctionnelle en réseau interne,Échange de messages et fichiers opérationnel,Collaboration SISR (infra) + SLAM (clients) effective"
+             data-project-cloture="Livraison quotidienne (J1→J5),Démonstration en conditions réelles J5,Remise du rapport de projet">
           <div class="project-card-img">
             <img src="./assets/images/project-1.jpg" alt="ClassCord" loading="lazy">
           </div>
@@ -901,7 +945,10 @@
              data-project-link-label="Voir la documentation technique"
              data-project-methods="Phase 1 : Analyse des besoins (10 salles, 3 sources HDMI par salle) → Phase 2 : Choix matériel (Raspberry Pi 4 2GB, module relais 4 canaux, switch HDMI 3→1) → Phase 3 : Développement interface web (Python Flask + GPIO control) → Phase 4 : Déploiement pilote sur 2 salles → Phase 5 : Rollout complet avec documentation formateurs."
              data-project-skills="Gérer le patrimoine informatique,Mettre à disposition des utilisateurs un service informatique,Travailler en mode projet,Répondre aux incidents et aux demandes d'assistance et d'évolution"
-             data-project-gantt="./assets/images/gantt-smart-projector.svg">
+             data-project-gantt="./assets/images/gantt-smart-projector.svg"
+             data-project-livrables="Documentation technique complète (PDF),Interface web de contrôle fonctionnelle,2 salles pilotes équipées puis rollout 10 salles,Guide formateurs"
+             data-project-criteres="Contrôle à distance depuis les postes enseignants,Commutation HDMI automatique (3 sources),Temps de réponse < 2 secondes,Adoption formateurs validée"
+             data-project-cloture="Recette sur 2 salles pilotes (Phase 4),Validation formateurs,Déploiement complet sur 10 salles (Phase 5),Documentation technique remise">
           <div class="project-card-img">
             <img src="./assets/images/project-smart-projector.png" alt="Smart Projector IRIS" loading="lazy">
           </div>
@@ -921,7 +968,10 @@
              data-project-link-label="Accéder au wiki"
              data-project-methods="Démarche en 3 phases : benchmark de 4 solutions avec grille de critères → déploiement Docker Compose → intégration IRIS (Traefik HTTPS, SSO Keycloak). Travail en binôme sur 1 semaine intensive."
              data-project-skills="Gérer le patrimoine informatique,Mettre à disposition des utilisateurs un service informatique,Répondre aux incidents et aux demandes d'assistance et d'évolution"
-             data-project-gantt="./assets/images/gantt-wikioutline.svg">
+             data-project-gantt="./assets/images/gantt-wikioutline.svg"
+             data-project-livrables="Wiki en production (wiki.iris.a3n.fr),Docker Compose complet + .env,Documentation d'exploitation,Guide utilisateur formateurs"
+             data-project-criteres="SSO Keycloak opérationnel,Permissions par collection (SISR/SLAM/formateurs),HTTPS Let's Encrypt actif,Sauvegarde MinIO fonctionnelle"
+             data-project-cloture="Recette à J+7 (semaine intensive),Accès validé par les formateurs,Documentation livrée — Accès sur demande : said.ahmed-moussa@mediaschool.me">
           <div class="project-card-img">
             <img src="./assets/images/project-4.png" alt="Wiki Outline" loading="lazy">
           </div>
@@ -941,7 +991,10 @@
              data-project-link-label=""
              data-project-methods="Démarche autodidacte : analyse des besoins familiaux, planification de l'infrastructure (plan d'adressage, structure OU), déploiement progressif sous VM VirtualBox. Configuration itérative : AD DS → DNS → DHCP → GPO par profil → partages réseau. Documentation personnelle maintenue au fil des évolutions."
              data-project-skills="Gérer le patrimoine informatique,Mettre à disposition des utilisateurs un service informatique,Organiser son développement professionnel"
-             data-project-gantt="./assets/images/gantt-parcadds.svg">
+             data-project-gantt="./assets/images/gantt-parcadds.svg"
+             data-project-livrables="Documentation personnelle (structure OU, plan d'adressage),Scripts PowerShell de configuration AD,GPO documentées par profil,Partages réseau opérationnels"
+             data-project-criteres="Domaine fonctionnel (AD DS, DNS, DHCP),Machines Windows jointes au domaine,GPO appliquées par profil (parents/enfants),Partages réseau accessibles selon permissions"
+             data-project-cloture="Projet en cours — mise à jour continue au fil des évolutions,Documentation personnelle maintenue">
           <div class="project-card-img">
             <img src="./assets/images/project-6.png" alt="Parc AD DS" loading="lazy">
           </div>
@@ -959,7 +1012,10 @@
              data-project-context="Proposition technique v4 (PROP-IRIS-v4) — École IRIS Nice, première promotion BTS SIO (SISR + SLAM). Aucune infrastructure de TP en place. Mission : déployer un environnement complet (VMs + conteneurs) avec accès réseau sécurisé, authentification individuelle et traçabilité. Budget : 50 000 € (consommé : 37 356 € TTC, solde : 12 644 €). Réalisée en binôme avec Tiago QUENETTE."
              data-project-methods="Benchmark hyperviseur (KVM natif retenu vs Proxmox/VMware/XCP-ng) — exposition des couches basses virsh/libvirt/QEMU pour les étudiants SISR. Architecture réseau : 5 VLANs (SISR/Admin/Serveurs/SLAM/Management), Cisco Catalyst 2960-S (Rapid-PVST+, 802.1X, trunks), routage inter-VLAN et ACLs IOS sur Cisco 1941W, WiFi EWC sur C9105AXI-E (WPA3-Enterprise, sans VM 9800-CL). Authentification 802.1X + FreeRADIUS 3 + OpenLDAP (attribution VLAN dynamique par groupe). Serveur Debian 12 : KVM/libvirt/QEMU + WebVirtCloud RBAC (portail par étudiant), 60 VMs SISR déployées (WS2022 8GB + Debian 12). SLAM : Docker CE natif + Dockhand. Sécurité : nwfilter anti-spoofing IP/MAC, AppArmor QEMU, snapshots + BorgBackup nightly. 7 protocoles de tests de recette. 5 livrables documentaires (DOC-01 à 05)."
              data-project-skills="Gérer le patrimoine informatique,Mettre à disposition des utilisateurs un service informatique,Travailler en mode projet,Répondre aux incidents,Cybersécurité"
-             data-project-gantt="./assets/images/gantt-infrastructure-iris.svg">
+             data-project-gantt="./assets/images/gantt-infrastructure-iris.svg"
+             data-project-livrables="PROP-IRIS-v4 (proposition technique),5 documents DOC-01 à DOC-05,7 protocoles de tests de recette,Schéma réseau VLAN (5 VLANs),Procédures d'exploitation KVM + Docker"
+             data-project-criteres="60 VMs SISR déployées et accessibles,802.1X fonctionnel (attribution VLAN dynamique),Routage inter-VLAN opérationnel,Docker SLAM en service,BorgBackup nightly actif,Budget maîtrisé (37 356 € sur 50 000 €)"
+             data-project-cloture="7 protocoles de recette validés,Présentation technique au jury BTS,Budget : 37 356 € TTC consommés (solde 12 644 €),Infrastructure opérationnelle pour la promo BTS SIO">
           <div class="project-card-img">
             <img src="./assets/images/project-8.svg" alt="Infrastructure IRIS" loading="lazy">
           </div>
@@ -977,7 +1033,10 @@
              data-project-context="Mise en place d'une stack de supervision complète sur un serveur Proxmox (IRIS) hébergeant plusieurs VMs en production : métriques système, conteneurs, logs centralisés et alerting. Objectif : visibilité temps réel et remontée d'alertes vers l'équipe sans accès distant permanent au serveur."
              data-project-methods="Benchmark de 4 solutions (Zabbix, PRTG, Checkmk, stack Prometheus). Déploiement via Docker Compose : Prometheus + Node-Exporter + cAdvisor + Loki + Promtail. Construction de dashboards Grafana (infrastructure, conteneurs, logs). Configuration Alertmanager avec règles CPU/RAM/disk. Tests de charge et documentation finale."
              data-project-skills="Mettre à disposition des utilisateurs un service informatique,Gérer le patrimoine informatique,Travailler en mode projet"
-             data-project-gantt="./assets/images/gantt-supervision.svg">
+             data-project-gantt="./assets/images/gantt-supervision.svg"
+             data-project-livrables="Stack Docker Compose (Prometheus + Grafana + Loki),Dashboards Grafana (infra + conteneurs + logs),Documentation de déploiement,Rapport de tests de charge"
+             data-project-criteres="Métriques CPU/RAM/disk en temps réel,Alertes Alertmanager configurées (seuils CPU/RAM/disk),Dashboards Grafana validés par l'équipe,Logs Loki centralisés et interrogeables"
+             data-project-cloture="Tests de charge validés,Alertes déclenchées et reçues (simulation),Documentation livrée à l'équipe IRIS">
           <div class="project-card-img">
             <img src="./assets/images/project-7.svg" alt="Supervision Serveur IRIS" loading="lazy">
           </div>
@@ -1263,6 +1322,8 @@
               <li><a href="#cv" class="footer-link">CV & Parcours</a></li>
               <li><a href="#competences-bts" class="footer-link">Compétences BTS</a></li>
               <li><a href="#portfolio" class="footer-link">Projets</a></li>
+              <li><a href="#veille" class="footer-link">Veille</a></li>
+              <li><a href="./mentions-legales.html" class="footer-link">Mentions légales</a></li>
             </ul>
           </div>
 
@@ -1357,6 +1418,18 @@
         <div class="modal-section">
           <h4>Méthodes</h4>
           <p data-pd-methods></p>
+        </div>
+        <div class="modal-section hidden" data-pd-livrables-item>
+          <h4>📦 Livrables</h4>
+          <div class="modal-tags" data-pd-livrables></div>
+        </div>
+        <div class="modal-section hidden" data-pd-criteres-item>
+          <h4>✅ Critères d'évaluation</h4>
+          <div class="modal-tags" data-pd-criteres></div>
+        </div>
+        <div class="modal-section hidden" data-pd-cloture-item>
+          <h4>🏁 Modalités de clôture</h4>
+          <p data-pd-cloture></p>
         </div>
         <div class="modal-section" data-pd-skills-item>
           <h4>Compétences E5 mobilisées</h4>

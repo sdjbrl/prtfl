@@ -147,6 +147,48 @@ function openModal(card) {
   modal.querySelector('[data-pd-context]').textContent  = d.projectContext  || '';
   modal.querySelector('[data-pd-methods]').textContent  = d.projectMethods  || '';
 
+  // Livrables
+  const livrablesBox  = modal.querySelector('[data-pd-livrables]');
+  const livrablesItem = modal.querySelector('[data-pd-livrables-item]');
+  livrablesBox.innerHTML = '';
+  if (d.projectLivrables) {
+    d.projectLivrables.split(',').forEach(l => {
+      const tag = document.createElement('span');
+      tag.className = 'skill-tag';
+      tag.textContent = l.trim();
+      livrablesBox.appendChild(tag);
+    });
+    livrablesItem.classList.remove('hidden');
+  } else {
+    livrablesItem.classList.add('hidden');
+  }
+
+  // Critères d'évaluation
+  const criteresBox  = modal.querySelector('[data-pd-criteres]');
+  const criteresItem = modal.querySelector('[data-pd-criteres-item]');
+  criteresBox.innerHTML = '';
+  if (d.projectCriteres) {
+    d.projectCriteres.split(',').forEach(c => {
+      const tag = document.createElement('span');
+      tag.className = 'skill-tag';
+      tag.textContent = c.trim();
+      criteresBox.appendChild(tag);
+    });
+    criteresItem.classList.remove('hidden');
+  } else {
+    criteresItem.classList.add('hidden');
+  }
+
+  // Modalités de clôture
+  const clotureEl   = modal.querySelector('[data-pd-cloture]');
+  const clotureItem = modal.querySelector('[data-pd-cloture-item]');
+  if (d.projectCloture) {
+    clotureEl.textContent = d.projectCloture;
+    clotureItem.classList.remove('hidden');
+  } else {
+    clotureItem.classList.add('hidden');
+  }
+
   const skillsBox = modal.querySelector('[data-pd-skills]');
   skillsBox.innerHTML = '';
   if (d.projectSkills) {
