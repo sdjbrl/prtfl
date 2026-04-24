@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nextcloud 28 — Stockage cloud interne SISR + SLAM | Saïd Ahmed Moussa</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/x-icon" href="../assets/images/logo.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .navbar { top: 0 !important; }
+    .doc-page { max-width: 900px; margin: 72px auto 80px; padding: 0 24px; }
+    .doc-back { display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-decoration:none;font-size:0.9rem;font-family:'JetBrains Mono',monospace;margin-bottom:32px;transition:opacity .2s; }
+    .doc-back:hover { opacity:.7; }
+    .doc-hero { margin-bottom:48px; }
+    .doc-hero .doc-category { font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);margin-bottom:8px; }
+    .doc-hero h1 { font-size:clamp(2rem,5vw,3rem);font-weight:700;margin-bottom:12px; }
+    .doc-hero .doc-dates { color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.85rem; }
+    .doc-section { margin-bottom:48px; }
+    .doc-section-title { font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:20px;display:flex;align-items:center;gap:8px; }
+    .doc-section-title::after { content:'';flex:1;height:1px;background:var(--border); }
+    .doc-text { color:var(--text-secondary);line-height:1.8;font-size:.95rem; }
+    .doc-text p+p { margin-top:12px; }
+    .doc-callout { background:#1e2a1e; border-left:3px solid #3aa876; padding:12px 16px; border-radius:6px; margin-top:14px !important; }
+    .doc-text code { background:rgba(0,188,212,.08);border:1px solid rgba(0,188,212,.2);color:var(--cyan);padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.85em; }
+    .doc-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:12px; }
+    .doc-tag { background:rgba(58,168,118,.08);border:1px solid rgba(58,168,118,.25);color:#3aa876;padding:6px 14px;border-radius:20px;font-size:.8rem;font-family:'JetBrains Mono',monospace; }
+    .livrable-list { list-style:none;padding:0;display:flex;flex-direction:column;gap:10px; }
+    .livrable-list li { display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-size:.9rem; }
+    .livrable-list li::before { content:'→';color:#3aa876;flex-shrink:0;font-family:'JetBrains Mono',monospace; }
+    .critere-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px; }
+    .critere-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:var(--text-secondary); }
+    .critere-card::before { content:'✓ ';color:#4caf50;font-weight:700; }
+    .gantt-figure { margin:0; }
+    .gantt-figure img { width:100%;border-radius:8px;border:1px solid var(--border); }
+    .gantt-figure figcaption { text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:8px;font-family:'JetBrains Mono',monospace; }
+    .stack-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px; }
+    .stack-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px; }
+    .stack-label { font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px; }
+    .stack-value { font-size:1rem;font-weight:600;color:#3aa876;font-family:'JetBrains Mono',monospace;margin-bottom:4px; }
+    .stack-desc { font-size:.8rem;color:var(--text-secondary);line-height:1.5; }
+    .doc-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:32px; }
+    .doc-btn { display:inline-flex;align-items:center;gap:8px;padding:12px 20px;background:rgba(58,168,118,.08);border:1px solid rgba(58,168,118,.3);color:#3aa876;text-decoration:none;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.85rem;transition:all .2s; }
+    .doc-btn:hover { background:rgba(58,168,118,.18);transform:translateY(-1px); }
+    .retex-list { list-style:none;padding:0;display:flex;flex-direction:column;gap:12px; }
+    .retex-list li { padding:16px 18px;background:var(--bg-2);border:1px solid var(--border);border-left:3px solid #3aa876;border-radius:6px;color:var(--text-secondary);font-size:.9rem;line-height:1.6; }
+    .retex-list li strong { color:var(--text-primary);display:block;margin-bottom:4px;font-family:'JetBrains Mono',monospace;font-size:.85rem; }
+    .risk-table { width:100%;border-collapse:collapse;font-size:.875rem; }
+    .risk-table th { text-align:left;padding:10px 14px;background:rgba(58,168,118,.08);border:1px solid var(--border);color:#3aa876;font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .risk-table td { padding:10px 14px;border:1px solid var(--border);color:var(--text-secondary);vertical-align:top; }
+    .risk-table tr:nth-child(even) td { background:rgba(255,255,255,.02); }
+    .badge-risk { display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .badge-h { background:rgba(239,83,80,.15);color:#ef5350; }
+    .badge-m { background:rgba(255,152,0,.15);color:#ff9800; }
+    .badge-l { background:rgba(76,175,80,.15);color:#4caf50; }
+    .pra-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:16px; }
+    .pra-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px; }
+    .pra-label { font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px; }
+    .pra-value { font-size:1.25rem;font-weight:700;color:#3aa876;font-family:'JetBrains Mono',monospace;margin-bottom:4px; }
+    .pra-desc { font-size:.8rem;color:var(--text-secondary);line-height:1.5; }
+    .badge-wip { display:inline-flex;align-items:center;gap:6px;background:rgba(255,152,0,.12);border:1px solid rgba(255,152,0,.3);color:#ff9800;padding:4px 12px;border-radius:20px;font-size:.75rem;font-family:'JetBrains Mono',monospace; }
+    .badge-wip::before { content:'⏳'; }
+  </style>
+</head>
+<body>
+  <header class="navbar" data-navbar>
+    <div class="nav-left">
+      <span class="nav-initials">SA</span>
+      <span class="nav-status">SYS_STATUS: <span class="status-online">ONLINE</span></span>
+    </div>
+    <nav class="nav-links" data-nav-links>
+      <a href="../index.html#apropos" class="nav-link">À propos</a>
+      <a href="../index.html#arsenal" class="nav-link">Arsenal</a>
+      <a href="../index.html#cv" class="nav-link">Parcours</a>
+      <a href="../index.html#portfolio" class="nav-link">Projets</a>
+      <a href="../index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main class="doc-page">
+    <a href="../index.html#portfolio" class="doc-back">← Retour aux projets</a>
+
+    <div class="doc-hero">
+      <p class="doc-category">// Stockage cloud — Reverse Proxy TLS — Suite bureautique</p>
+      <h1>Nextcloud 28 — Stockage cloud interne SISR + SLAM</h1>
+      <p class="doc-dates">📅 21 avril 2026 · Sprint intensif d'une journée &nbsp; <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(58,168,118,.12);border:1px solid rgba(58,168,118,.35);color:#3aa876;padding:4px 12px;border-radius:20px;font-size:.75rem;font-family:'JetBrains Mono',monospace;">✅ En ligne — nextcloud.saiddev.fr</span></p>
+    </div>
+
+    <!-- DOCUMENTATION -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Documentation technique</h2>
+      <div class="doc-text">
+        <p>Déploiement d'une instance <strong>Nextcloud 28</strong> (stockage cloud open source) destinée aux <strong>classes BTS SIO SISR et SLAM d'IRIS Mediaschool Nice</strong>. La plateforme sert de GED mutualisée entre les deux promotions : partage de fichiers pédagogiques, dépôt de rendus TP, calendriers partagés, visioconférence Talk, et édition bureautique collaborative via <strong>Collabora CODE</strong> (Writer, Calc, Impress dans le navigateur).</p>
+        <p>Angle RGPD central : contrairement à Google Drive ou OneDrive, les données restent <strong>hébergées en France sur infrastructure maîtrisée</strong> (VPS OVH). Chiffrement côté serveur activé, contrôle d'accès granulaire par groupes (SISR / SLAM / formateurs), journalisation des accès.</p>
+        <p class="doc-callout">🟢 <strong>Précision :</strong> ce projet est un livrable scolaire pour les classes <strong>SISR (admin sys/réseau)</strong> et <strong>SLAM (dév logiciel)</strong> d'IRIS — il n'est pas lié à mon alternance Kiné@dom (Ephycient).</p>
+        <p>Architecture déployée en <strong>2 environnements</strong> :</p>
+        <p>• <strong>Lab local Vagrant</strong> (repo <code>sdjbrl/nextcloud-vagrant</code>) — VM Debian 12 avec Docker Compose orchestrant Nextcloud + PostgreSQL + Redis + Collabora CODE + Traefik. Reproductible en un <code>vagrant up</code>.</p>
+        <p>• <strong>Démo publique (cible)</strong> — VPS OVH avec Traefik ACME Let's Encrypt, domaine personnalisé <code>nextcloud.saiddev.fr</code> via CNAME OVH, même infrastructure que <code>glpi.saiddev.fr</code>.</p>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES BTS -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Compétences BTS SIO SISR mobilisées</h2>
+      <div class="doc-tags">
+        <span class="doc-tag">Mettre à disposition un service informatique</span>
+        <span class="doc-tag">Gérer le patrimoine informatique</span>
+        <span class="doc-tag">Installer et déployer (Docker, Traefik, TLS)</span>
+        <span class="doc-tag">Protéger les données personnelles (RGPD)</span>
+        <span class="doc-tag">Préserver l'identité numérique (auth, MFA)</span>
+        <span class="doc-tag">Garantir disponibilité / intégrité</span>
+      </div>
+    </div>
+
+    <!-- STACK TECHNIQUE -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Stack technique</h2>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="stack-label">Application</div>
+          <div class="stack-value">Nextcloud 28</div>
+          <div class="stack-desc">GED cloud open source — fichiers, calendriers, contacts, Talk, Office</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-label">Reverse Proxy</div>
+          <div class="stack-value">Traefik v3</div>
+          <div class="stack-desc">Routage HTTP/HTTPS, dashboard, ACME Let's Encrypt (prod)</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-label">Base de données</div>
+          <div class="stack-value">PostgreSQL 15</div>
+          <div class="stack-desc">BDD relationnelle avec healthcheck intégré</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-label">Cache</div>
+          <div class="stack-value">Redis 7</div>
+          <div class="stack-desc">Cache objets + sessions — réduit la charge BDD de ~40%</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-label">Bureautique</div>
+          <div class="stack-value">Collabora CODE</div>
+          <div class="stack-desc">Writer, Calc, Impress dans le navigateur — intégré Nextcloud</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-label">IaC</div>
+          <div class="stack-value">Vagrant + Docker Compose</div>
+          <div class="stack-desc">VM Debian 12 reproductible — 12 checks automatisés</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVRABLES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Livrables</h2>
+      <ul class="livrable-list">
+        <li>Repo GitHub <code>sdjbrl/nextcloud-vagrant</code> (public)</li>
+        <li>Lab Vagrant Debian 12 reproductible (<code>vagrant up</code> = Nextcloud + Collabora prêts)</li>
+        <li>Docker Compose complet (5 services) avec healthchecks et volumes persistants</li>
+        <li>Script de validation automatique (12 checks)</li>
+        <li>README avec architecture ASCII, commandes utiles, guide DNS OVH</li>
+        <li>Démo publique HTTPS (cible) : <code>nextcloud.saiddev.fr</code></li>
+      </ul>
+    </div>
+
+    <!-- CRITÈRES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Critères d'évaluation</h2>
+      <div class="critere-grid">
+        <div class="critere-card">Nextcloud accessible depuis l'hôte en HTTP local</div>
+        <div class="critere-card">Collabora CODE intégré (édition de fichiers .odt/.xlsx)</div>
+        <div class="critere-card">PostgreSQL + Redis healthchecks OK</div>
+        <div class="critere-card">Lab Vagrant fonctionnel hors-ligne (12/12 checks)</div>
+        <div class="critere-card">Domaine custom + cert TLS (cible VPS OVH)</div>
+        <div class="critere-card">Données RGPD : chiffrement + contrôle accès groupes</div>
+      </div>
+    </div>
+
+    <!-- RETEX TECHNIQUE -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Retour d'expérience technique</h2>
+      <ul class="retex-list">
+        <li>
+          <strong>Nextcloud trusted_domains en Docker</strong>
+          Par défaut Nextcloud bloque tout accès depuis une IP non déclarée. Dans Docker Compose, passer <code>NEXTCLOUD_TRUSTED_DOMAINS</code> avec l'IP de la VM + le domaine prod <code>nextcloud.saiddev.fr</code> + <code>localhost</code>. Sans ça : page blanche avec <code>Access through untrusted domain</code>.
+        </li>
+        <li>
+          <strong>Collabora : SSL désactivé en local</strong>
+          Collabora CODE est conçu pour HTTPS. En local (HTTP), il faut passer <code>--o:ssl.enable=false --o:ssl.termination=true</code> dans <code>extra_params</code>. Traefik gère la terminaison TLS en prod, Collabora ne voit que du HTTP côté conteneur.
+        </li>
+        <li>
+          <strong>Ordre de démarrage Docker Compose</strong>
+          Nextcloud doit attendre que PostgreSQL et Redis soient <em>healthy</em> (pas seulement démarrés). Utiliser <code>depends_on: condition: service_healthy</code> combiné à des healthchecks déclarés — sinon Nextcloud échoue son init BDD au premier boot.
+        </li>
+        <li>
+          <strong>OVERWRITEPROTOCOL : HTTP en local, HTTPS en prod</strong>
+          La variable <code>OVERWRITEPROTOCOL</code> contrôle le protocole dans les URL internes Nextcloud. Mettre <code>http</code> en Vagrant local, <code>https</code> uniquement sur le VPS avec TLS. Sinon les redirections internes cassent le login.
+        </li>
+        <li>
+          <strong>Custom domain OVH → VPS</strong>
+          Ajouter un <code>CNAME nextcloud → &lt;ip-vps&gt;</code> dans la zone DNS OVH + configurer Traefik avec <code>--certificatesresolvers.letsencrypt.acme.httpchallenge=true</code>. Cert Let's Encrypt généré automatiquement (5-10 min). Même procédure que <code>glpi.saiddev.fr</code>.
+        </li>
+      </ul>
+    </div>
+
+    <!-- GESTION DES RISQUES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Gestion des risques</h2>
+      <table class="risk-table">
+        <thead>
+          <tr><th>Risque identifié</th><th>Probabilité</th><th>Impact</th><th>Mesure de mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Perte des données utilisateurs (volume nc_data)</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Backup nightly du volume Docker + dump PostgreSQL — rotation 7 jours sur VPS OVH</td>
+          </tr>
+          <tr>
+            <td>Collabora CODE image non maintenue / incompatibilité</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-m">Moyen</span></td>
+            <td>Pinning de version dans docker-compose.yml, ou fallback OnlyOffice (alternative supportée)</td>
+          </tr>
+          <tr>
+            <td>Accès non autorisé (comptes par défaut)</td>
+            <td><span class="badge-risk badge-h">Élevée</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Mot de passe admin non-default dès le provisioning, MFA activé, groupes SISR/SLAM séparés</td>
+          </tr>
+          <tr>
+            <td>Free tier VPS saturé / coût inattendu</td>
+            <td><span class="badge-risk badge-l">Faible</span></td>
+            <td><span class="badge-risk badge-m">Moyen</span></td>
+            <td>VPS OVH Starter 2 vCPU / 2 Go RAM suffisant. Facturation fixe prévisible (~5€/mois)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PRA / PCA -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">PRA / PCA</h2>
+      <div class="pra-grid">
+        <div class="pra-card">
+          <div class="pra-label">RTO lab local</div>
+          <div class="pra-value">&lt; 20 min</div>
+          <div class="pra-desc"><code>vagrant destroy -f && vagrant up</code> repart de zéro</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">RTO prod (VPS)</div>
+          <div class="pra-value">&lt; 30 min</div>
+          <div class="pra-desc">Redeploy Docker Compose + restauration volume depuis backup</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">RPO prod</div>
+          <div class="pra-value">24 heures</div>
+          <div class="pra-desc">Backup nightly volumes + pg_dump — rotation 7 jours</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANNEXES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Annexes</h2>
+      <figure class="gantt-figure">
+        <img src="../assets/images/gantt-nextcloud.svg" alt="Diagramme de Gantt — Déploiement Nextcloud">
+        <figcaption>// Diagramme de Gantt — Sprint Nextcloud du 21 avril 2026</figcaption>
+      </figure>
+      <div class="doc-actions">
+        <a class="doc-btn" href="https://github.com/sdjbrl/nextcloud-vagrant" target="_blank" rel="noopener">→ Repo GitHub</a>
+        <a class="doc-btn" href="https://nextcloud.saiddev.fr" target="_blank" rel="noopener">→ Démo publique HTTPS</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div class="footer-copyright"><p>&copy; 2026 Saïd Ahmed Moussa. Tous droits réservés.</p></div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script>
+    const navToggle = document.querySelector('[data-nav-toggle]');
+    const navLinks  = document.querySelector('[data-nav-links]');
+    if (navToggle && navLinks) navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+</body>
+</html>

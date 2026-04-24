@@ -489,6 +489,7 @@
                 <span class="project-badge">Infrastructure IRIS</span>
                 <span class="project-badge">Windows Server</span>
                 <span class="project-badge">GLPI (ITSM)</span>
+                <span class="project-badge">Nextcloud</span>
               </div>
             </div>
 
@@ -504,6 +505,7 @@
                 <span class="project-badge">Windows Server</span>
                 <span class="project-badge">ClassCord</span>
                 <span class="project-badge">GLPI</span>
+                <span class="project-badge">Nextcloud</span>
               </div>
             </div>
 
@@ -559,6 +561,7 @@
                 <span class="project-badge">Wiki Outline</span>
                 <span class="project-badge">Windows Server</span>
                 <span class="project-badge">GLPI (Railway)</span>
+                <span class="project-badge">Nextcloud (Docker)</span>
               </div>
             </div>
 
@@ -599,6 +602,7 @@
                 <span class="project-badge">Kiné@dom (RGPD santé)</span>
                 <span class="project-badge">Wiki Outline (SSO)</span>
                 <span class="project-badge">Infrastructure IRIS (LDAP)</span>
+                <span class="project-badge">Nextcloud (chiffrement)</span>
               </div>
             </div>
 
@@ -611,6 +615,7 @@
               <div class="competence-projects">
                 <span class="project-badge">Infrastructure IRIS (802.1X)</span>
                 <span class="project-badge">Wiki Outline (Traefik TLS)</span>
+                <span class="project-badge">Nextcloud (HTTPS / Traefik)</span>
               </div>
             </div>
 
@@ -1052,6 +1057,28 @@
             <span class="project-tag">ITSM / Cloud</span>
             <h3>GLPI 10.0.18 — ITSM SISR + SLAM</h3>
             <p>GLPI déployé sur Railway + lab Vagrant — démo HTTPS sur glpi.saiddev.fr (mutualisé classes SISR/SLAM IRIS).</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-filter-item data-category="cloud"
+             data-project-title="Nextcloud 28 — Stockage collaboratif auto-hébergé"
+             data-project-category="Cloud / Infrastructure"
+             data-project-dates="21 avril 2026"
+             data-project-context="Déploiement d'une instance Nextcloud 28 auto-hébergée sur VPS Scaleway (nextcloud.saiddev.fr) via Docker Compose et Traefik comme reverse proxy TLS. Stack complète : Nextcloud 28 Apache + PostgreSQL 15 + Redis 7 (cache sessions) + Collabora CODE (édition bureautique en ligne) + Traefik v3 (Let's Encrypt automatique). Lab Vagrant reproductible (repo sdjbrl/nextcloud-vagrant) pour développement local et démonstration hors-ligne. Projet BTS SIO SISR couvrant B1.1, B1.2, B2.2, B3.1, B3.2, B3.4."
+             data-project-methods="Docker Compose 5 services avec healthchecks (pg_isready + redis-cli ping), depends_on conditions. Traefik v3 : ACME Let's Encrypt DNS-01 / TLS-01, middlewares redirect HTTPS. Nextcloud : OVERWRITEPROTOCOL=https, trusted_domains, Redis session cache. PostgreSQL 15 en base de données principale (vs MySQL). Collabora CODE : ssl.termination=true (TLS délégué à Traefik). Lab Vagrant : VM Debian 12 bento/box, 2 vCPU 3 Go RAM, réseau 10.10.60.10, 4 scripts de provisionnement, 12 checks automatisés."
+             data-project-skills="Gérer le patrimoine informatique,Mettre à disposition des utilisateurs un service informatique,Installer et déployer une solution d'infrastructure réseau,Protéger les données à caractère personnel,Préserver l'identité numérique,Garantir la disponibilité l'intégrité et la confidentialité"
+             data-project-gantt="./assets/images/gantt-nextcloud.svg"
+             data-project-livrables="Repo GitHub sdjbrl/nextcloud-vagrant (public),Lab Vagrant Debian 12 reproductible,Docker Compose production-ready,Guide de déploiement VPS,Instance Nextcloud HTTPS nextcloud.saiddev.fr"
+             data-project-criteres="Instance Nextcloud accessible en HTTPS public,Lab Vagrant fonctionnel hors-ligne,Certificat TLS valide (Let's Encrypt),PostgreSQL + Redis opérationnels,Collabora CODE fonctionnel,Dépôt Git versionné et documenté"
+             data-project-cloture="Instance Nextcloud en ligne sur nextcloud.saiddev.fr,Repo GitHub documenté,Lab Vagrant reproductible validé par 12 checks automatisés"
+             data-project-doc-url="projects/nextcloud.html">
+          <div class="project-card-img">
+            <img src="./assets/images/gantt-nextcloud.svg" alt="Nextcloud Cloud" loading="lazy">
+          </div>
+          <div class="project-card-body">
+            <span class="project-tag">Cloud / Infrastructure</span>
+            <h3>Nextcloud 28 — Stockage collaboratif</h3>
+            <p>Nextcloud auto-hébergé sur VPS Scaleway + lab Vagrant — Docker Compose + Traefik TLS + Collabora CODE.</p>
           </div>
         </div>
 
