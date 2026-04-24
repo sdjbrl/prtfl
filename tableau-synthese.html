@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de Synthèse E5 — Saïd Ahmed Moussa | BTS SIO SISR</title>
+  <meta name="description" content="Tableau de synthèse E5 — BTS SIO SISR Session 2026 — Saïd Ahmed Moussa (IRIS Mediaschool Nice).">
+  <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      background: #f4f5f7;
+      color: #1a1a1a;
+      font-size: 12px;
+      line-height: 1.35;
+      padding: 20px;
+    }
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 24px 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+      border-radius: 6px;
+    }
+    .toolbar {
+      max-width: 1180px;
+      margin: 0 auto 14px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .toolbar a, .toolbar button {
+      background: #0f172a;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-size: 13px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .toolbar a.secondary { background: #475569; }
+    .toolbar a:hover, .toolbar button:hover { opacity: .88; }
+    h1 {
+      font-size: 14px;
+      margin: 0 0 4px 0;
+      text-align: center;
+      letter-spacing: .5px;
+    }
+    h2 {
+      font-size: 13px;
+      margin: 0 0 14px 0;
+      text-align: center;
+      font-weight: 600;
+      color: #334155;
+    }
+    .header-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 18px;
+      margin-bottom: 14px;
+      font-size: 11.5px;
+    }
+    .header-grid div { padding: 3px 0; }
+    .header-grid strong { display: inline-block; min-width: 165px; }
+    .option-box {
+      display: inline-flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .option-box span { display: inline-flex; align-items: center; gap: 4px; }
+    .checkbox {
+      display: inline-block;
+      width: 12px; height: 12px;
+      border: 1.5px solid #1a1a1a;
+      vertical-align: middle;
+    }
+    .checkbox.checked { background: #1a1a1a; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+      margin-top: 8px;
+    }
+    th, td {
+      border: 1px solid #475569;
+      padding: 5px 6px;
+      vertical-align: top;
+      text-align: left;
+    }
+    thead th {
+      background: #0f172a;
+      color: #fff;
+      font-weight: 600;
+      font-size: 10px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    th.col-skill { width: 11%; }
+    th.col-realisation { width: 28%; }
+    th.col-period { width: 7%; text-align: center; }
+    .skill-detail {
+      font-size: 9px;
+      font-weight: 400;
+      color: #f1f5f9;
+      display: block;
+      margin-top: 2px;
+      line-height: 1.25;
+    }
+    .section-row td {
+      background: #e2e8f0;
+      font-weight: 700;
+      font-size: 10.5px;
+      color: #0f172a;
+      text-align: left;
+      padding: 4px 8px;
+    }
+    .realisation-cell strong {
+      display: block;
+      font-size: 10.5px;
+      margin-bottom: 2px;
+      color: #0f172a;
+    }
+    .realisation-cell .desc {
+      font-size: 9.5px;
+      color: #334155;
+      line-height: 1.35;
+    }
+    .realisation-cell .links {
+      display: block;
+      margin-top: 4px;
+      font-size: 9px;
+    }
+    .realisation-cell a {
+      color: #0369a1;
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .realisation-cell a:hover { text-decoration: underline; }
+    .period {
+      text-align: center;
+      font-size: 9.5px;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+    .check {
+      text-align: center;
+      font-weight: 700;
+      color: #15803d;
+      font-size: 14px;
+    }
+    .footer-meta {
+      margin-top: 16px;
+      font-size: 10px;
+      color: #64748b;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 10px;
+    }
+    @media print {
+      body { background: #fff; padding: 0; font-size: 9.5px; }
+      .toolbar { display: none; }
+      .wrap { box-shadow: none; padding: 10mm; max-width: none; border-radius: 0; }
+      table { font-size: 8.5px; }
+      thead th { font-size: 8.5px; }
+      .skill-detail { font-size: 7.5px; }
+      .realisation-cell strong { font-size: 9px; }
+      .realisation-cell .desc { font-size: 8px; }
+      .realisation-cell .links { font-size: 7.5px; }
+      .period { font-size: 8px; }
+      .check { font-size: 12px; }
+      @page { size: A4 landscape; margin: 8mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href="./index.html" class="secondary">← Retour au portfolio</a>
+    <button onclick="window.print()">🖨️ Imprimer / Enregistrer en PDF</button>
+  </div>
+
+  <div class="wrap">
+    <h1>BTS SERVICES INFORMATIQUES AUX ORGANISATIONS</h1>
+    <h2>Tableau de synthèse des réalisations professionnelles — SESSION 2026</h2>
+
+    <div class="header-grid">
+      <div><strong>NOM et prénom :</strong> Saïd AHMED MOUSSA</div>
+      <div><strong>N° candidat :</strong> 02149997576</div>
+      <div><strong>Centre de formation :</strong> IRIS Mediaschool Nice — BTS SIO SISR</div>
+      <div>
+        <strong>Option :</strong>
+        <span class="option-box">
+          <span><span class="checkbox checked"></span> SISR</span>
+          <span><span class="checkbox"></span> SLAM</span>
+        </span>
+      </div>
+      <div style="grid-column: 1 / -1;">
+        <strong>Adresse URL du portfolio :</strong>
+        <a href="https://sdjbrl.me" target="_blank">https://sdjbrl.me</a>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="col-realisation" rowspan="2">Réalisations professionnelles<br><span class="skill-detail">(intitulé et liste des documents et productions associés)</span></th>
+          <th class="col-period" rowspan="2">Période<br><span class="skill-detail">(JJ/MM/AA au JJ/MM/AA)</span></th>
+          <th colspan="6">Compétences mises en œuvre</th>
+        </tr>
+        <tr>
+          <th class="col-skill">Gérer le patrimoine informatique
+            <span class="skill-detail">▸ Recenser ressources ▸ Référentiels & normes ▸ Habilitations ▸ Continuité ▸ Sauvegardes ▸ Règles d'utilisation</span>
+          </th>
+          <th class="col-skill">Répondre aux incidents et demandes d'assistance
+            <span class="skill-detail">▸ Collecter, suivre, orienter demandes ▸ Demandes réseau & système ▸ Demandes applicatives</span>
+          </th>
+          <th class="col-skill">Développer la présence en ligne de l'organisation
+            <span class="skill-detail">▸ Image organisation médias num. ▸ Référencement & visibilité ▸ Évolution site web</span>
+          </th>
+          <th class="col-skill">Travailler en mode projet
+            <span class="skill-detail">▸ Analyser objectifs & modalités ▸ Planifier activités ▸ Évaluer indicateurs & écarts</span>
+          </th>
+          <th class="col-skill">Mettre à disposition un service informatique
+            <span class="skill-detail">▸ Tests intégration & acceptation ▸ Déploiement service ▸ Accompagnement utilisateurs</span>
+          </th>
+          <th class="col-skill">Organiser son développement professionnel
+            <span class="skill-detail">▸ Environnement d'apprentissage ▸ Veille informationnelle ▸ Identité pro ▸ Projet pro</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section-row"><td colspan="8">Réalisations en cours de formation</td></tr>
+
+        <tr>
+          <td class="realisation-cell">
+            <strong>ClassCord Server</strong>
+            <span class="desc">Déploiement et sécurisation d'un serveur de chat TCP multi-clients : Python, systemd, Docker, fail2ban, SQLite. 1ʳᵉ année.</span>
+            <span class="links">↗ <a href="https://github.com/sdjbrl/classcord_djibril" target="_blank">github.com/sdjbrl/classcord_djibril</a></span>
+          </td>
+          <td class="period">23/06/25<br>au<br>27/06/25</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td></td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="realisation-cell">
+            <strong>Wiki Outline</strong>
+            <span class="desc">Solution de documentation collaborative : Docker Compose, PostgreSQL, Redis, MinIO, Traefik TLS, OIDC/Keycloak SSO. Binôme.</span>
+            <span class="links">↗ <a href="https://wiki.iris.a3n.fr:4433" target="_blank">wiki.iris.a3n.fr:4433</a> · <a href="https://github.com/sdjbrl/wiki-iris" target="_blank">github.com/sdjbrl/wiki-iris</a> · <a href="./projects/wiki-outline.html" target="_blank">fiche projet</a></span>
+          </td>
+          <td class="period">23/02/26<br>au<br>27/02/26</td>
+          <td class="check">✓</td>
+          <td></td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+
+        <tr>
+          <td class="realisation-cell">
+            <strong>Windows Server Vagrant</strong>
+            <span class="desc">Automatisation infrastructure AD DS / DNS / DHCP / GPO / FSRM / WSUS / WDS via Vagrant et 10 scripts PowerShell idempotents.</span>
+            <span class="links">↗ <a href="https://github.com/Mediaschool-IRIS-BTS-SISR-2025/TP_WS_Said" target="_blank">github.com/Mediaschool-IRIS-BTS-SISR-2025/TP_WS_Said</a> · <a href="./projects/windows-server.html" target="_blank">fiche projet</a></span>
+          </td>
+          <td class="period">23/03/26<br>au<br>27/03/26</td>
+          <td class="check">✓</td>
+          <td></td>
+          <td></td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+
+        <tr>
+          <td class="realisation-cell">
+            <strong>Parc AD DS familial</strong>
+            <span class="desc">Domaine Active Directory domestique, GPO par profil (parents/enfants), partages réseau, supervision PowerShell. Projet personnel.</span>
+            <span class="links">↗ <a href="./projects/parc-ad.html" target="_blank">fiche projet</a></span>
+          </td>
+          <td class="period">01/04/25<br>—<br>en cours</td>
+          <td class="check">✓</td>
+          <td></td>
+          <td></td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td></td>
+        </tr>
+
+        <tr class="section-row"><td colspan="8">Réalisations en milieu professionnel — première année</td></tr>
+
+        <tr>
+          <td class="realisation-cell">
+            <strong>Alternance Kiné@dom Nice (Ephycient)</strong>
+            <span class="desc">Support helpdesk N1/N2 via ticketing interne (personnel administratif &amp; kinésithérapeutes), maintenance d'un parc de 15 postes, exploitation du SaaS métier <strong>Ephycient</strong> (planification tournées, dossiers patients, facturation), conformité RGPD santé. SLA informel &lt; 24 h.</span>
+            <span class="links">↗ <a href="./projects/kineadom.html" target="_blank">fiche projet kineadom.html</a></span>
+          </td>
+          <td class="period">01/09/24<br>au<br>30/06/25</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="realisation-cell">
+            <strong>Smart Projector IRIS</strong>
+            <span class="desc">Automatisation des vidéoprojecteurs (10 salles) : Raspberry Pi 4 + relais GPIO + commutateur HDMI, interface web Flask. Stage IRIS Nice — pilote 2 salles puis rollout complet.</span>
+            <span class="links">↗ <a href="./projects/smart-projector.html" target="_blank">fiche projet</a> · <a href="./assets/files/smart-projector-iris.pdf" target="_blank">documentation PDF</a></span>
+          </td>
+          <td class="period">05/01/26<br>au<br>14/02/26</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td></td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td></td>
+        </tr>
+
+        <tr class="section-row"><td colspan="8">Réalisations en milieu professionnel — seconde année</td></tr>
+
+        <tr>
+          <td class="realisation-cell">
+            <strong>Supervision Serveur IRIS</strong>
+            <span class="desc">Stack Prometheus + Grafana + Node-Exporter + cAdvisor + Loki + Promtail. Benchmark de 4 solutions, dashboards métriques/logs, alerting Alertmanager.</span>
+            <span class="links">↗ <a href="./projects/supervision.html" target="_blank">fiche projet</a></span>
+          </td>
+          <td class="period">23/02/26<br>au<br>27/02/26</td>
+          <td class="check">✓</td>
+          <td></td>
+          <td></td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+
+        <tr>
+          <td class="realisation-cell">
+            <strong>Infrastructure Réseau &amp; Virtualisation IRIS (PROP-IRIS-v4)</strong>
+            <span class="desc">5 VLANs, 802.1X / FreeRADIUS / OpenLDAP, KVM natif + 60 VMs SISR (WS2022 / Debian), Docker SLAM + Dockhand, BorgBackup. Binôme.</span>
+            <span class="links">↗ <a href="./projects/infra-iris.html" target="_blank">fiche projet</a></span>
+          </td>
+          <td class="period">24/02/26<br>au<br>28/02/26</td>
+          <td class="check">✓</td>
+          <td></td>
+          <td></td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer-meta">
+      Document généré depuis le portfolio · Saïd Ahmed Moussa · BTS SIO SISR · Session 2026
+    </div>
+  </div>
+</body>
+</html>
