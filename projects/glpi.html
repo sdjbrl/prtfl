@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GLPI — ITSM open source pour Kiné@dom | Saïd Ahmed Moussa</title>
+  <title>GLPI — ITSM open source mutualisé SISR + SLAM | Saïd Ahmed Moussa</title>
   <meta name="robots" content="noindex, follow">
   <link rel="icon" type="image/x-icon" href="../assets/images/logo.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,7 @@
     .doc-section-title::after { content:'';flex:1;height:1px;background:var(--border); }
     .doc-text { color:var(--text-secondary);line-height:1.8;font-size:.95rem; }
     .doc-text p+p { margin-top:12px; }
+    .doc-callout { background:#2a2540; border-left:3px solid #f3a94a; padding:12px 16px; border-radius:6px; margin-top:14px !important; }
     .doc-text code { background:rgba(0,188,212,.08);border:1px solid rgba(0,188,212,.2);color:var(--cyan);padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.85em; }
     .doc-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:12px; }
     .doc-tag { background:rgba(0,188,212,.08);border:1px solid rgba(0,188,212,.25);color:var(--cyan);padding:6px 14px;border-radius:20px;font-size:.8rem;font-family:'JetBrains Mono',monospace; }
@@ -83,7 +84,7 @@
 
     <div class="doc-hero">
       <p class="doc-category">// ITSM open source — Déploiement Cloud</p>
-      <h1>GLPI 10.0.18 — ITSM pour Kiné@dom</h1>
+      <h1>GLPI 10.0.18 — ITSM mutualisé SISR + SLAM</h1>
       <p class="doc-dates">📅 23 avril 2026 · Sprint intensif d'une journée</p>
     </div>
 
@@ -91,7 +92,8 @@
     <div class="doc-section">
       <h2 class="doc-section-title">Documentation technique</h2>
       <div class="doc-text">
-        <p>Mise en place d'une instance <strong>GLPI 10.0.18</strong> (Gestion Libre de Parc Informatique) destinée à structurer le ticketing et l'inventaire du parc Kiné@dom (15 postes Windows + SaaS Ephycient). Objectif : remplacer le suivi des incidents par mail/téléphone par une vraie démarche ITIL — qualification des tickets (P1→P4), inventaire CMDB, base de connaissances N1/N2, suivi des SLA.</p>
+        <p>Mise en place d'une instance <strong>GLPI 10.0.18</strong> (Gestion Libre de Parc Informatique) destinée aux <strong>classes BTS SIO SISR et SLAM d'IRIS Mediaschool Nice</strong>. L'outil sert de plateforme ITSM mutualisée entre les deux promotions : ticketing helpdesk pour les incidents inter-classes, inventaire du parc pédagogique (postes salles TP, switchs, serveurs lab), base de connaissances commune SISR/SLAM, suivi des demandes d'assistance entre étudiants des deux filières. Démarche ITIL — qualification des tickets (P1→P4), CMDB, base de connaissances N1/N2, SLA.</p>
+        <p class="doc-callout">⚠️ <strong>Précision :</strong> ce projet est un livrable scolaire pour les classes <strong>SISR (admin sys/réseau)</strong> et <strong>SLAM (dév logiciel)</strong> d'IRIS — il n'est pas lié à mon alternance Kiné@dom (Ephycient).</p>
         <p>Architecture déployée en <strong>2 environnements</strong> :</p>
         <p>• <strong>Lab local Vagrant</strong> (repo <code>sdjbrl/glpi-vagrant</code>) — VM Debian 12 avec Apache 2.4 + PHP 8.3 + MariaDB 10.11, provisionnée par script shell. Permet itération rapide hors-ligne.</p>
         <p>• <strong>Démo publique sur Railway</strong> (PaaS gratuit) — image <code>diouxx/glpi:latest</code> wrappée dans un Dockerfile custom + entrypoint maison qui bypass le script de boot upstream cassé. MySQL managé par Railway, certificat HTTPS Let's Encrypt automatique, domaine personnalisé <code>glpi.saiddev.fr</code> via CNAME OVH.</p>

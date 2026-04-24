@@ -1030,10 +1030,10 @@
         </div>
 
         <div class="project-card reveal" data-filter-item data-category="itsm"
-             data-project-title="GLPI 10.0.18 — ITSM pour Kiné@dom"
+             data-project-title="GLPI 10.0.18 — ITSM mutualisé SISR + SLAM"
              data-project-category="ITSM / Cloud"
              data-project-dates="23 avril 2026"
-             data-project-context="Mise en place d'une instance GLPI 10.0.18 (Gestion Libre de Parc Informatique) destinée à structurer le ticketing et l'inventaire du parc Kiné@dom (15 postes Windows + SaaS Ephycient). Objectif : remplacer le suivi des incidents par mail/téléphone par une vraie démarche ITIL — qualification des tickets (P1→P4), inventaire CMDB, base de connaissances N1/N2, suivi des SLA. Déploiement sur 2 environnements : lab Vagrant local (repo sdjbrl/glpi-vagrant) + démo publique Railway sur glpi.saiddev.fr (HTTPS Let's Encrypt + domaine custom OVH). En attente de la livraison du VPS OVH pour la prod long-terme."
+             data-project-context="Mise en place d'une instance GLPI 10.0.18 (Gestion Libre de Parc Informatique) destinée aux classes BTS SIO SISR et SLAM d'IRIS Mediaschool Nice — outil ITSM mutualisé entre les deux promotions : ticketing helpdesk inter-classes, inventaire du parc pédagogique (postes salles TP, switchs, serveurs lab), base de connaissances commune SISR/SLAM. Démarche ITIL — qualification des tickets (P1→P4), CMDB, SLA. Projet scolaire IRIS, distinct de l'alternance Kiné@dom. Déploiement sur 2 environnements : lab Vagrant local (repo sdjbrl/glpi-vagrant) + démo publique Railway sur glpi.saiddev.fr (HTTPS Let's Encrypt + domaine custom OVH). En attente de la livraison du VPS OVH pour la prod long-terme."
              data-project-methods="Lab Vagrant : VM Debian 12 + Apache 2.4 + PHP 8.3 + MariaDB 10.11, provisionnée par script shell. Démo Railway : Dockerfile wrapper sur diouxx/glpi:latest + entrypoint custom autonome (bypass du /opt/glpi-start.sh upstream cassé), MySQL managé Railway, certificat HTTPS Let's Encrypt automatique. DNS : CNAME glpi.saiddev.fr sur OVH + TXT de vérification Railway. 14 commits + ~10h de debug (set -u + envvars Apache, logs invisibles, port mismatch Railway, variables MySQL désordonnées)."
              data-project-skills="Mettre à disposition des utilisateurs un service informatique,Gérer le patrimoine informatique,Travailler en mode projet,Répondre aux incidents,Cybersécurité"
              data-project-gantt="./assets/images/gantt-glpi.svg"
@@ -1046,8 +1046,8 @@
           </div>
           <div class="project-card-body">
             <span class="project-tag">ITSM / Cloud</span>
-            <h3>GLPI 10.0.18 — ITSM Kiné@dom</h3>
-            <p>GLPI déployé sur Railway + lab Vagrant — démo HTTPS sur glpi.saiddev.fr.</p>
+            <h3>GLPI 10.0.18 — ITSM SISR + SLAM</h3>
+            <p>GLPI déployé sur Railway + lab Vagrant — démo HTTPS sur glpi.saiddev.fr (mutualisé classes SISR/SLAM IRIS).</p>
           </div>
         </div>
 
