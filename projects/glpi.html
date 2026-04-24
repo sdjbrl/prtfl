@@ -83,7 +83,7 @@
     <a href="../index.html#portfolio" class="doc-back">← Retour aux projets</a>
 
     <div class="doc-hero">
-      <p class="doc-category">// ITSM open source — Déploiement Cloud</p>
+      <p class="doc-category">// ITSM open source — Auto-hébergé VPS Scaleway</p>
       <h1>GLPI 10.0.18 — ITSM mutualisé SISR + SLAM</h1>
       <p class="doc-dates">📅 23 avril 2026 · Sprint intensif d'une journée</p>
     </div>
@@ -96,8 +96,8 @@
         <p class="doc-callout">⚠️ <strong>Précision :</strong> ce projet est un livrable scolaire pour les classes <strong>SISR (admin sys/réseau)</strong> et <strong>SLAM (dév logiciel)</strong> d'IRIS — il n'est pas lié à mon alternance Kiné@dom (Ephycient).</p>
         <p>Architecture déployée en <strong>2 environnements</strong> :</p>
         <p>• <strong>Lab local Vagrant</strong> (repo <code>sdjbrl/glpi-vagrant</code>) — VM Debian 12 avec Apache 2.4 + PHP 8.3 + MariaDB 10.11, provisionnée par script shell. Permet itération rapide hors-ligne.</p>
-        <p>• <strong>Démo publique sur Railway</strong> (PaaS gratuit) — image <code>diouxx/glpi:latest</code> wrappée dans un Dockerfile custom + entrypoint maison qui bypass le script de boot upstream cassé. MySQL managé par Railway, certificat HTTPS Let's Encrypt automatique, domaine personnalisé <code>glpi.saiddev.fr</code> via CNAME OVH.</p>
-        <p>Le déploiement Railway sert de vitrine en attendant la livraison du <strong>VPS OVH</strong> commandé pour la prod long-terme. Le repo contient également un guide <code>OVH-DEPLOY.md</code> pour reproduire l'install sur Debian/Ubuntu bare-metal.</p>
+        <p>• <strong>Production auto-hébergée sur VPS Scaleway</strong> (Stardust, Debian 12) — stack Docker Compose : GLPI 10.0.18 + MariaDB 10.11 + Traefik v2.11 reverse proxy TLS. Certificat Let's Encrypt provisionné automatiquement par Traefik via ACME HTTP-01. Domaine <code>glpi.saiddev.fr</code> pointé en CNAME vers l'IP Scaleway.</p>
+        <p>Le VPS Scaleway constitue l'environnement de production long-terme. Le repo contient également un guide <code>SCALEWAY-DEPLOY.md</code> pour reproduire l'installation sur tout VPS Debian 12.</p>
       </div>
     </div>
 
@@ -130,17 +130,17 @@
         <div class="stack-card">
           <div class="stack-label">Base de données</div>
           <div class="stack-value">MariaDB / MySQL 8</div>
-          <div class="stack-desc">MariaDB en lab Vagrant, MySQL managé Railway en démo</div>
+          <div class="stack-desc">MariaDB 10.11 — lab Vagrant + prod Scaleway</div>
         </div>
         <div class="stack-card">
           <div class="stack-label">Container</div>
-          <div class="stack-value">Docker + Railway</div>
-          <div class="stack-desc">Image diouxx/glpi wrappée, entrypoint custom autonome</div>
+          <div class="stack-value">Docker Compose + Traefik</div>
+          <div class="stack-desc">Stack Docker Compose multi-services + Traefik v2.11 reverse proxy</div>
         </div>
         <div class="stack-card">
           <div class="stack-label">DNS / TLS</div>
           <div class="stack-value">OVH + Let's Encrypt</div>
-          <div class="stack-desc">CNAME glpi.saiddev.fr + cert auto provisionné par Railway</div>
+          <div class="stack-desc">CNAME glpi.saiddev.fr → IP Scaleway + cert Let's Encrypt via Traefik ACME</div>
         </div>
         <div class="stack-card">
           <div class="stack-label">IaC</div>
@@ -156,10 +156,9 @@
       <ul class="livrable-list">
         <li>Repo GitHub <code>sdjbrl/glpi-vagrant</code> (public, 14 commits)</li>
         <li>Lab Vagrant Debian 12 reproductible (<code>vagrant up</code> = GLPI prêt)</li>
-        <li>Dockerfile + entrypoint Railway production-ready</li>
-        <li>Guide <code>RAILWAY-DEPLOY.md</code> (étapes UI + variables)</li>
-        <li>Guide <code>OVH-DEPLOY.md</code> (migration VPS bare-metal)</li>
-        <li>Démo publique HTTPS : <code>glpi.saiddev.fr</code></li>
+        <li>Docker Compose production Scaleway (GLPI + MariaDB + Traefik)</li>
+        <li>Guide <code>SCALEWAY-DEPLOY.md</code> (VPS Debian 12 + Docker Compose)</li>
+        <li>Instance publique HTTPS : <code>glpi.saiddev.fr</code></li>
       </ul>
     </div>
 
@@ -172,7 +171,7 @@
         <div class="critere-card">Domaine custom + certificat valide</div>
         <div class="critere-card">Dépôt Git versionné et documenté</div>
         <div class="critere-card">Procédure de migration VPS rédigée</div>
-        <div class="critere-card">Coût démo : 0 € (free tier Railway)</div>
+        <div class="critere-card">Coût VPS : ~3.5 €/mois (Scaleway Stardust)</div>
       </div>
     </div>
 
@@ -189,16 +188,12 @@
           <code>/etc/apache2/envvars</code> référence des variables non définies (<code>APACHE_CONFDIR</code>, <code>APACHE_PID_FILE</code>…) qui font crasher le script avec <code>set -u</code>. Conserver uniquement <code>set -o pipefail</code>.
         </li>
         <li>
-          <strong>Logs Apache invisibles dans Railway</strong>
-          Une fois <code>envvars</code> sourcé, Apache écrit dans <code>${APACHE_LOG_DIR}/error.log</code> au lieu de stderr. Fix : forcer <code>ErrorLog /dev/stderr</code> et <code>CustomLog /dev/stdout combined</code> dans le VHost.
+          <strong>Traefik v3 incompatible Docker 29</strong>
+          Traefik v3.3 ne reconnaît pas <code>network_mode: host</code> avec le provider Docker 29. Rétrogradation à <strong>Traefik v2.11</strong> (dernière version stable de la branche v2). Labels Traefik v2 conservés dans le <code>docker-compose.yml</code>.
         </li>
         <li>
-          <strong>Port mismatch Railway proxy</strong>
-          Railway ne devine pas le port d'écoute. Il faut configurer manuellement le <em>Target Port</em> à <strong>8080</strong> dans Settings → Networking → Public Networking, sinon erreur <code>Application failed to respond</code> (502 silencieux).
-        </li>
-        <li>
-          <strong>Domaine custom OVH</strong>
-          Sur la zone DNS de <code>saiddev.fr</code>, ajouter un <code>CNAME glpi → xxxx.up.railway.app.</code> + un <code>TXT _railway-verify.glpi</code> avec le challenge fourni par Railway. Cert Let's Encrypt généré automatiquement après validation (5-15 min).
+          <strong>Domaine custom + HTTPS Scaleway</strong>
+          CNAME <code>glpi.saiddev.fr</code> → IP publique Scaleway dans la zone DNS. Traefik ACME HTTP-01 challenge sur le port 80 pour émettre le certificat Let's Encrypt automatiquement au premier démarrage.
         </li>
       </ul>
     </div>
