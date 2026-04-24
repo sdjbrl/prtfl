@@ -21,3 +21,8 @@ npm-debug.log*
 # Env
 .env
 .env.local
+
+# Embedded repos & vagrant artifacts
+glpi-vagrant/
+infra-iris-vagrant/.vagrant/
+
