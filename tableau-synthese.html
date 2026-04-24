@@ -180,10 +180,16 @@
   </style>
 </head>
 <body>
-  <div class="toolbar">
+  <div class="toolbar" id="toolbar">
     <a href="./index.html" class="secondary">← Retour au portfolio</a>
     <button onclick="window.print()">🖨️ Imprimer / Enregistrer en PDF</button>
   </div>
+  <script>
+    if (window.self !== window.top) {
+      document.getElementById('toolbar').style.display = 'none';
+      document.body.style.padding = '0';
+    }
+  </script>
 
   <div class="wrap">
     <h1>BTS SERVICES INFORMATIQUES AUX ORGANISATIONS</h1>
