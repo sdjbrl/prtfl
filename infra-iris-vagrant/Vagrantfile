@@ -1,0 +1,98 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+#
+# RP BTS SIO 2026 — Mise en service d'une solution de virtualisation
+# sur serveur dans une infrastructure réseau sécurisée
+# IRIS Mediaschool Nice — Saïd AHMED MOUSSA
+#
+# Lab Vagrant reproductible :
+#   srv-iris   : Debian 12 + KVM/libvirt + Docker + FreeRADIUS
+#                (hyperviseur + conteneurs + serveur d'auth)
+#   poste-sisr : Debian 12 client (simule un poste étudiant SISR)
+#
+# Réseaux privés (simulent les VLANs) :
+#   vlan10 (Serveurs)         10.10.10.0/24
+#   vlan20 (Postes étudiants) 10.10.20.0/24
+#   vlan30 (WiFi étudiants)   10.10.30.0/24
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box        = "bento/debian-12"
+  config.vm.box_check_update = false
+
+  # Synced folder désactivé par défaut (vboxsf complique sur Windows)
+  config.vm.synced_folder ".", "/vagrant", disabled: false
+
+  # ─────────────────────────────────────────────────────────────
+  # 1) Serveur IRIS — hyperviseur + conteneurs + RADIUS
+  # ─────────────────────────────────────────────────────────────
+  config.vm.define "srv-iris", primary: true do |srv|
+    srv.vm.hostname = "srv-iris"
+
+    # NIC sur les 3 VLANs
+    srv.vm.network "private_network", ip: "10.10.10.10",
+                   virtualbox__intnet: "vlan10"
+    srv.vm.network "private_network", ip: "10.10.20.1",
+                   virtualbox__intnet: "vlan20"
+    srv.vm.network "private_network", ip: "10.10.30.1",
+                   virtualbox__intnet: "vlan30"
+
+    srv.vm.provider "virtualbox" do |vb|
+      vb.name   = "srv-iris"
+      vb.cpus   = 4
+      vb.memory = 4096
+      # Virtualisation imbriquée pour KVM (CPU Intel/AMD avec VT-x/AMD-V)
+      vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
+      vb.customize ["modifyvm", :id, "--ioapic", "on"]
+    end
+
+    srv.vm.provision "shell", path: "provision/01-base.sh"
+    srv.vm.provision "shell", path: "provision/02-kvm.sh"
+    srv.vm.provision "shell", path: "provision/03-docker.sh"
+    srv.vm.provision "shell", path: "provision/04-freeradius.sh"
+    srv.vm.provision "shell", path: "provision/05-network.sh"
+    srv.vm.provision "shell", path: "provision/99-validate.sh"
+  end
+
+  # ─────────────────────────────────────────────────────────────
+  # 2) Poste étudiant — démontre l'auth RADIUS depuis VLAN 20
+  # ─────────────────────────────────────────────────────────────
+  config.vm.define "poste-sisr", autostart: true do |poste|
+    poste.vm.hostname = "poste-sisr"
+
+    poste.vm.network "private_network", ip: "10.10.20.20",
+                     virtualbox__intnet: "vlan20"
+
+    poste.vm.provider "virtualbox" do |vb|
+      vb.name   = "poste-sisr"
+      vb.cpus   = 1
+      vb.memory = 1024
+    end
+
+    poste.vm.provision "shell", inline: <<-SHELL
+      set -e
+      export DEBIAN_FRONTEND=noninteractive
+      apt-get update -qq
+      apt-get install -y -qq freeradius-utils curl iputils-ping >/dev/null
+      # Passerelle par défaut = srv-iris (10.10.20.1)
+      ip route replace default via 10.10.20.1 || true
+      cat <<'EOF' > /etc/motd
+
+╔════════════════════════════════════════════════════════════════╗
+║  poste-sisr — VLAN 20 (10.10.20.0/24)                          ║
+║                                                                ║
+║  Tester l'authentification RADIUS :                            ║
+║    radtest etudiant.sisr SisrPass2026 10.10.10.10 0 testing123 ║
+║    radtest etudiant.slam SlamPass2026 10.10.10.10 0 testing123 ║
+║    radtest formateur    FormaPass2026 10.10.10.10 0 testing123 ║
+║                                                                ║
+║  Tester un service Docker du serveur :                         ║
+║    curl http://10.10.10.10/                                    ║
+╚════════════════════════════════════════════════════════════════╝
+
+EOF
+      echo "[poste-sisr] OK"
+    SHELL
+  end
+
+end
