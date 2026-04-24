@@ -240,6 +240,16 @@ function openModal(card) {
     docEl.classList.add('hidden');
   }
 
+  const ghEl = modal.querySelector('[data-pd-github]');
+  if (ghEl) {
+    if (d.projectGithub) {
+      ghEl.href = d.projectGithub;
+      ghEl.classList.remove('hidden');
+    } else {
+      ghEl.classList.add('hidden');
+    }
+  }
+
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
