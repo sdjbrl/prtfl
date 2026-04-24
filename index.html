@@ -1029,6 +1029,28 @@
           </div>
         </div>
 
+        <div class="project-card reveal" data-filter-item data-category="itsm"
+             data-project-title="GLPI 10.0.18 — ITSM pour Kiné@dom"
+             data-project-category="ITSM / Cloud"
+             data-project-dates="23 avril 2026"
+             data-project-context="Mise en place d'une instance GLPI 10.0.18 (Gestion Libre de Parc Informatique) destinée à structurer le ticketing et l'inventaire du parc Kiné@dom (15 postes Windows + SaaS Ephycient). Objectif : remplacer le suivi des incidents par mail/téléphone par une vraie démarche ITIL — qualification des tickets (P1→P4), inventaire CMDB, base de connaissances N1/N2, suivi des SLA. Déploiement sur 2 environnements : lab Vagrant local (repo sdjbrl/glpi-vagrant) + démo publique Railway sur glpi.saiddev.fr (HTTPS Let's Encrypt + domaine custom OVH). En attente de la livraison du VPS OVH pour la prod long-terme."
+             data-project-methods="Lab Vagrant : VM Debian 12 + Apache 2.4 + PHP 8.3 + MariaDB 10.11, provisionnée par script shell. Démo Railway : Dockerfile wrapper sur diouxx/glpi:latest + entrypoint custom autonome (bypass du /opt/glpi-start.sh upstream cassé), MySQL managé Railway, certificat HTTPS Let's Encrypt automatique. DNS : CNAME glpi.saiddev.fr sur OVH + TXT de vérification Railway. 14 commits + ~10h de debug (set -u + envvars Apache, logs invisibles, port mismatch Railway, variables MySQL désordonnées)."
+             data-project-skills="Mettre à disposition des utilisateurs un service informatique,Gérer le patrimoine informatique,Travailler en mode projet,Répondre aux incidents,Cybersécurité"
+             data-project-gantt="./assets/images/gantt-glpi.svg"
+             data-project-livrables="Repo GitHub sdjbrl/glpi-vagrant (public),Lab Vagrant Debian 12 reproductible,Dockerfile + entrypoint Railway production-ready,Guide RAILWAY-DEPLOY.md,Guide OVH-DEPLOY.md,Démo publique HTTPS glpi.saiddev.fr"
+             data-project-criteres="Instance GLPI accessible en HTTPS public,Lab Vagrant fonctionnel hors-ligne,Domaine custom + certificat valide,Dépôt Git versionné et documenté,Procédure migration VPS rédigée,Coût démo : 0 € (free tier Railway)"
+             data-project-cloture="Démo publique en ligne sur glpi.saiddev.fr,Repo GitHub documenté avec 2 guides de déploiement,Migration VPS OVH planifiée à réception du serveur"
+             data-project-doc-url="projects/glpi.html">
+          <div class="project-card-img">
+            <img src="./assets/images/gantt-glpi.svg" alt="GLPI ITSM" loading="lazy">
+          </div>
+          <div class="project-card-body">
+            <span class="project-tag">ITSM / Cloud</span>
+            <h3>GLPI 10.0.18 — ITSM Kiné@dom</h3>
+            <p>GLPI déployé sur Railway + lab Vagrant — démo HTTPS sur glpi.saiddev.fr.</p>
+          </div>
+        </div>
+
         <div class="project-card reveal" data-filter-item data-category="infrastructure réseau"
              data-project-title="Infra Réseau &amp; Virtualisation — IRIS Nice"
              data-project-category="Infrastructure réseau"

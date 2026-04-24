@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLPI — ITSM open source pour Kiné@dom | Saïd Ahmed Moussa</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/x-icon" href="../assets/images/logo.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .navbar { top: 0 !important; }
+    .doc-page { max-width: 900px; margin: 72px auto 80px; padding: 0 24px; }
+    .doc-back { display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-decoration:none;font-size:0.9rem;font-family:'JetBrains Mono',monospace;margin-bottom:32px;transition:opacity .2s; }
+    .doc-back:hover { opacity:.7; }
+    .doc-hero { margin-bottom:48px; }
+    .doc-hero .doc-category { font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);margin-bottom:8px; }
+    .doc-hero h1 { font-size:clamp(2rem,5vw,3rem);font-weight:700;margin-bottom:12px; }
+    .doc-hero .doc-dates { color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.85rem; }
+    .doc-section { margin-bottom:48px; }
+    .doc-section-title { font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:20px;display:flex;align-items:center;gap:8px; }
+    .doc-section-title::after { content:'';flex:1;height:1px;background:var(--border); }
+    .doc-text { color:var(--text-secondary);line-height:1.8;font-size:.95rem; }
+    .doc-text p+p { margin-top:12px; }
+    .doc-text code { background:rgba(0,188,212,.08);border:1px solid rgba(0,188,212,.2);color:var(--cyan);padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.85em; }
+    .doc-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:12px; }
+    .doc-tag { background:rgba(0,188,212,.08);border:1px solid rgba(0,188,212,.25);color:var(--cyan);padding:6px 14px;border-radius:20px;font-size:.8rem;font-family:'JetBrains Mono',monospace; }
+    .livrable-list { list-style:none;padding:0;display:flex;flex-direction:column;gap:10px; }
+    .livrable-list li { display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-size:.9rem; }
+    .livrable-list li::before { content:'→';color:var(--cyan);flex-shrink:0;font-family:'JetBrains Mono',monospace; }
+    .critere-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px; }
+    .critere-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:var(--text-secondary); }
+    .critere-card::before { content:'✓ ';color:#4caf50;font-weight:700; }
+    .gantt-figure { margin:0; }
+    .gantt-figure img { width:100%;border-radius:8px;border:1px solid var(--border); }
+    .gantt-figure figcaption { text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:8px;font-family:'JetBrains Mono',monospace; }
+    .stack-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px; }
+    .stack-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px; }
+    .stack-label { font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px; }
+    .stack-value { font-size:1rem;font-weight:600;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:4px; }
+    .stack-desc { font-size:.8rem;color:var(--text-secondary);line-height:1.5; }
+    .doc-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:32px; }
+    .doc-btn { display:inline-flex;align-items:center;gap:8px;padding:12px 20px;background:rgba(0,188,212,.08);border:1px solid rgba(0,188,212,.3);color:var(--cyan);text-decoration:none;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.85rem;transition:all .2s; }
+    .doc-btn:hover { background:rgba(0,188,212,.18);transform:translateY(-1px); }
+    .retex-list { list-style:none;padding:0;display:flex;flex-direction:column;gap:12px; }
+    .retex-list li { padding:16px 18px;background:var(--bg-2);border:1px solid var(--border);border-left:3px solid var(--cyan);border-radius:6px;color:var(--text-secondary);font-size:.9rem;line-height:1.6; }
+    .retex-list li strong { color:var(--text-primary);display:block;margin-bottom:4px;font-family:'JetBrains Mono',monospace;font-size:.85rem; }
+    .risk-table { width:100%;border-collapse:collapse;font-size:.875rem; }
+    .risk-table th { text-align:left;padding:10px 14px;background:rgba(0,188,212,.08);border:1px solid var(--border);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .risk-table td { padding:10px 14px;border:1px solid var(--border);color:var(--text-secondary);vertical-align:top; }
+    .risk-table tr:nth-child(even) td { background:rgba(255,255,255,.02); }
+    .badge-risk { display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-family:'JetBrains Mono',monospace;font-weight:600; }
+    .badge-h { background:rgba(239,83,80,.15);color:#ef5350; }
+    .badge-m { background:rgba(255,152,0,.15);color:#ff9800; }
+    .badge-l { background:rgba(76,175,80,.15);color:#4caf50; }
+    .pra-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:16px; }
+    .pra-card { padding:16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px; }
+    .pra-label { font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px; }
+    .pra-value { font-size:1.25rem;font-weight:700;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-bottom:4px; }
+    .pra-desc { font-size:.8rem;color:var(--text-secondary);line-height:1.5; }
+  </style>
+</head>
+<body>
+  <header class="navbar" data-navbar>
+    <div class="nav-left">
+      <span class="nav-initials">SA</span>
+      <span class="nav-status">SYS_STATUS: <span class="status-online">ONLINE</span></span>
+    </div>
+    <nav class="nav-links" data-nav-links>
+      <a href="../index.html#apropos" class="nav-link">À propos</a>
+      <a href="../index.html#arsenal" class="nav-link">Arsenal</a>
+      <a href="../index.html#cv" class="nav-link">Parcours</a>
+      <a href="../index.html#portfolio" class="nav-link">Projets</a>
+      <a href="../index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main class="doc-page">
+    <a href="../index.html#portfolio" class="doc-back">← Retour aux projets</a>
+
+    <div class="doc-hero">
+      <p class="doc-category">// ITSM open source — Déploiement Cloud</p>
+      <h1>GLPI 10.0.18 — ITSM pour Kiné@dom</h1>
+      <p class="doc-dates">📅 23 avril 2026 · Sprint intensif d'une journée</p>
+    </div>
+
+    <!-- DOCUMENTATION -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Documentation technique</h2>
+      <div class="doc-text">
+        <p>Mise en place d'une instance <strong>GLPI 10.0.18</strong> (Gestion Libre de Parc Informatique) destinée à structurer le ticketing et l'inventaire du parc Kiné@dom (15 postes Windows + SaaS Ephycient). Objectif : remplacer le suivi des incidents par mail/téléphone par une vraie démarche ITIL — qualification des tickets (P1→P4), inventaire CMDB, base de connaissances N1/N2, suivi des SLA.</p>
+        <p>Architecture déployée en <strong>2 environnements</strong> :</p>
+        <p>• <strong>Lab local Vagrant</strong> (repo <code>sdjbrl/glpi-vagrant</code>) — VM Debian 12 avec Apache 2.4 + PHP 8.3 + MariaDB 10.11, provisionnée par script shell. Permet itération rapide hors-ligne.</p>
+        <p>• <strong>Démo publique sur Railway</strong> (PaaS gratuit) — image <code>diouxx/glpi:latest</code> wrappée dans un Dockerfile custom + entrypoint maison qui bypass le script de boot upstream cassé. MySQL managé par Railway, certificat HTTPS Let's Encrypt automatique, domaine personnalisé <code>glpi.saiddev.fr</code> via CNAME OVH.</p>
+        <p>Le déploiement Railway sert de vitrine en attendant la livraison du <strong>VPS OVH</strong> commandé pour la prod long-terme. Le repo contient également un guide <code>OVH-DEPLOY.md</code> pour reproduire l'install sur Debian/Ubuntu bare-metal.</p>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES BTS -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Compétences BTS SIO SISR mobilisées</h2>
+      <div class="doc-tags">
+        <span class="doc-tag">Mettre à disposition des utilisateurs un service informatique</span>
+        <span class="doc-tag">Gérer le patrimoine informatique</span>
+        <span class="doc-tag">Travailler en mode projet</span>
+        <span class="doc-tag">Répondre aux incidents</span>
+        <span class="doc-tag">Cybersécurité</span>
+      </div>
+    </div>
+
+    <!-- STACK TECHNIQUE -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Stack technique</h2>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="stack-label">Application</div>
+          <div class="stack-value">GLPI 10.0.18</div>
+          <div class="stack-desc">ITSM open source — tickets, inventaire CMDB, KB, SLA</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-label">Runtime</div>
+          <div class="stack-value">PHP 8.3 + Apache 2.4</div>
+          <div class="stack-desc">DocumentRoot <code>/var/www/html/glpi/public</code> + RewriteEngine</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-label">Base de données</div>
+          <div class="stack-value">MariaDB / MySQL 8</div>
+          <div class="stack-desc">MariaDB en lab Vagrant, MySQL managé Railway en démo</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-label">Container</div>
+          <div class="stack-value">Docker + Railway</div>
+          <div class="stack-desc">Image diouxx/glpi wrappée, entrypoint custom autonome</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-label">DNS / TLS</div>
+          <div class="stack-value">OVH + Let's Encrypt</div>
+          <div class="stack-desc">CNAME glpi.saiddev.fr + cert auto provisionné par Railway</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-label">IaC</div>
+          <div class="stack-value">Vagrant + Bash</div>
+          <div class="stack-desc">VM Debian 12 reproductible <code>vagrant up</code></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVRABLES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Livrables</h2>
+      <ul class="livrable-list">
+        <li>Repo GitHub <code>sdjbrl/glpi-vagrant</code> (public, 14 commits)</li>
+        <li>Lab Vagrant Debian 12 reproductible (<code>vagrant up</code> = GLPI prêt)</li>
+        <li>Dockerfile + entrypoint Railway production-ready</li>
+        <li>Guide <code>RAILWAY-DEPLOY.md</code> (étapes UI + variables)</li>
+        <li>Guide <code>OVH-DEPLOY.md</code> (migration VPS bare-metal)</li>
+        <li>Démo publique HTTPS : <code>glpi.saiddev.fr</code></li>
+      </ul>
+    </div>
+
+    <!-- CRITÈRES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Critères d'évaluation</h2>
+      <div class="critere-grid">
+        <div class="critere-card">Instance GLPI accessible en HTTPS public</div>
+        <div class="critere-card">Lab Vagrant fonctionnel hors-ligne</div>
+        <div class="critere-card">Domaine custom + certificat valide</div>
+        <div class="critere-card">Dépôt Git versionné et documenté</div>
+        <div class="critere-card">Procédure de migration VPS rédigée</div>
+        <div class="critere-card">Coût démo : 0 € (free tier Railway)</div>
+      </div>
+    </div>
+
+    <!-- RETEX TECHNIQUE -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Retour d'expérience technique</h2>
+      <ul class="retex-list">
+        <li>
+          <strong>Bypass entrypoint upstream cassé</strong>
+          Le script <code>/opt/glpi-start.sh</code> de l'image <code>diouxx/glpi</code> enchaîne <code>service apache restart</code> puis <code>pkill</code> et tue son propre processus dans Docker. Solution : Dockerfile wrapper + entrypoint maison qui télécharge le tarball GLPI, génère le VirtualHost et lance <code>exec /usr/sbin/apache2 -D FOREGROUND</code>.
+        </li>
+        <li>
+          <strong>set -u + envvars Apache = boucle de restart</strong>
+          <code>/etc/apache2/envvars</code> référence des variables non définies (<code>APACHE_CONFDIR</code>, <code>APACHE_PID_FILE</code>…) qui font crasher le script avec <code>set -u</code>. Conserver uniquement <code>set -o pipefail</code>.
+        </li>
+        <li>
+          <strong>Logs Apache invisibles dans Railway</strong>
+          Une fois <code>envvars</code> sourcé, Apache écrit dans <code>${APACHE_LOG_DIR}/error.log</code> au lieu de stderr. Fix : forcer <code>ErrorLog /dev/stderr</code> et <code>CustomLog /dev/stdout combined</code> dans le VHost.
+        </li>
+        <li>
+          <strong>Port mismatch Railway proxy</strong>
+          Railway ne devine pas le port d'écoute. Il faut configurer manuellement le <em>Target Port</em> à <strong>8080</strong> dans Settings → Networking → Public Networking, sinon erreur <code>Application failed to respond</code> (502 silencieux).
+        </li>
+        <li>
+          <strong>Domaine custom OVH</strong>
+          Sur la zone DNS de <code>saiddev.fr</code>, ajouter un <code>CNAME glpi → xxxx.up.railway.app.</code> + un <code>TXT _railway-verify.glpi</code> avec le challenge fourni par Railway. Cert Let's Encrypt généré automatiquement après validation (5-15 min).
+        </li>
+      </ul>
+    </div>
+
+    <!-- GESTION DES RISQUES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Gestion des risques</h2>
+      <table class="risk-table">
+        <thead>
+          <tr><th>Risque identifié</th><th>Probabilité</th><th>Impact</th><th>Mesure de mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Image Docker upstream <code>diouxx/glpi</code> non maintenue / cassée</td>
+            <td><span class="badge-risk badge-h">Élevée</span></td>
+            <td><span class="badge-risk badge-m">Moyen</span></td>
+            <td>Wrapper Dockerfile + entrypoint custom autonome qui ne dépend plus du script upstream</td>
+          </tr>
+          <tr>
+            <td>Free tier Railway épuisé / service suspendu</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-m">Moyen</span></td>
+            <td>Migration documentée vers VPS OVH commandé (guide <code>OVH-DEPLOY.md</code> prêt)</td>
+          </tr>
+          <tr>
+            <td>Perte de données BDD (pas de backup auto en démo)</td>
+            <td><span class="badge-risk badge-m">Moyenne</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Démo non-prod (données fictives). Sur VPS OVH : <code>mysqldump</code> nightly + rotation 7j</td>
+          </tr>
+          <tr>
+            <td>Comptes par défaut GLPI (<code>glpi/glpi</code>) exposés sur internet</td>
+            <td><span class="badge-risk badge-h">Élevée</span></td>
+            <td><span class="badge-risk badge-h">Élevé</span></td>
+            <td>Changement immédiat des 4 mots de passe par défaut + désactivation comptes inutilisés</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PRA / PCA -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">PRA / PCA</h2>
+      <div class="pra-grid">
+        <div class="pra-card">
+          <div class="pra-label">RTO démo</div>
+          <div class="pra-value">&lt; 15 min</div>
+          <div class="pra-desc">Redeploy Railway depuis le commit Git en un clic</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">RTO prod (cible VPS)</div>
+          <div class="pra-value">&lt; 1 heure</div>
+          <div class="pra-desc">Restauration mysqldump + relance Apache documentée</div>
+        </div>
+        <div class="pra-card">
+          <div class="pra-label">RPO prod (cible VPS)</div>
+          <div class="pra-value">24 heures</div>
+          <div class="pra-desc">mysqldump nightly avec rotation 7 jours</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANNEXES -->
+    <div class="doc-section">
+      <h2 class="doc-section-title">Annexes</h2>
+      <figure class="gantt-figure">
+        <img src="../assets/images/gantt-glpi.svg" alt="Diagramme de Gantt — Déploiement GLPI">
+        <figcaption>// Diagramme de Gantt — Sprint GLPI du 23 avril 2026</figcaption>
+      </figure>
+      <div class="doc-actions">
+        <a class="doc-btn" href="https://github.com/sdjbrl/glpi-vagrant" target="_blank" rel="noopener">→ Repo GitHub</a>
+        <a class="doc-btn" href="https://glpi.saiddev.fr" target="_blank" rel="noopener">→ Démo publique</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div class="footer-copyright"><p>&copy; 2026 Saïd Ahmed Moussa. Tous droits réservés.</p></div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script>
+    const navToggle = document.querySelector('[data-nav-toggle]');
+    const navLinks  = document.querySelector('[data-nav-links]');
+    if (navToggle && navLinks) navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+</body>
+</html>
