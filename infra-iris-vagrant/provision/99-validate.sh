@@ -19,7 +19,7 @@ echo " VALIDATION INFRA IRIS — RP BTS SIO 2026"
 echo "═══════════════════════════════════════════════════════════"
 
 check "Module kernel KVM chargé"               "lsmod | grep -E '^(kvm|kvm_intel|kvm_amd)'"
-check "Service libvirtd actif"                 "systemctl is-active libvirtd"
+check "Service libvirtd actif (socket)"         "systemctl is-active libvirtd.socket"
 check "virsh fonctionnel"                      "virsh list --all"
 check "Service docker actif"                   "systemctl is-active docker"
 check "Conteneur web-iris up"                  "docker ps --format '{{.Names}}' | grep -q web-iris"
@@ -30,7 +30,7 @@ check "VLAN 10 (10.10.10.10) accessible"       "ip -4 addr show | grep -q '10.10
 check "VLAN 20 (10.10.20.1) accessible"        "ip -4 addr show | grep -q '10.10.20.1'"
 check "VLAN 30 (10.10.30.1) accessible"        "ip -4 addr show | grep -q '10.10.30.1'"
 check "RADIUS auth etudiant.sisr → Accept"     "radtest etudiant.sisr SisrPass2026 127.0.0.1 0 testing123 | grep -q Access-Accept"
-check "RADIUS auth mauvais mdp → Reject"       "radtest etudiant.sisr WRONG       127.0.0.1 0 testing123 | grep -q Access-Reject"
+check "RADIUS auth mauvais mdp → Reject"       "( radtest etudiant.sisr WRONG 127.0.0.1 0 testing123 2>&1 || true ) | grep -q Access-Reject"
 check "HTTP web-iris répond"                   "curl -fsS http://10.10.10.10/ | grep -q 'opérationnel'"
 
 echo
