@@ -160,7 +160,7 @@
             <td>Certificat Let's Encrypt expiré ou non renouvelé</td>
             <td><span class="badge-risk badge-l">Faible</span></td>
             <td><span class="badge-risk badge-m">Moyen</span></td>
-            <td>Renouvellement automatique via Certbot (cron) + alerte par email 30 jours avant expiration</td>
+            <td>Renouvellement automatique via Traefik (ACME intégré) + alerte par email 30 jours avant expiration</td>
           </tr>
         </tbody>
       </table>
@@ -187,7 +187,7 @@
         </div>
       </div>
       <div class="doc-text">
-        <p>L'architecture 100% Docker Compose est aussi une stratégie de reprise : tous les services (Outline, Keycloak, PostgreSQL, MinIO, Nginx) sont définis dans un seul fichier. En cas de panne serveur, le redéploiement sur un autre hôte ne nécessite que la restauration des volumes (données PostgreSQL + bucket MinIO) et l'exécution de <code>docker-compose up -d</code>.</p>
+        <p>L'architecture 100% Docker Compose est aussi une stratégie de reprise : tous les services (Outline, Keycloak, PostgreSQL, MinIO, Traefik) sont définis dans un seul fichier. En cas de panne serveur, le redéploiement sur un autre hôte ne nécessite que la restauration des volumes (données PostgreSQL + bucket MinIO) et l'exécution de <code>docker-compose up -d</code>.</p>
       </div>
     </div>
 
